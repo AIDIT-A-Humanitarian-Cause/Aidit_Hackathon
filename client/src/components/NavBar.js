@@ -12,7 +12,10 @@ function NavBar() {
   return (
       <NavContainer>
           <LogoContainer>
-            <img src = {Logo} alt = "Logo"/>
+            <Link to = "/">
+
+            <img src = {Logo}  alt = "Logo"/>
+            </Link>
           </LogoContainer>
           <NavLink to="/home">Aidit</NavLink>
           <NavLink to="/about">About</NavLink>
