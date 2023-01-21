@@ -24,7 +24,8 @@ const DonorList = styled.div
     height: 129px; 
 img{
     width: 100%; 
-    height: 100%; 
+    height: 100%;
+    object-fit : cover;  
     border-radius : 50%; 
 }
 `
