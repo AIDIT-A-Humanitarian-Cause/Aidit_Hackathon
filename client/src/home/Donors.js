@@ -16,7 +16,10 @@ export default Donors;
 
 const Container = styled.div
 `
-margin : 20px; 
+margin-top : 0px; 
+margin-bottom : 0px; 
+margin-right : 10px; 
+margin-left : 10px;  
 `
 const DonorList = styled.div
 `

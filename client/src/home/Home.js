@@ -6,13 +6,14 @@ import CardsDonar from "./CardsDonar";
 import CounterUp from "./countUp";
 import Donors from "./Donors";
 import styled from "styled-components";
+import WhyDonate from "./WhyDonate";
 
 function Home() {
   return (
     <>
       <HeroImg/>
       <DonorTitle>
-        <h1> Our Donors</h1>
+         Our Donors
       </DonorTitle>
       <DonorContainer>
         
@@ -25,6 +26,7 @@ function Home() {
         <Donors />
         
       </DonorContainer>
+      <WhyDonate/>
       <CardsDonar />
       <CounterUp />
       <Slider />
@@ -42,10 +44,14 @@ function Home() {
 export default Home;
 const DonorContainer = styled.div`
 display: flex; 
-
+padding-top :20px; 
+background-color : #F2DEBA; 
+padding-bottom : 40px; 
 
 `
-const DonorTitle = styled.div`
-  margin-left: 16px; 
+const DonorTitle = styled.h1`
+   background-color : #F2DEBA; 
+  padding-left : 20px;  
+  margin: 0px; 
 
 `

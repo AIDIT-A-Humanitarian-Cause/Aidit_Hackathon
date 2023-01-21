@@ -28,6 +28,7 @@ function Card(props) {
     padding-top: 4px;
     width: 170px;
     border-radius: 4.45%;
+    object-fit : cover; 
   `;
   const Name = styled.h4`
     font-size: 18px;
