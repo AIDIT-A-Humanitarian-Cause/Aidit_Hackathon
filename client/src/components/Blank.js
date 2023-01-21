@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Blank() {
-  return (
-    <div>Blank</div>
-  )
+  return <div>Blank</div>;
 }
 
-export default Blank
+export default Blank;
