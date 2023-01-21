@@ -7,7 +7,7 @@ function CounterUp() {
   const [on, setOn] = useState(false);
   const Container = styled.div`
     height: 30vh;
-    padding-top: 30px;
+
     background-color: #23272b;
     opacity: 0.85;
     display: flex;
