@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { ItemsToBeInSlide } from "../home/datas";
+import { ItemsToBeInSlide } from "./Datas";
 import { useState } from "react";
 
 const Container = styled.div`
@@ -123,7 +123,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{itemSlide.title}</Title>
               <Description>{itemSlide.description}</Description>
-              <Button>DONATE NOW</Button>
+              <Button>READ MORE...</Button>
             </InfoContainer>
           </Slide>
         ))}
@@ -134,5 +134,4 @@ const Slider = () => {
     </Container>
   );
 };
-
 export default Slider;

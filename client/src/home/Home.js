@@ -1,11 +1,13 @@
 import React from "react";
-import Slider from "../components/Slider";
-import CounterUp from "./countUp";
+import Slider from "./Needy";
+import CounterUp from "./CountUp";
+import CardsDonar from "./CardsDonar";
 
 function Home() {
   return (
     <>
       <Slider />
+      <CardsDonar />
       <CounterUp />
     </>
   );
