@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar";
 import Blank from "./components/Blank";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
+import IndividualDonar from "./home/IndividualDonar";
+import IndividualStory from "./home/IndividualStory";
 
 function App() {
   return (
@@ -19,8 +21,9 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/individualDonar" element={<IndividualDonar />} />
+        <Route path="/story" element={<IndividualStory />} />
       </Routes>
-      
     </>
   );
 }

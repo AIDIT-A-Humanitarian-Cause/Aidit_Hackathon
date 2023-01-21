@@ -1,31 +1,27 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/HeroImage.jpg";
 function Donors() {
   return (
-    
     <Container>
-        
-        <DonorList> 
-            <img src = {HeroImage} alt = "Hello"/>
-        </DonorList>
+      <DonorList>
+        <img src={HeroImage} alt="Hello" />
+      </DonorList>
     </Container>
-  )
+  );
 }
-export default Donors; 
+export default Donors;
 
-const Container = styled.div
-`
-margin : 20px; 
-`
-const DonorList = styled.div
-`
-    width: 134px; 
-    height: 129px; 
-img{
-    width: 100%; 
+const Container = styled.div`
+  margin: 20px;
+`;
+const DonorList = styled.div`
+  width: 134px;
+  height: 129px;
+  img {
+    width: 100%;
     height: 100%;
-    object-fit : cover;  
-    border-radius : 50%; 
-}
-`
+    object-fit: cover;
+    border-radius: 50%;
+  }
+`;

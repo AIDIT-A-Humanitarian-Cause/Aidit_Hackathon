@@ -5,11 +5,12 @@ import { useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "./datas";
 const Container = styled.div`
-  height: 70vh;
+  height: 85vh;
   background-color: lightgray;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Urbanist", sans-serif;
 `;
 const Arrow = styled.div`
   width: 45px;
@@ -21,8 +22,8 @@ const Arrow = styled.div`
   align-items: center;
   margin: 0px 55.45px;
   justify-content: center;
-  left: ${(props) => props.setDirection === "left" && "14.5px"};
-  right: ${(props) => props.setDirection === "right" && "14.5px"};
+  left: ${(props) => props.setDirection === "left" && "19.5px"};
+  right: ${(props) => props.setDirection === "right" && "19.5px"};
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
@@ -31,6 +32,7 @@ const Arrow = styled.div`
   opacity: 0.75;
   z-index: 2;
 `;
+
 const Title = styled.h1`
   color: #033b4a;
   font-weight: 600;
@@ -40,12 +42,6 @@ const Title = styled.h1`
   font-family: "Urbanist", sans-serif;
   margin-bottom: 14.45px;
 `;
-const SubTitle = styled.h2`
-  margin-top: 28.45px;
-  color: #00baa3;
-  font-size: 18px;
-  font-family: "Urbanist", sans-serif;
-`;
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -54,7 +50,7 @@ const CardContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   transition: all 1s ease;
-  transform: translateX(${(props) => props.slideIndex * -16.5}vw);
+  transform: translateX(${(props) => props.slideIndex * -26.5}vw);
 `;
 const WrapperContainer = styled.div`
   overflow: hidden;
@@ -89,6 +85,7 @@ function CardsDonar() {
                     key={itemSlide.id}
                     img={itemSlide.img}
                     title={itemSlide.title}
+                    name={itemSlide.name}
                   />
                 </>
               );

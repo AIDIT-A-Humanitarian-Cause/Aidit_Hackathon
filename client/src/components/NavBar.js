@@ -12,14 +12,11 @@ function NavBar() {
     <NavContainer>
       <LogoContainer>
         <img src={Logo} alt="Logo" />
-        
       </LogoContainer>
       <NavLink to="/home">Home</NavLink>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/contact">Donate</NavLink>
       <NavLink to="/join">Join</NavLink>
-      
-      
     </NavContainer>
   );
 }
@@ -39,7 +36,6 @@ const NavContainer = styled.nav`
   background-color: #f5f5f5;
   box-shadow: 2px 2px 2px gray;
   width: 99.5%;
-  
 `;
 const NavLink = styled(Link)`
   margin-right: 15px;
@@ -49,12 +45,10 @@ const NavLink = styled(Link)`
     color: #0066c0;
   }
   margin-left: 3px;
-color: #820000;
-font-family : 
-Spartan; 
-font-weight: bold; 
+  color: #820000;
+  font-family: Spartan;
+  font-weight: bold;
 `;
-
 
 const LogoContainer = styled.div`
   width: 30px;

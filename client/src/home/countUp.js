@@ -6,14 +6,14 @@ import ScrollTrigger from "react-scroll-trigger";
 function CounterUp() {
   const [on, setOn] = useState(false);
   const Container = styled.div`
-    height: 30vh;
-
+    height: 27vh;
     background-color: #23272b;
     opacity: 0.85;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-family: "Urbanist", sans-serif;
     color: white;
     padding: 0px 88.45px;
   `;
