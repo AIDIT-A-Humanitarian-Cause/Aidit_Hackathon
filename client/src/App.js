@@ -5,10 +5,11 @@ import NavBar from "./components/NavBar";
 import Blank from "./components/Blank";
 import Donate from "./components/Donate";
 
-import Institution from "./components/Institution";
+
 import DonorRegister from "./components/DonorRegister";
 import DonorSignIn from "./components/DonorSignIn";
 import InstitutionRegister from "./components/InstitutionRegister";
+import InstitutionSignIn from "./components/InstitutionSignIn";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/" element={<Blank />} />
         <Route path="/join/institution/register" element={<InstitutionRegister />} />
 
-        <Route path="/join/institution/log" element={<Institution />} />
+        <Route path="/join/institution/log" element={<InstitutionSignIn />} />
         <Route path="/join/donor/register" element={<DonorRegister/>} />
         <Route path="/join/donor/log" element={<DonorSignIn />} />
         <Route path="/home" element={<Home />} />

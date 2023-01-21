@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 const FormContainer = styled.div`
   display: flex;
-  border: outline; 
+    background-color : lightgray; 
   flex-direction: column;
   align-items: center;
   padding: 20px;
@@ -15,6 +17,7 @@ const FormRow = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 10px 0;
+  border : outline; 
 `;
 
 const Label = styled.label`
@@ -26,8 +29,9 @@ const Input = styled.input`
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
-  border: none;
+  
   width: 100%;
+  border : outline; 
 `;
 
 const Select = styled.select`
@@ -39,15 +43,16 @@ const Select = styled.select`
 `;
 
 const Button = styled.button`
-  background-color: #4CAF50;
+  background-color: pink;
   color: white;
-  padding: 14px 20px;
+  padding: 14px 22px;
   margin: 8px 0;
-  border: none;
+
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
+
 `;
 
 const LoginPrompt = styled.div`
@@ -112,7 +117,7 @@ function InstitutionRegister() {
                 <Button type="submit">Register</Button>
             </form>
             <LoginPrompt>
-                Already have an account? <LoginLink href="#">Log in</LoginLink>
+          Already have an account? <Link to="/join/institution/log"> Log in</Link>
             </LoginPrompt>
         </FormContainer>
     );
