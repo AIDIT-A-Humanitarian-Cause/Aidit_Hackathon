@@ -6,7 +6,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "./Datas";
 const Container = styled.div`
   height: 70vh;
-  background-color: lightgray ;
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   align-items: center;

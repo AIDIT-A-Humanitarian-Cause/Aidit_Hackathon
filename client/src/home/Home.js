@@ -1,14 +1,18 @@
 import React from "react";
-import Slider from "./Needy";
-import CounterUp from "./CountUp";
+import Footer from "../components/Footer";
+import HeroImg from "../components/HeroImg";
+import Slider from "../components/Slider";
 import CardsDonar from "./CardsDonar";
+import CounterUp from "./countUp";
 
 function Home() {
   return (
     <>
+      <HeroImg />
       <Slider />
       <CardsDonar />
       <CounterUp />
+      <Footer />
     </>
   );
 }
