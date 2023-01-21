@@ -25,8 +25,8 @@ export default WhyDonate
 
 const Container = styled.div`
 display : grid; 
-grid-template-columns : 50% 50%; 
-background-color: #F2DEBA;
+grid-template-columns : 55% 50%; 
+background-color:  rgba(255, 253, 250, 0.95); 
 
 `
 const TextContainer = styled.div`

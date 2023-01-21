@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-function SignUp() {
+function Institution() {
   const [username, setUsername] = useState("");
-  const [fullname, setFullname] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
@@ -13,23 +12,15 @@ function SignUp() {
 
   return (
     <Container>
-      <TextContainer>Hello. Let's Sign Up!</TextContainer>
+      <TextContainer>Hello. Let's Log In.</TextContainer>
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <label>
-            Full Name:
+            Username:
             <Input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          <label>
-            UserName:
-            <Input
-              type="text"
-              value={fullname}
-              onChange={(e) => setFullname(e.target.value)}
             />
           </label>
           <label>
@@ -40,28 +31,26 @@ function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit">Login</Button>
         </form>
       </FormContainer>
     </Container>
   );
 }
-
-export default SignUp;
+export default Institution;
 
 const FormContainer = styled.div`
   display: grid;
   grid-template-columns: 100px 100px 30px;
   align-items: center;
   padding: 20px;
-  margin-top: 40px;
-  margin-left: 10;
+  margin-top: 60px;
+  margin-left: 1%;
   width: 28%;
   justify-content: center;
   border: outline;
   position: absolute;
-  left: 42%;
-
+  left: 40%;
   box-shadow: 5px 5px 5px gray;
 `;
 

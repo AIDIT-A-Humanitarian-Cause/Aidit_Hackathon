@@ -1,71 +1,93 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { AiOutlineSearch } from "react-icons/ai";
-import Logo from "../assets/Logo.PNG";
-function NavBar() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-  return (
-    <NavContainer>
-      <LogoContainer>
-        <img src={Logo} alt="Logo" />
-        
-      </LogoContainer>
-      <NavLink to="/home">Home</NavLink>
-      <NavLink to="/about">About</NavLink>
-      <NavLink to="/contact">Donate</NavLink>
-      <NavLink to="/join">Join</NavLink>
-      
-      
-    </NavContainer>
-  );
-}
-
-export default NavBar;
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaAngleDown } from 'react-icons/fa';
+import styled from 'styled-components';
 
 const NavContainer = styled.nav`
   display: flex;
-  font-family: "Urbanist", sans-serif;
-  justify-content: end;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 1px;
-  border-radius: 6px;
-  padding-left: 2px;
-  background-color: #f5f5f5;
-  box-shadow: 2px 2px 2px gray;
-  width: 99.5%;
+  justify-content: end;
+  padding: 10px;
+  background-color: white; 
+  font-weight : bold; 
   
 `;
+
 const NavLink = styled(Link)`
-  margin-right: 15px;
+  color: maroon ; 
   text-decoration: none;
-  color: #333;
+  padding: 12px 24px;
+  margin-right: 10px;
+  font-size: 18px;
+  
+  
+`;
+
+const NavButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: maroon;
+  text-decoration: none;
+  padding: 12px 24px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold; 
+ 
+  background-color: white;
+`;
+
+const NavDropdown = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const NavDropdownContent = styled.div`
+  display: ${props => props.showDropdown ? 'block' : 'none'};
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  min-width: 160px;
+  `;
+
+const NavDropdownItem = styled.a`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
   &:hover {
-    color: #0066c0;
+    background-color: #f1f1f1;
   }
-  margin-left: 3px;
-color: #820000;
-font-family : 
-Spartan; 
-font-weight: bold; 
-`;
-
-
-const LogoContainer = styled.div`
-  width: 30px;
-  padding: 0;
-  justify-content: start;
-
-  img {
-    width: 100%;
-    position: absolute;
-    left: 39px;
-    width: 30px;
-    top: 8px;
+  a{
+    text-decoration: none; 
+    color : maroon ; 
   }
 `;
+
+const Navbar = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  return (
+    <NavContainer>
+      <NavLink to="/home">Home</NavLink>
+      <NavLink to="/about">About</NavLink>
+      <NavLink to="/donate">Donate</NavLink>
+      <NavDropdown>
+        <NavButton onClick={toggleDropdown}>Join As<FaAngleDown /></NavButton>
+        <NavDropdownContent showDropdown={showDropdown}>
+          <NavDropdownItem>
+            <Link to="/join/donor/register">Donor</Link>
+          </NavDropdownItem>
+          <NavDropdownItem>
+            <Link to="/join/institution/register">Institution</Link>
+          </NavDropdownItem>
+        </NavDropdownContent>
+      </NavDropdown>
+    </NavContainer>
+  );
+};
+export default Navbar;
