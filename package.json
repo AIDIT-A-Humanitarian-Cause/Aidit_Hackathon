@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-countup": "^6.4.0",
+    "react-scroll-trigger": "^0.6.14"
+  }
+}
