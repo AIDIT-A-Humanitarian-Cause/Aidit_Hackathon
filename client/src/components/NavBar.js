@@ -28,7 +28,8 @@ export default NavBar;
 
 const NavContainer = styled.nav`
   display: flex;
-  justify-content: end;
+  font-family: "Urbanist", sans-serif;
+  justify-content: space-between;
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
