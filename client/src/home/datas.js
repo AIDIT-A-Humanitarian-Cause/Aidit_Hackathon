@@ -1,23 +1,23 @@
 export const ItemsToBeInSlide = [
   {
     id: 1,
-    img: "https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG32.png",
-    title: "YJ YuLong V2 M ",
-    description: "Magnetic Speed Cube! GET FLAT 50% OFF UNTIL 29 FEB.",
+    img: "https://www.oneindia.com/ph-big/2020/05/a-boy-wearing-face-mask-receives-food-from-volunteers-during-ongoing-covid-19-lockdown-in-kolkata_158839189180.jpg",
+    title: "ABCD",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     bg: "F8D19B",
   },
   {
     id: 2,
-    img: "https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG7.png",
-    title: "Rubicks Cube",
-    description: "Magnetic Speed Cube! GET FLAT 50% OFF UNTIL 29 FEB.",
+    img: "https://roshnisanstha.com/wp-content/uploads/2020/11/Help-the-Needy-people-15.jpg",
+    title: "ABCD",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     bg: "F89B9B",
   },
   {
     id: 3,
-    img: "https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG15.png",
-    title: "2*2 Cube",
-    description: "Magnetic Speed Cube! GET FLAT 50% OFF UNTIL 29 FEB.",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-5BFdxoPqEX6nsblVE__Ks3ICIFvr7tWFxzTVv0_bRoLzmkjZ_1mJPYKIpdaQy0BTJfA&usqp=CAU",
+    title: "ABCD",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     bg: "9BE9F8",
   },
 ];

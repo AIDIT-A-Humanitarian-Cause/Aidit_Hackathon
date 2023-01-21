@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-
-// import { ItemsToBeInSlide } from "../data";
+import { ItemsToBeInSlide } from "../home/datas";
 import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   background-color: #23272b;
   position: relative;
@@ -91,6 +90,7 @@ const Button = styled.button`
   &:hover {
     cursor: pointer;
     border: 1px solid;
+    background-color: limegreen;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
       0 0 20px rgba(255, 255, 255, 0.2);
     outline-color: rgba(255, 255, 255, 0);
@@ -122,7 +122,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{itemSlide.title}</Title>
               <Description>{itemSlide.description}</Description>
-              <Button>SHOP NOW</Button>
+              <Button>DONATE NOW</Button>
             </InfoContainer>
           </Slide>
         ))}
