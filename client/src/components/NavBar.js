@@ -42,6 +42,7 @@ const SearchContainer = styled.div`
 `;
 const NavContainer = styled.nav`
   display: flex;
+  font-family: "Urbanist", sans-serif;
   justify-content: space-between;
   align-items: center;
   padding-top: 6px;

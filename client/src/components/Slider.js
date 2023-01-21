@@ -11,6 +11,7 @@ const Container = styled.div`
   background-color: #23272b;
   position: relative;
   overflow: hidden;
+  margin-top: 20px;
 `;
 
 const Arrow = styled.div`
