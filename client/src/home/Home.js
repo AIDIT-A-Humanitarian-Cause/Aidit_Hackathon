@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import HeroImg from "../components/HeroImg";
 import Slider from "../components/Slider";
+import CardsDonar from "./CardsDonar";
 import CounterUp from "./countUp";
 import Donors from "./Donors";
 import styled from "styled-components";
@@ -24,9 +25,14 @@ function Home() {
         <Donors />
         
       </DonorContainer>
+      <CardsDonar />
       <CounterUp />
       <Slider />
       <Footer/>
+      
+     
+    
+      
     </>
   );
 }
