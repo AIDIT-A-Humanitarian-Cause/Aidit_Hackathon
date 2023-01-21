@@ -13,7 +13,7 @@ const HeroContainer = styled.section`
 `;
 
 const HeroButton = styled.button`
-  background-color: maroon;
+  background-color: transparent;
   color: white;
   padding: 12px 24px;
   border-radius: 4px;

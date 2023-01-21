@@ -29,7 +29,7 @@ export default NavBar;
 const NavContainer = styled.nav`
   display: flex;
   font-family: "Urbanist", sans-serif;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
