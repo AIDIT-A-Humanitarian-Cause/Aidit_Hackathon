@@ -8,6 +8,7 @@ import Donate from "./components/Donate";
 import Institution from "./components/Institution";
 import DonorRegister from "./components/DonorRegister";
 import DonorSignIn from "./components/DonorSignIn";
+import InstitutionRegister from "./components/InstitutionRegister";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Blank />} />
-        <Route path="/join/institution/register" element={<Institution />} />
+        <Route path="/join/institution/register" element={<InstitutionRegister />} />
 
         <Route path="/join/institution/log" element={<Institution />} />
         <Route path="/join/donor/register" element={<DonorRegister/>} />
