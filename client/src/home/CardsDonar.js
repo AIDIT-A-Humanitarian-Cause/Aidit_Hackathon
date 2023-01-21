@@ -6,7 +6,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "./datas";
 const Container = styled.div`
   height: 85vh;
-  background-color: lightgray;
+  background-color: rgba(250, 236, 214, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,8 +15,7 @@ const Container = styled.div`
 const Arrow = styled.div`
   width: 45px;
   height: 45px;
-  background-color: whitesmoke;
-
+  background-color: lightgray;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -86,6 +85,8 @@ function CardsDonar() {
                     img={itemSlide.img}
                     title={itemSlide.title}
                     name={itemSlide.name}
+                    description={itemSlide.description}
+                    progress={itemSlide.progress}
                   />
                 </>
               );

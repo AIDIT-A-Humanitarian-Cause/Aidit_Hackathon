@@ -6,6 +6,7 @@ function Donors() {
     <Container>
       <DonorList>
         <img src={HeroImage} alt="Hello" />
+        
       </DonorList>
     </Container>
   );
@@ -13,7 +14,7 @@ function Donors() {
 export default Donors;
 
 const Container = styled.div`
-  margin: 20px;
+  margin: 10px;
 `;
 const DonorList = styled.div`
   width: 134px;

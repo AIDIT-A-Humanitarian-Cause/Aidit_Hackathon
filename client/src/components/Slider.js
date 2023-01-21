@@ -9,6 +9,7 @@ const Container = styled.div`
   height: 70vh;
   display: flex;
   position: relative;
+
   overflow: hidden;
 `;
 const Arrow = styled.div`
@@ -54,7 +55,7 @@ const ImgContainer = styled.div`
   align-items: center;
 `;
 const Image = styled.img`
-  height: 70%;
+  height: 75%;
 `;
 const InfoContainer = styled.div`
   flex: 1;

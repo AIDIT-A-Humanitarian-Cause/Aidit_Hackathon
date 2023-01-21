@@ -1,45 +1,63 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
+import ProgressBar from "@ramonak/react-progress-bar";
+import { useState } from "react";
 
 const Container = styled.div`
-  background-color: rgba(242, 222, 186, 0.8);
+  background-color: rgba(250, 236, 214, 0.5);
 `;
 const Wrapper = styled.div`
-  margin-top: 28.45px;
-  padding: 45.45px;
+  padding-top: 45.45px;
+  padding-right: 45.45px;
+  padding-bottom: 45.45px;
+  /* padding-left: 45.45px; */
   display: flex;
 `;
 const ImageContainer = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Image = styled.img`
   width: 85.45%;
-  height: 74.45vh;
-  object-fit: cover;
+  object-fit: fill;
   background-color: grey;
   border-radius: 20px;
-  margin-left: 14.45px;
+  border: 1px solid black;
 `;
 const InformationContainer = styled.div`
   flex: 1;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 20px;
   padding: 28px;
-  background-color: grey;
+  height: 85%;
+  background-color: rgba(242, 222, 186, 1);
+`;
+const TitleName = styled.h1`
+  font-weight: 450px;
+  font-size: 34.45px;
+  color: black;
+  font-family: "Urbanist", sans-serif;
+  letter-spacing: 1.8px;
+  margin-top: 0;
 `;
 const Title = styled.h1`
   font-weight: 450px;
-  margin-bottom: 45.45px;
-  font-size: 32.45px;
+  font-size: 28.45px;
   font-family: "Urbanist", sans-serif;
-  color: #f2faff;
+  color: black;
+  letter-spacing: 1.4px;
+  margin-bottom: 30px;
 `;
 const ListDescription = styled.li`
   margin: 18.45px 0px;
   font-family: "Urbanist", sans-serif;
   font-size: 18.45px;
-  color: #f2faff;
+  color: black;
 `;
 const Description = styled.div`
   margin-bottom: 45.45px;
@@ -49,7 +67,7 @@ const Price = styled.input`
   padding: 8.45px;
   font-family: "Urbanist", sans-serif;
   font-size: 18.45px;
-  border: 1px solid #f2faff;
+  border: 1px solid darkred;
 
   &:focus {
     outline: none;
@@ -74,7 +92,7 @@ const FilterTitle = styled.span`
   font-weight: 100px;
   margin-right: 8.45px;
   letter-spacing: 0.8px;
-  color: #f2faff;
+  color: darkred;
 `;
 const SelectElement = styled.select`
   padding: 8.45px;
@@ -94,10 +112,9 @@ const AddContainer = styled.div`
 const Button = styled.button`
   font-family: "Urbanist", sans-serif;
   border: 0 solid;
-  color: whitesmoke;
+  color: black;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
-  outline-color: rgba(255, 255, 255, 0.5);
   outline-offset: 0px;
   padding: 14.45px;
   font-weight: bolder;
@@ -116,36 +133,128 @@ const Button = styled.button`
     text-shadow: 0.3px 0.3px 0.6px #427388;
   }
 `;
+const AmountRaised = styled.h4`
+  font-size: 18px;
+  font-family: "Urbanist", sans-serif;
+  justify-content: start;
+  color: ${(props) => props.background};
+  letter-spacing: 1.45px;
+  margin: 13 0;
+`;
+const Navbar = styled.div`
+  margin-top: 20px;
+  display: flex;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  background-color: darkred;
+  margin-bottom: 15px;
+  color: white;
+  font-family: "Uranist", sans-serif;
+`;
+
+const NavbarItem = styled.div`
+  font-size: 18px;
+  font-family: "Urbanist", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1.45px;
+  margin: 0 15px;
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: ${(props) =>
+    props.selected ? "rgba(242, 222, 186, 0.8)" : "darkred"};
+  color: ${(props) => (props.selected ? "darkred" : "white")};
+  border-radius: ${(props) => (props.selected ? "20px" : "0px")};
+`;
+const OverallInfo = styled.div`
+  display: flex;
+  width: 60%;
+  height: 80%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+`;
+
 const IndividualDonar = (props) => {
+  const location = useLocation();
+  const [locationState, setLocationState] = React.useState(location.state);
+
+  React.useEffect(() => {
+    console.log(location);
+    if (location.state) {
+      setLocationState(location.state);
+    }
+  }, [location]);
+  const [selected, setSelected] = useState("story");
+  function handleSelect(name) {
+    setSelected(name);
+  }
+
   return (
     <Container>
       <Wrapper>
         <ImageContainer>
-          <Image src={props.img} />
+          <Image src={locationState.img} />
+          <AmountRaised background="darkred">NRs. 2,00,000 Raised</AmountRaised>
+          <ProgressBar
+            completed={38}
+            maxCompleted={100}
+            height={14}
+            width={350}
+          />
+          <AmountRaised background="green">Goal : NRs. 5,000,000</AmountRaised>
         </ImageContainer>
-        <InformationContainer>
-          <Title>{props.name}</Title>
-          <Description>
-            <ListDescription>{props.description}</ListDescription>
-            <ListDescription>{props.progress}</ListDescription>
-          </Description>
-          <FilterTitle>Donation Amount ($): </FilterTitle>
-          <Price />
-          <FilterProduct>
-            <Filter>
-              <FilterTitle>
-                Do you want to show yourself as Anonymous:
-              </FilterTitle>
-              <SelectElement>
-                <OptionElement>No</OptionElement>
-                <OptionElement>Yes</OptionElement>
-              </SelectElement>
-            </Filter>
-          </FilterProduct>
-          <AddContainer>
-            <Button>DONATE</Button>
-          </AddContainer>
-        </InformationContainer>
+        <OverallInfo>
+          <InformationContainer>
+            <TitleName>{locationState.name}</TitleName>
+            <Title>{locationState.title}</Title>
+            <Description>
+              <ListDescription>{locationState.description}</ListDescription>
+              <ListDescription>{locationState.progress}</ListDescription>
+            </Description>
+            <FilterTitle style={{ fontWeight: "bold" }}>
+              Donation Amount ($):{" "}
+            </FilterTitle>
+            <Price />
+            <FilterProduct>
+              <Filter>
+                <FilterTitle style={{ color: "black" }}>
+                  Do you want to show yourself as Anonymous:
+                </FilterTitle>
+                <SelectElement>
+                  <OptionElement>No</OptionElement>
+                  <OptionElement>Yes</OptionElement>
+                </SelectElement>
+              </Filter>
+            </FilterProduct>
+            <AddContainer>
+              <Button>DONATE</Button>
+            </AddContainer>
+          </InformationContainer>
+          <Navbar>
+            <NavbarItem
+              selected={selected === "story"}
+              onClick={() => handleSelect("story")}
+            >
+              Story
+            </NavbarItem>
+            <NavbarItem
+              selected={selected === "testimonials"}
+              onClick={() => handleSelect("testimonials")}
+            >
+              Testimonials
+            </NavbarItem>
+            <NavbarItem
+              selected={selected === "updates"}
+              onClick={() => handleSelect("updates")}
+            >
+              Updates
+            </NavbarItem>
+          </Navbar>
+        </OverallInfo>
       </Wrapper>
 
       <Footer />

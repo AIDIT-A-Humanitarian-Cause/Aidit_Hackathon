@@ -48,8 +48,9 @@ const HeroImg = () => (
     <HeroText>
       <h3>Help the Elderly in their Battle!</h3>
     </HeroText>
-    <Link to="/">
-      <HeroButton>Donate Now</HeroButton>
+
+    <Link to="/donate">
+      <HeroButton>DONATE NOW</HeroButton>
     </Link>
   </HeroContainer>
 );

@@ -9,7 +9,7 @@ function Card(props) {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: lightgrey;
+    background-color: rgba(250, 236, 214, 0.5);
     margin: 0px 15px;
     box-shadow: 0 13px 0 -5px hsla(240, 30.1%, 28%, 0.55);
   `;
@@ -182,7 +182,7 @@ function Card(props) {
   function handleSelect(name) {
     setSelected(name);
   }
-  function navigateTo(page) {}
+
   return (
     <Card>
       {modalOpen && (
@@ -207,7 +207,18 @@ function Card(props) {
                     <AmountRaised background="green">
                       Goal : NRs. 5,000,000
                     </AmountRaised>
-                    <Button to="/individualDonar">DONATE</Button>
+                    <Button
+                      to="/individualDonar"
+                      state={{
+                        name: props.name,
+                        title: props.title,
+                        img: props.img,
+                        description: props.description,
+                        progress: props.progress,
+                      }}
+                    >
+                      DONATE
+                    </Button>
                   </DescriptionBottom>
                 </ModelColumn>
                 <button
@@ -263,7 +274,18 @@ function Card(props) {
           height={14}
           width={250}
         />
-        <Button to="/individualDonar">DONATE</Button>
+        <Button
+          to="/individualDonar"
+          state={{
+            name: props.name,
+            title: props.title,
+            img: props.img,
+            description: props.description,
+            progress: props.progress,
+          }}
+        >
+          DONATE
+        </Button>
         <AmountRaised background="green">Goal : NRs. 5,000,000</AmountRaised>
       </Box>
     </Card>
