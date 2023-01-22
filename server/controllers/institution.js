@@ -3,7 +3,7 @@ const Institution = require("../models/institution");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  email;
+  console.log(email, password);
   var institution = await Institution.findOne({ email: email });
   if (!institution) {
     return res.status(StatusCodes.BAD_REQUEST).json({
@@ -13,13 +13,11 @@ const login = async (req, res) => {
   }
   if (await institution.comparePassword(password)) {
     const token = await institution.createJwt();
-    return res
-      .status(StatusCodes.BAD_REQUEST)
-      .json({
-        success: true,
-        message: "You have been Logged In",
-        token: token,
-      });
+    return res.status(StatusCodes.ACCEPTED).json({
+      success: true,
+      message: "You have been Logged In",
+      token: token,
+    });
   } else
     return res
       .status(StatusCodes.UNAUTHORIZED)
@@ -37,6 +35,7 @@ const register = async (req, res) => {
     email,
     password,
   } = req.body;
+  console.log(body);
   const newinstitution = await Institution.create({
     institutionName,
     province,
@@ -47,6 +46,7 @@ const register = async (req, res) => {
     email,
     password,
   });
+  console.log(newinstitution);
   res.status(StatusCodes.ACCEPTED).json({
     success: true,
     message: "Institution is registered.",

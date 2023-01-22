@@ -66,6 +66,7 @@ const donate = async (req, res) => {
   //need  id of particular donation and its creater
   //need id of the one donating{this is taken through jwt}
   const { donatingAmount } = req.body;
+
   const { id } = req.params;
   const donationToBeFunded = await Donation.findById(id);
   if (!donationToBeFunded)

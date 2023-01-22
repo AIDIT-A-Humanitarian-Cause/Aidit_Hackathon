@@ -1,15 +1,15 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const mongoose = require('mongoose');
-const { isValidPassword } = require('mongoose-custom-validators');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const mongoose = require("mongoose");
+const { isValidPassword } = require("mongoose-custom-validators");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const institutionSchema = mongoose.Schema({
   institutionName: {
     type: String,
     requried: true,
-    unique:true
+    unique: true,
   },
   province: {
     type: String,
@@ -33,24 +33,24 @@ const institutionSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, 'Please provide an email'],
+    required: [true, "Please provide an email"],
     match: [
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Please provide a valid email. ',
+      "Please provide a valid email. ",
     ],
-    unique:[true,"The provided Email address Already Exist"]
+    unique: [true, "The provided Email address Already Exist"],
   },
   password: {
     type: String,
-    required: [true, 'Please provide a password'],
+    required: [true, "Please provide a password"],
     validate: {
       validator: isValidPassword,
       message:
-        'Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.',
+        "Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.",
     },
   },
 });
-institutionSchema.pre('save', async function () {
+institutionSchema.pre("save", async function () {
   const salt = await bcrypt.genSalt(10);
 
   this.password = await bcrypt.hash(this.password, salt);
@@ -74,4 +74,4 @@ institutionSchema.methods.comparePassword = async function (password) {
   return valid;
 };
 
-module.exports = mongoose.model('institution', institutionSchema);
+module.exports = mongoose.model("institution", institutionSchema);
