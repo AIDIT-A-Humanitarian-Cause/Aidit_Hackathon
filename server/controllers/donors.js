@@ -149,7 +149,7 @@ const getDonations = async (req, res) => {
     throw new CustomAPIError(error.message, StatusCodes.UNAUTHORIZED);
   }
 
-  const allDonations = await trx.find({ status: true, donorId });
+  const allDonations = await trx.find({ donorId });
   res.status(200).json({
     success: true,
     donations:allDonations,
