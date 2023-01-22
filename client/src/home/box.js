@@ -105,8 +105,8 @@ const Box = ({props}) => {
           img: props.img ? props.img : Img2,
           description: props.description,
           progress: props.progress,
-          amountRequired: props.amountRaised,
-          amountRaised: props.amountRequired,
+          amountRequired: props.amountRequired,
+          amountRaised: props.amountRaised
         }}
       >
         DONATE

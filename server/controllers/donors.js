@@ -48,7 +48,7 @@ const register = async (req, res) => {
     country,
     city,
   } = req.body;
-  const newDonor = await Donor.create({
+  const newDonor = new Donor({
     username,
     email,
     password,
@@ -59,9 +59,10 @@ const register = async (req, res) => {
     country,
     city,
   });
+  newDonor.save()
   res
     .status(StatusCodes.ACCEPTED)
-    .json({ success: true, message: 'User is registered.', donor: newDonor });
+    .json({ success: true, message: 'User is registered.', });
 };
 const donate = async (req, res) => {
   //need  id of particular donation and its creater
@@ -125,6 +126,7 @@ const donate = async (req, res) => {
     donorId: donorId,
     donationId: _id,
     amount: amountInDollar,
+    name:nameOfDonation
   });
   return res.status(200).json({
     success: true,
@@ -150,7 +152,8 @@ const getDonations = async (req, res) => {
   const allDonations = await trx.find({ status: true, donorId });
   res.status(200).json({
     success: true,
-    msg: `Here are all the required Donation : ${allDonations}`,
+    donations:allDonations,
+    length:allDonations.length
   });
 };
 const exploreDonations = async (req, res) => {
