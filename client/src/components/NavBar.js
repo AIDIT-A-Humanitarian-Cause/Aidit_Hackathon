@@ -1,26 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaAngleDown } from 'react-icons/fa';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaAngleDown } from "react-icons/fa";
+import styled from "styled-components";
 
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: end;
   padding: 10px;
-  background-color: white; 
-  font-weight : bold; 
-  
+  background-color: white;
+  font-weight: bold;
 `;
 
 const NavLink = styled(Link)`
-  color: maroon ; 
+  color: maroon;
   text-decoration: none;
   padding: 12px 24px;
   margin-right: 10px;
   font-size: 18px;
-  
-  
 `;
 
 const NavButton = styled.button`
@@ -31,24 +28,25 @@ const NavButton = styled.button`
   padding: 12px 24px;
   margin-right: 10px;
   font-size: 18px;
-  font-weight: bold; 
- 
+  font-weight: bold;
+
   background-color: white;
 `;
 
 const NavDropdown = styled.div`
   position: relative;
   display: inline-block;
+  cursor: pointer;
 `;
 
 const NavDropdownContent = styled.div`
-  display: ${props => props.showDropdown ? 'block' : 'none'};
+  display: ${(props) => (props.showDropdown ? "block" : "none")};
   position: absolute;
   background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   min-width: 160px;
-  `;
+`;
 
 const NavDropdownItem = styled.a`
   color: black;
@@ -58,9 +56,9 @@ const NavDropdownItem = styled.a`
   &:hover {
     background-color: #f1f1f1;
   }
-  a{
-    text-decoration: none; 
-    color : maroon ; 
+  a {
+    text-decoration: none;
+    color: maroon;
   }
 `;
 
@@ -77,7 +75,10 @@ const Navbar = () => {
       <NavLink to="/about">About</NavLink>
       <NavLink to="/donate">Donate</NavLink>
       <NavDropdown>
-        <NavButton onClick={toggleDropdown}>Join As<FaAngleDown /></NavButton>
+        <NavButton onClick={toggleDropdown}>
+          Join As
+          <FaAngleDown />
+        </NavButton>
         <NavDropdownContent showDropdown={showDropdown}>
           <NavDropdownItem>
             <Link to="/join/donor/register">Donor</Link>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FormContainer = styled.div`
   display: flex;
-  background-color : lightgray; 
+  background-color: lightgray;
   flex-direction: column;
   align-items: center;
   padding: 20px;
@@ -28,7 +28,7 @@ const Input = styled.input`
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
-  border: outline ; 
+  border: outline;
   width: 100%;
 `;
 
@@ -36,7 +36,7 @@ const Select = styled.select`
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
-  border: outline; 
+  border: outline;
   width: 100%;
 `;
 
@@ -62,30 +62,37 @@ const LoginLink = styled.a`
 `;
 
 function DonorRegister() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [gender, setGender] = useState('');
-  const [country, setCountry] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [gender, setGender] = useState("");
+  const [country, setCountry] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-  }
+  };
 
   return (
     <FormContainer>
       <form onSubmit={handleSubmit}>
         <FormRow>
           <Label>First Name:</Label>
-          <Input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          <Input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
         </FormRow>
         <FormRow>
           <Label>Last Name:</Label>
-          <Input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+          <Input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </FormRow>
         <FormRow>
           <Label>Gender:</Label>
@@ -98,28 +105,48 @@ function DonorRegister() {
         </FormRow>
         <FormRow>
           <Label>Country:</Label>
-          <Input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
+          <Input
+            type="text"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+          />
         </FormRow>
         <FormRow>
           <Label>Phone Number:</Label>
-          <Input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+          <Input
+            type="tel"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
         </FormRow>
         <FormRow>
           <Label>Address:</Label>
-          <Input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+          <Input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
         </FormRow>
         <FormRow>
           <Label>Username:</Label>
-          <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <Input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </FormRow>
         <FormRow>
           <Label>Password:</Label>
-          <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </FormRow>
         <Button type="submit">Register</Button>
       </form>
       <LoginPrompt>
-        Already have an account? <Link to = "/join/donor/log"> Log in</Link>
+        Already have an account? <Link to="/join/donor/log"> Log in</Link>
       </LoginPrompt>
     </FormContainer>
   );
