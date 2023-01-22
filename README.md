@@ -62,27 +62,20 @@
   <summary>Client</summary>
   <ul>
     <li><a href="https://www.typescriptlang.org/">Javascript</a></li>
-    
     <li><a href="https://reactjs.org/">React.js</a></li>
-   
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-   
     <li><a href="https://expressjs.com/">Express.js</a></li>
-    
-     
-
   </ul>
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-   
     <li><a href="https://www.mongodb.com/">MongoDB</a></li>
   </ul>
 </details>
