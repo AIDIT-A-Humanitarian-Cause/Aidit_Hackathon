@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +32,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -52,33 +53,59 @@ const SignUpLink = styled.a`
 `;
 
 function DonorSignIn() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(`Username: ${username} Password: ${password}`);
+  const navigate = useNavigate();
+  const [email, setemail] = useState("");
+  const [password, setPassword] = useState("");
+  const [authenticated, setauthenticated] = useState(
+    localStorage.getItem(localStorage.getItem("authenticated") || false)
+  );
+  const SignInUrl = "/donor/auth/login";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(SignInUrl, {
+        email,
+        password,
+      });
+      console.log(response);
+      if (response.status == 202) {
+        localStorage.setItem("authenticated", true);
+        setauthenticated(true);
+        navigate("/home");
+      }
+    } catch (err) {
+      alert(`${err.message}`);
+      console.log(err);
     }
+  };
 
-    return (
-        <FormContainer>
-            <form onSubmit={handleSubmit}>
-                <FormRow>
-                    <Label>Username:</Label>
-                    <Input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                </FormRow>
-                <FormRow>
-                    <Label>Password:</Label>
-                    <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </FormRow>
-                <Button type="submit">Login</Button>
-            </form>
-            <SignUpPrompt>
-                Don't have an account?
-                <Link to="/join/donor/register"> Sign Up!</Link>
-            </SignUpPrompt>
-        </FormContainer>
-    );
+  return (
+    <FormContainer>
+      <form onSubmit={handleSubmit}>
+        <FormRow>
+          <Label>email:</Label>
+          <Input
+            type="text"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+          />
+        </FormRow>
+        <FormRow>
+          <Label>Password:</Label>
+          <Input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </FormRow>
+        <Button type="submit">Login</Button>
+      </form>
+      <SignUpPrompt>
+        Don't have an account?
+        <Link to="/join/donor/register"> Sign Up!</Link>
+      </SignUpPrompt>
+    </FormContainer>
+  );
 }
 
 export default DonorSignIn;

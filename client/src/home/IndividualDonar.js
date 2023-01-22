@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { useState } from "react";
+import axios from "../api/axios";
 
 const Container = styled.div`
   background-color: rgba(250, 236, 214, 0.5);
@@ -133,7 +134,7 @@ const Button = styled.button`
     text-shadow: 0.3px 0.3px 0.6px #427388;
   }
 `;
-const AmountRaised = styled.h4`
+const donatingAmountRaised = styled.h4`
   font-size: 18px;
   font-family: "Urbanist", sans-serif;
   justify-content: start;
@@ -192,20 +193,38 @@ const IndividualDonar = (props) => {
   function handleSelect(name) {
     setSelected(name);
   }
-
+  const [donatingAmount, setdonatingAmount] = useState("");
+  const sendUrl = "/donor/donation/63cc0ba798e39474aae283c1";
+  const onHandleClick = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(sendUrl, {
+        donatingAmount,
+      });
+      console.log(response);
+      response.data.success && alert("User is registered successfully!");
+    } catch (err) {
+      alert(`${err.message}`);
+      console.log(err);
+    }
+  };
   return (
     <Container>
       <Wrapper>
         <ImageContainer>
           <Image src={locationState.img} />
-          <AmountRaised background="darkred">NRs. 2,00,000 Raised</AmountRaised>
+          <donatingAmountRaised background="darkred">
+            NRs. 2,00,000 Raised
+          </donatingAmountRaised>
           <ProgressBar
             completed={38}
             maxCompleted={100}
             height={14}
             width={350}
           />
-          <AmountRaised background="green">Goal : NRs. 5,000,000</AmountRaised>
+          <donatingAmountRaised background="green">
+            Goal : NRs. 5,000,000
+          </donatingAmountRaised>
         </ImageContainer>
         <OverallInfo>
           <InformationContainer>
@@ -216,9 +235,13 @@ const IndividualDonar = (props) => {
               <ListDescription>{locationState.progress}</ListDescription>
             </Description>
             <FilterTitle style={{ fontWeight: "bold" }}>
-              Donation Amount ($):{" "}
+              Donation donatingAmount ($):{" "}
             </FilterTitle>
-            <Price />
+            <Price
+              type="number"
+              value={donatingAmount}
+              onChange={(e) => setdonatingAmount(e.target.value)}
+            />
             <FilterProduct>
               <Filter>
                 <FilterTitle style={{ color: "black" }}>
@@ -231,7 +254,7 @@ const IndividualDonar = (props) => {
               </Filter>
             </FilterProduct>
             <AddContainer>
-              <Button>DONATE</Button>
+              <Button onClick={onHandleClick}>DONATE</Button>
             </AddContainer>
           </InformationContainer>
           <Navbar>

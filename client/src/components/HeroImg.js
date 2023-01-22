@@ -12,7 +12,6 @@ const HeroContainer = styled.section`
   justify-content: center;
   font-family: "Urbanist";
 `;
-
 const HeroButton = styled.button`
   background-color: transparent;
   color: white;
