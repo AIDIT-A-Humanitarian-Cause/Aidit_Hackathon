@@ -23,6 +23,14 @@ const trxSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  dateCreated:{
+    type:Date,
+    default:Date.now()
+  },
+  name:{
+    type:String,
+    required:true
+  }
 });
 
 module.exports = mongoose.model('trx', trxSchema);

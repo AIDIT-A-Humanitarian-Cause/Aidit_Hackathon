@@ -10,6 +10,7 @@ import InstitutionRegister from "./components/InstitutionRegister";
 import InstitutionSignIn from "./components/InstitutionSignIn";
 import Donate from "./components/Donate";
 import DonationPage from "./home/DonationPage";
+import MyDonation from "./components/myDonations";
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/individualDonar" element={<IndividualDonar />} />
         <Route path="/story" element={<IndividualStory />} />
         <Route path="/createDonation" element={<DonationPage />} />
+        <Route path="/myDonation" element={<MyDonation/>}/>
       </Routes>
     </>
   );
