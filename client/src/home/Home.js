@@ -7,51 +7,49 @@ import CounterUp from "./countUp";
 import Donors from "./Donors";
 import styled from "styled-components";
 import WhyDonate from "./WhyDonate";
+import image1 from '../assets/donor1.jpg'
+import image2 from '../assets/donor7.jpg'
+import image3 from '../assets/donor5.jpg'
+import image4 from '../assets/donor6.jpg'
+import image5 from '../assets/donor4.jpg'
+
 
 function Home() {
+ const images = [image1,image2,image3,image4,image5]
   return (
     <>
       <HeroImg/>
-      <DonorTitle>
-         Our Donors
-      </DonorTitle>
+      <DonorTitle>Our Top Donors</DonorTitle>
       <DonorContainer>
-        
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        
-      </DonorContainer>
-      <WhyDonate/>
+        {images.map((val)=>{
+          return <Donors props = {{images:val}}/>
+        })}
+      </DonorContainer> 
+      <WhyDonate />
       <CardsDonar />
       <CounterUp />
       <Slider />
-      <Footer/>
-      
-     
-    
-      
+      <Footer />
     </>
   );
 }
 
-
-
 export default Home;
 const DonorContainer = styled.div`
-display: flex; 
-padding-top :20px; 
-background-color :  rgba(255, 253, 250, 0.95); 
-padding-bottom : 40px; 
-
-`
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(250, 236, 214, 0.5);
+  padding-bottom: 40px;
+`;
 const DonorTitle = styled.h1`
-   background-color :  rgba(255, 253, 250, 0.95);  
-  padding-left : 20px;  
-  margin: 0px; 
-
-`
+  padding: 25px 0px;
+  background-color: rgba(250, 236, 214, 0.5);
+  text-align: center;
+  font-size: 38.45px;
+  font-family: "Urbanist", sans-serif;
+  letter-spacing: 1.8px;
+  margin: 0px;
+`;

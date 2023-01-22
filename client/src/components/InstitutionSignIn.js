@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FormContainer = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -52,38 +52,50 @@ const SignUpLink = styled.a`
 `;
 
 function InstitutionSignIn() {
-    const [iName, setiName] = useState('');
-    const [email , setEmail] = useState(''); 
-    const [password, setPassword] = useState('');
+  const [iName, setiName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(`Username: ${iName} Password: ${password}`);
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Username: ${iName} Password: ${password}`);
+  };
 
-    return (
-        <FormContainer>
-            <form onSubmit={handleSubmit}>
-                <FormRow>
-                    <Label>Institutional Name:</Label>
-                    <Input type="text" value={iName} onChange={(e) => setiName(e.target.value)} />
-                </FormRow>
-                <FormRow>
-                    <Label>Email:</Label>
-                    <Input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </FormRow>
-                <FormRow>
-                    <Label>Password:</Label>
-                    <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </FormRow>
-                <Button type="submit">Login</Button>
-            </form>
-            <SignUpPrompt>
-                Don't have an account?
-                <Link to="/join/institution/register"> Sign Up!</Link>
-            </SignUpPrompt>
-        </FormContainer>
-    );
+  return (
+    <FormContainer>
+      <form onSubmit={handleSubmit}>
+        <FormRow>
+          <Label>Institutional Name:</Label>
+          <Input
+            type="text"
+            value={iName}
+            onChange={(e) => setiName(e.target.value)}
+          />
+        </FormRow>
+        <FormRow>
+          <Label>Email:</Label>
+          <Input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </FormRow>
+        <FormRow>
+          <Label>Password:</Label>
+          <Input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </FormRow>
+        <Button type="submit">Login</Button>
+      </form>
+      <SignUpPrompt>
+        Don't have an account?
+        <Link to="/join/institution/register"> Sign Up!</Link>
+      </SignUpPrompt>
+    </FormContainer>
+  );
 }
 
 export default InstitutionSignIn;

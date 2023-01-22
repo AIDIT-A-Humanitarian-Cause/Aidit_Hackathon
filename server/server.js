@@ -4,10 +4,10 @@ const express = require('express');
 require('dotenv').config();
 require('express-async-errors');
 
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 
