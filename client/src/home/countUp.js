@@ -14,13 +14,13 @@ function CounterUp() {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     color: white;
     padding: 0px 88.45px;
     color: black;
   `;
   const Event = styled.h3`
-    font-family: "Urbanist", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-size: 16.45px;
     font-weight: bold;
     letter-spacing: 1.45px;
@@ -31,7 +31,7 @@ function CounterUp() {
     letter-spacing: 1.1px;
     flex-direction: column;
     align-items: center;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-size: 48.45px;
   `;
 
@@ -55,7 +55,7 @@ function CounterUp() {
               duration={1.8}
               delay={0}
               style={{
-                fontFamily: "Urbanist",
+                fontFamily: "Ubuntu",
                 fontWeight: "bold",
                 letterSpacing: "2.8px",
               }}
@@ -72,7 +72,7 @@ function CounterUp() {
               duration={1.8}
               delay={0}
               style={{
-                fontFamily: "Urbanist",
+                fontFamily: "Ubuntu",
                 fontWeight: "bold",
                 letterSpacing: "2.8px",
               }}
@@ -89,7 +89,7 @@ function CounterUp() {
               duration={1.8}
               delay={0}
               style={{
-                fontFamily: "Urbanist",
+                fontFamily: "Ubuntu",
                 fontWeight: "bold",
                 letterSpacing: "2.8px",
               }}
@@ -106,7 +106,7 @@ function CounterUp() {
               duration={1.8}
               delay={0}
               style={{
-                fontFamily: "Urbanist",
+                fontFamily: "Ubuntu",
                 fontWeight: "bold",
                 letterSpacing: "2.8px",
               }}

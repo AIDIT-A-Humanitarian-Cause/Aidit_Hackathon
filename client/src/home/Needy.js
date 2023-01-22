@@ -63,7 +63,7 @@ const InfoContainer = styled.div`
 `;
 const Title = styled.h1`
   font-size: 65.45px;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   color: whitesmoke;
 `;
 const Description = styled.p`
@@ -71,27 +71,26 @@ const Description = styled.p`
   font-size: 22px;
   color: whitesmoke;
   font-weight: bold;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   letter-spacing: 3.45px;
 `;
 const Button = styled.button`
-  font-family: "Urbanist", sans-serif;
-  border: 0 solid;
+  font-family: "Ubuntu", sans-serif;
   color: whitesmoke;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
   outline-color: rgba(255, 255, 255, 0.5);
   outline-offset: 0px;
-  padding: 14.45px;
-  font-weight: bolder;
+  padding: 8px;
+  font-weight: 400;
   text-shadow: none;
   background-color: transparent;
-  font-size: 15px;
+  font-size: 13px;
+  opacity:0.3;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   &:hover {
     cursor: pointer;
     border: 1px solid;
-    background-color: limegreen;
+    background-color: red;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
       0 0 20px rgba(255, 255, 255, 0.2);
     outline-color: rgba(255, 255, 255, 0);
