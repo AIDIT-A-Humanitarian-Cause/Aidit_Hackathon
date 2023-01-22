@@ -13,16 +13,16 @@ const login = async (req, res) => {
     if (!donor) {
       return res.status(StatusCodes.BAD_REQUEST).json({
         success: false,
-        message: "Cannot find the user with the provided username",
+        message: 'Cannot find the user with the provided username',
       });
     }
-   }else if (email) {
-      var donor = await Donor.findOne({ email: email });
-      if (!donor) {
-        return res.status(StatusCodes.BAD_REQUEST).json({
-          success: false,
-          message: "Cannot find the user with the provided email",
-        });
+  } else if (email) {
+    var donor = await Donor.findOne({ email: email });
+    if (!donor) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        success: false,
+        message: 'Cannot find the user with the provided email',
+      });
     }
   }
 

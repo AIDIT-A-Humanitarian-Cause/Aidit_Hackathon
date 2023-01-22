@@ -13,7 +13,7 @@ const authMiddleWare = async (req, res, next) => {
     req.user = { userId: decoded.id, email: decoded.email };
     next();
   } catch (error) {
-    throw new CustomAPIError(error);
+    throw new CustomAPIError(error.message,StatusCodes.UNAUTHORIZED);
   }
 };
 

@@ -207,7 +207,8 @@ function Card(props) {
                   <DescriptionBottom>
                     <AmountRaised background="green">
                       Goal : NRs. 5,000,000
-                    </AmountRaised>
+                    </AmountRaised> 
+                    
                     <Button
                       to="/individualDonar"
                       state={{
