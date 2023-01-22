@@ -6,18 +6,17 @@ import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 70%;
+  height: 70vh;
   display: flex;
-  background-color: #23272b;
   position: relative;
-  overflow: hidden;
-  margin-top: 20px;
-`;
 
+  overflow: hidden;
+`;
 const Arrow = styled.div`
   width: 45px;
   height: 45px;
-  background-color: whitesmoke;
+  background-color: grey;
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -37,6 +36,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  align-items: center;
+  background-color: rgba(250, 236, 214, 0.5);
   transition: all 1s ease;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
@@ -45,61 +46,70 @@ const Slide = styled.div`
   height: 85vh;
   display: flex;
   align-items: center;
-  background-color: #23272b;
 `;
 const ImgContainer = styled.div`
-  flex: 0.8;
+  flex : 0.5
+  ; 
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const Image = styled.img`
-  height: 50%;
+  height: 60%;
+  margin-top: 20px; 
+  width: 60%; 
+  border-radius : 40px ;
+  object-fit : cover; 
+  
 `;
 const InfoContainer = styled.div`
-  flex: 1;
-  padding: 50px;
+  flex: .8;
+  padding: 0px; 
+  margin: 0px; 
 `;
 const Title = styled.h1`
-  font-size: 65.45px;
+  font-size: 25.45px;
   font-family: "Urbanist", sans-serif;
-  color: whitesmoke;
+  color: black;
+  margin: 0;
 `;
 const Description = styled.p`
-  margin: 50px 0px;
+  margin: 40px 0px;
   font-size: 22px;
-  color: whitesmoke;
+  color: black;
   font-weight: bold;
   font-family: "Urbanist", sans-serif;
-  letter-spacing: 3.45px;
 `;
 const Button = styled.button`
   font-family: "Urbanist", sans-serif;
   border: 0 solid;
-  color: whitesmoke;
+  color: black;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
-  outline-color: rgba(255, 255, 255, 0.5);
+  outline: 1px solid black;
   outline-offset: 0px;
   padding: 14.45px;
   font-weight: bolder;
   text-shadow: none;
   background-color: transparent;
   font-size: 15px;
+  border-radius : 30px; 
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   &:hover {
     cursor: pointer;
-    border: 1px solid;
-    background-color: limegreen;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
-      0 0 20px rgba(255, 255, 255, 0.2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 0.3px 0.3px 0.6px #427388;
+    border: 1px solid grey;
   }
 `;
-
+const TitleName = styled.h1`
+  font-family: "Urbanist", sans-serif;
+  color: black;
+  font-size: 55px;
+  font-weight: bold;
+  letter-spacing: 3.45px;
+`;
+function clickHandle() {
+  window.location.href = "/story";
+}
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const OnClick = (SlideDirection) => {
@@ -121,9 +131,10 @@ const Slider = () => {
               <Image src={itemSlide.img} />
             </ImgContainer>
             <InfoContainer>
+              <TitleName>{itemSlide.name}</TitleName>
               <Title>{itemSlide.title}</Title>
               <Description>{itemSlide.description}</Description>
-              <Button>DONATE NOW</Button>
+              <Button onClick={clickHandle}>Read More...</Button>
             </InfoContainer>
           </Slide>
         ))}
