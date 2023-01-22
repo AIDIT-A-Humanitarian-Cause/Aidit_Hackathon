@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/join/institutionregister"
+          path="/join/institution/register"
           element={<InstitutionRegister />}
         />
         <Route path="/join/institution/log" element={<InstitutionSignIn />} />
