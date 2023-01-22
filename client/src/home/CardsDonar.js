@@ -5,7 +5,7 @@ import { useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "./datas";
 const Container = styled.div`
-  height: 85vh;
+  height: 75vh;
   background-color: rgba(250, 236, 214, 0.5);
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ const Arrow = styled.div`
 const Title = styled.h1`
   color: #033b4a;
   font-weight: 600;
-  line-height: 80px;  
+  line-height: 80px;
   font-size: 32px;
   font-weight: bold;
   font-family: "Ubuntu", sans-serif;

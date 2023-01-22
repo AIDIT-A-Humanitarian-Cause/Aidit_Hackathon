@@ -15,7 +15,6 @@ import image5 from "../assets/donor4.jpg";
 import Navbar from "../components/NavBar";
 
 function Home() {
-
   const images = [image1, image2, image3, image4, image5];
   return (
     <>
@@ -24,8 +23,10 @@ function Home() {
       <CardsDonar />
       <CounterUp />
       <Slider />
-      <DonorTitle><hr/>Our Top Donors
-        </DonorTitle>
+      <DonorTitle>
+        <hr />
+        Our Top Donors
+      </DonorTitle>
       <DonorContainer>
         {images.map((val) => {
           return <Donors props={{ images: val }} />;
@@ -43,7 +44,7 @@ const DonorContainer = styled.div`
   flex-direction: row;
   padding: 20px;
   align-items: center;
- 
+  font-family: "Urbanist", sans-serif;
   justify-content: space-evenly;
   background-color: rgba(250, 236, 214, 0.5);
   padding-bottom: 40px;
@@ -51,6 +52,8 @@ const DonorContainer = styled.div`
 const DonorTitle = styled.h1`
   padding: 25px 0px;
   background-color: rgba(250, 236, 214, 0.5);
+  font-family: "Urbanist", sans-serif;
+  font-weight: lighter;
   text-align: center;
   font-size: 38.45px;
   font-family: "Urbanist", sans-serif;
