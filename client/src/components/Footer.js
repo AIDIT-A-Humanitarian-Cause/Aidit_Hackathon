@@ -37,13 +37,13 @@ const DateContainer = styled.div`
 const Footer = () => (
   <FooterContainer>
     <SocialContainer>
-      <SocialIcon href="#">
+      <SocialIcon href="https://www.facebook.com/profile.php?id=100089776567340&is_tour_dismissed=true">
         <FaFacebook />
       </SocialIcon>
-      <SocialIcon href="#">
+      <SocialIcon href="https://twitter.com/IshanPanta1">
         <FaTwitter />
       </SocialIcon>
-      <SocialIcon href="#">
+      <SocialIcon href="https://www.instagram.com/aidit3000/">
         <FaInstagram />
       </SocialIcon>
     </SocialContainer>

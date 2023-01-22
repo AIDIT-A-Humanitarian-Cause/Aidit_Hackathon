@@ -54,12 +54,21 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
+<<<<<<< HEAD
+  align-text : center;
+  
+  align-items : center;    
+  justify-content : center; 
+  align-items : center ; 
+ margin-left : 126px;
+=======
   align-text: center;
 
   align-items: center;
   justify-content: center;
   align-items: center;
   margin-left: 100px;
+>>>>>>> 9ad142c534456e6f3d21482eda97cc123573b3cd
   width: 135px;
   border-radius: 30px;
 `;
