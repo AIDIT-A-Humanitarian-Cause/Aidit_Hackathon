@@ -6,12 +6,17 @@ import axios from "../api/axios";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
+  padding-top : 10px; 
   background-color: white;
   flex-direction: column;
   align-items: center;
   padding-left : 100px;
   padding-right : 100px;
-  width: 322px; 
+  width: 500px; 
+  border-radius: 25px; 
+ 
+  
+   
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
@@ -26,6 +31,7 @@ const FormRow = styled.div`
 const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
+  width: 166px; 
 `;
 
 const Input = styled.input`
@@ -38,16 +44,19 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: pink;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-  height: 40px; 
+      background-color: gray;
+    color: white;
+    padding: 14px 20px;
+    
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 156px;
+    
+    height: 40px;
+    border-radius: 19px;
+    margin-left: 272px;
+    margin-top: 18px;
 `;
 
 const LoginPrompt = styled.div`

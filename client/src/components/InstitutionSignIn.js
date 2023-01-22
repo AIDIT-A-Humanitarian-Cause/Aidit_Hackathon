@@ -60,7 +60,7 @@ height : 40px;
   align-items : center;    
   justify-content : center; 
   align-items : center ; 
- margin-left : 100px;
+ margin-left : 126px;
   width: 135px;
   border-radius : 30px; 
 `;

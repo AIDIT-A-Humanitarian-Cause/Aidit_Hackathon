@@ -9,7 +9,7 @@ const NavContainer = styled.nav`
   flex 3; 
   
   justify-content: end;
-  background-color: white;
+  
   font-weight: bold;
   box-shadow : 2px 2px 2px solid gray; 
   
@@ -35,19 +35,20 @@ const NavButton = styled.button`
   font-weight: bold;
   cursor: pointer;
 
-  background-color: white;
+  background-color: rgba(242, 222, 186, .5);
 `;
 
 const NavDropdown = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
+  background-color : rgba(242, 222, 186, .5);
 `;
 
 const NavDropdownContent = styled.div`
   display: ${(props) => (props.showDropdown ? "block" : "none")};
   position: absolute;
-  background-color: white;
+  background-color: rgba(242, 222, 186, .5);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   min-width: 160px;
@@ -59,7 +60,8 @@ const NavDropdownItem = styled.a`
   text-decoration: none;
   display: block;
   &:hover {
-    background-color: #f1f1f1;
+   background-color : rgba(242, 222, 186, .5);
+ 
   }
   a {
     text-decoration: none;
@@ -74,7 +76,9 @@ const Logo = styled.img`
 `;
 const Container = styled.div `
   display : flex ; 
-`
+  background-color : rgba(242, 222, 186, .5); 
+
+  `
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignIn, setSignIn] = useState(false);
