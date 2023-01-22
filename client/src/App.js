@@ -13,7 +13,7 @@ import Donate from "./components/Donate";
 function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

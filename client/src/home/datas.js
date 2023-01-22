@@ -33,7 +33,7 @@ img:Img3,
     progress: "She has gone through 50% of the treatment",
   },
   {
-    id: 3,
+    id: 4,
     img: Img4,
     title: "Give dhina a new life by helping her fight against cancer. ",
     bg: "9BE9F8",

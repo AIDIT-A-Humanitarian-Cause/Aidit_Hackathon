@@ -71,6 +71,8 @@ function InstitutionSignIn() {
       console.log(response);
       if (response.status == 202) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("authenticated", true);
+        localStorage.setItem("isInstitution", true);
         setauthenticated(true);
         navigate("/home");
       }

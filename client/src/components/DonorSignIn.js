@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,7 +71,7 @@ function DonorSignIn() {
       console.log(response);
       if (response.status == 202) {
         localStorage.setItem("token", response.data.token);
-        setauthenticated(true);
+        localStorage.setItem("authenticated", true);
         navigate("/home");
       }
     } catch (err) {
@@ -80,31 +81,34 @@ function DonorSignIn() {
   };
 
   return (
-    <FormContainer>
-      <form onSubmit={handleSubmit}>
-        <FormRow>
-          <Label>email:</Label>
-          <Input
-            type="text"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>Password:</Label>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </FormRow>
-        <Button type="submit">Login</Button>
-      </form>
-      <SignUpPrompt>
-        Don't have an account?
-        <Link to="/join/donor/register"> Sign Up!</Link>
-      </SignUpPrompt>
-    </FormContainer>
+    <>
+      <Navbar />
+      <FormContainer>
+        <form onSubmit={handleSubmit}>
+          <FormRow>
+            <Label>Email:</Label>
+            <Input
+              type="text"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
+            />
+          </FormRow>
+          <FormRow>
+            <Label>Password:</Label>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </FormRow>
+          <Button type="submit">Login</Button>
+        </form>
+        <SignUpPrompt>
+          Don't have an account?
+          <Link to="/join/donor/register"> Sign Up!</Link>
+        </SignUpPrompt>
+      </FormContainer>
+    </>
   );
 }
 

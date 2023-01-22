@@ -3,19 +3,16 @@ import styled from "styled-components";
 import HeroImage from "../assets/home_img.png";
 import { Link } from "react-router-dom";
 const HeroContainer = styled.div`
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Urbanist";
-  margin: 0px;
   object-fit: cover;
-  overflow-x: none;
 `;
 const ImageContainer = styled.img`
   object-fit: cover;
   width: 100%;
-  padding-top: 30px;
+  height: 60vh;
 `;
 const HeroButton = styled.button`
   background-color: transparent;
@@ -51,11 +48,15 @@ const HeroButton = styled.button`
 const NavLink = styled(Link)`
   position: absolute;
 `;
-const HeroImg = () => (
+const HeroImg = (props) => (
   <HeroContainer>
     <ImageContainer src={HeroImage} />
     <NavLink to="/donate">
-      <HeroButton>DONATE NOW</HeroButton>
+      {props.isInstitute ? (
+        <HeroButton>Create Donation</HeroButton>
+      ) : (
+        <HeroButton>DONATE NOW</HeroButton>
+      )}
     </NavLink>
   </HeroContainer>
 );

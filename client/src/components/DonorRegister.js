@@ -92,6 +92,7 @@ function DonorRegister() {
       if (response.data.success) {
         navigate("/home");
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("authenticated", true);
         setauthenticated(true);
       }
       console.log(response);
