@@ -48,18 +48,24 @@ const Slide = styled.div`
   background-color: #23272b;
 `;
 const ImgContainer = styled.div`
-  flex: 0.8;
+  flex : 0.5
+  ; 
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const Image = styled.img`
-  height: 50%;
+  height: 100%;
+  margin-top: 20px; 
+  width: 100%; 
+  object-fit : cover; 
+  
 `;
 const InfoContainer = styled.div`
-  flex: 1;
-  padding: 50px;
+  flex: .8;
+  padding: 0px; 
+  margin: 0px; 
 `;
 const Title = styled.h1`
   font-size: 65.45px;
@@ -87,6 +93,7 @@ const Button = styled.button`
   text-shadow: none;
   background-color: transparent;
   font-size: 15px;
+  border-radius : 30px; 
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   &:hover {
     cursor: pointer;
