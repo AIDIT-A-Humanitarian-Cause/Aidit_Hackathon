@@ -14,8 +14,9 @@ function Card(props) {
     box-shadow: 0 13px 0 -5px hsla(240, 30.1%, 28%, 0.55);
   `;
   const Box = styled.div`
-    width: 22vw;
-    border-radius: 4.45%;
+    width: 15vw;
+    height:180px;
+    border-radius: 40px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -25,10 +26,10 @@ function Card(props) {
   `;
 
   const Image = styled.img`
-    height: 200px;
-    width: 20vw;
+    height: 100px;
+    width: 15vw;
     object-fit: cover;
-    border-radius: 4.45%;
+    border-radius: 30px;
     &:hover {
       cursor: pointer;
       transform: scale(1.05);
@@ -39,7 +40,7 @@ function Card(props) {
 
   const Name = styled.h4`
     font-size: 24px;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Ubuntu",sans-serif;
     font-weight: bold;
     text-align: center;
     letter-spacing: 1.45px;
@@ -48,11 +49,11 @@ function Card(props) {
   const NameTitle = styled.h4`
     font-weight: lighter;
     font-size: 12px;
-    font-family: "Urbanist", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     text-align: justify;
     letter-spacing: 1.45px;
     margin: 0;
-    margin-top: 15px;
+    margin-top:2px;
   `;
   const Button = styled(Link)`
     margin-top: 10px;
@@ -65,13 +66,13 @@ function Card(props) {
     outline: 1px solid;
     outline-color: rgba(255, 255, 255, 0.5);
     outline-offset: 0px;
-    padding: 12.45px 16.45px;
+    padding: 5.45px 10.45px;
     font-weight: bolder;
     text-shadow: none;
 
     background-color: darkred;
-    border-radius: 10.45%;
-    font-size: 16px;
+    border-radius: 20PX;
+    font-size: 14px;
     transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
     &:hover {
       cursor: pointer;
@@ -87,16 +88,16 @@ function Card(props) {
   const AmountRaised = styled.h4`
     font-size: 12px;
     font-family: "Urbanist", sans-serif;
-    justify-content: start;
+    justify-content: left;
     color: ${(props) => props.background};
-    letter-spacing: 1.45px;
-    margin: 13 0;
+    letter-spacing: 1.2px;
+    margin: 4px 0;
   `;
 
   const ModalOverlay = styled.div`
     position: fixed;
     top: 0;
-    left: 0;
+    left: 2px;
     overflow: visible;
     width: 100%;
     height: 100%;
@@ -112,9 +113,9 @@ function Card(props) {
     flex-direction: column;
     transform: translate(-50%, -50%);
     background-color: whitesmoke;
-    padding: 20px;
+    padding: 10px;
     width: 50vw;
-    height: 50vh;
+    // height: 20vh;
     overflow: visible;
     border-radius: 20px;
     align-items: flex-start;
@@ -265,15 +266,8 @@ function Card(props) {
         </ModalOverlay>
       )}
       <Box>
-        <Image marginRight="0" src={props.img} onClick={openModal} />
-        <NameTitle>{props.title}</NameTitle>
-        <AmountRaised background="darkred">NRs. 2,00,000 Raised</AmountRaised>
-        <ProgressBar
-          completed={38}
-          maxCompleted={100}
-          height={14}
-          width={250}
-        />
+        
+        <Image src={props.img} onClick={openModal} />
         <Button
           to="/individualDonar"
           state={{
@@ -286,6 +280,18 @@ function Card(props) {
         >
           DONATE
         </Button>
+        <NameTitle>{props.title}</NameTitle>
+        <AmountRaised background="darkred">NRs. 2,00,000 Raised</AmountRaised>
+        <ProgressBar
+          completed={20}
+          customLabel=" "
+          maxCompleted={100}
+          
+          height={8}
+          width={200}
+          
+        />
+       
         <AmountRaised background="green">Goal : NRs. 5,000,000</AmountRaised>
       </Box>
     </Card>

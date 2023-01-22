@@ -8,7 +8,6 @@ function StoryPopUp(props) {
     const[isOpen , setOpen] = useState(false); 
     const closePopup = (e) =>{
         e.stopPropagation(); 
-        
         setOpen(!isOpen) ;
         console.log(isOpen);
     }
@@ -16,7 +15,7 @@ function StoryPopUp(props) {
     useEffect(()=>{
         console.log("asdf")
         setOpen(props.trigger)
-    },[])
+    },[props.trigger])
   return ( isOpen&& (
 
       <Container>

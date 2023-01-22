@@ -2,19 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/home_img.png";
 import { Link } from "react-router-dom";
-const HeroContainer = styled.section`
-  background-image: ${`url(${HeroImage})`};
-  height: 200px;
+const HeroContainer = styled.div`
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Urbanist";
+  margin: 0px;
 `;
+const ImageContainer = styled.img``;
 const HeroButton = styled.button`
   background-color: transparent;
   color: white;
   padding: 12px 24px;
   border-radius: 4px;
+  margin: 0;
+
   font-size: 18px;
   border-radius: 30px;
   text-shadow: 2px 2px 4px #000000;
@@ -33,15 +36,10 @@ const HeroButton = styled.button`
     text-shadow: 0.3px 0.3px 0.6px #429888;
   }
 `;
-const HeroText = styled.div`
-  font-size: 20px;
-  color: white;
-  font-family: "Urbanist";
-  letter-spacing: 2px;
-`;
 
 const HeroImg = () => (
   <HeroContainer>
+    <ImageContainer src={HeroImage} />
     <Link to="/donate">
       <HeroButton>DONATE NOW</HeroButton>
     </Link>

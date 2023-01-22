@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/HeroImage.jpg";
+import HeroImage from "../assets/Donation.jpg";
+import Quote from "../assets/Quote.png";
 
 function WhyDonate() {
   return (
@@ -8,14 +9,11 @@ function WhyDonate() {
       <TextContainer>
         <Heading>Why Donate?</Heading>
         <Body>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo
-          pariatur eos, beatae ullam expedita molestiae id illum, esse assumenda
-          alias architecto voluptatum quod quaerat, eveniet praesentium! Aliquid
-          quam itaque temporibus.
+          <img src={Quote} alt="" />
         </Body>
       </TextContainer>
       <ImgContainer>
-        <img src={HeroImage} alt="Hello" />
+        <img src={HeroImage} alt="" />
       </ImgContainer>
     </Container>
   );
@@ -39,18 +37,24 @@ const TextContainer = styled.div`
 
 const Heading = styled.h2`
   margin-left: 10px;
+  margin-bottom: 0px;
 `;
 const Body = styled.div`
-  margin-left: 10px;
+  img {
+    width: 100%;
+    height: 20%;
+    margin-top: 0px;
+    object-fit: contain;
+  }
 `;
 
 const ImgContainer = styled.div`
   margin-bottom: 6px;
-  margin-top: 6px;
+  margin-top: 30px;
   width: 525px;
   height: 319px;
   img {
-    border-radius: 8%;
+    border-radius: 40px 40px;
     width: 100%;
     height: 100%;
     object-fit: cover;
