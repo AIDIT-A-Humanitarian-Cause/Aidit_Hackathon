@@ -9,7 +9,7 @@ const FormContainer = styled.div`
   margin-top: 38px; 
   margin-left : 38px; 
   
-  background-color: lightgray;
+  background-color: white;
   flex-direction: column;
   justify-content : center; 
   align-items: center;

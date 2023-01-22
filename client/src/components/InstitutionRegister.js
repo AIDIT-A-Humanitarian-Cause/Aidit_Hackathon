@@ -6,7 +6,7 @@ import axios from "../api/axios";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
-  background-color: lightgray;
+  background-color: white;
   flex-direction: column;
   align-items: center;
   padding-left : 100px;
