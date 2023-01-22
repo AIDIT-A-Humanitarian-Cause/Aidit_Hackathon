@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Logoe from '../assets/home_img.png';
 import Logoer from '../assets/logo_.png'
 import Footer from './Footer';
+import Navbar from './NavBar';
 
 const AboutContainer = styled.div`
   display: flex;
@@ -54,6 +55,7 @@ const Logo = styled.img`
 function About() {
   return (
     <>
+    <Navbar/>
     <AboutContainer>
       <HeroImage src={Logoe} alt="Hero Image" />
       <Title> 

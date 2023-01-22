@@ -6,9 +6,13 @@ import Logos from "../assets/logo_.png";
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  flex 3; 
+  
+  justify-content: end;
   background-color: white;
   font-weight: bold;
+  box-shadow : 2px 2px 2px solid gray; 
+  
 `;
 
 const NavLink = styled(Link)`
@@ -22,7 +26,7 @@ const NavLink = styled(Link)`
 
 const NavButton = styled.button`
   background-color: transparent;
-  border: none;
+  border: none; 
   color: maroon;
   text-decoration: none;
   padding: 12px 24px;
@@ -66,8 +70,11 @@ const Logo = styled.img`
   width: 70px;
   height: 70px;
   margin-left: 10px;
+  cursor : pointer; 
 `;
-
+const Container = styled.div `
+  display : flex ; 
+`
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignIn, setSignIn] = useState(false);
@@ -95,9 +102,12 @@ const Navbar = () => {
   }
 
   return (
-    <>
+    
+    <Container>
+
+
+      <Logo src={Logos} />
       <NavContainer>
-        <Logo src={Logos} />
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/donate">Donate</NavLink>
@@ -129,8 +139,8 @@ const Navbar = () => {
           <NavButton onClick={logoutHandle}>Logout</NavButton>
         ) : (
           <NavDropdown
-            onMouseEnter={handleDropdownHover}
-            onMouseLeave={handleDropdownHover}
+          onMouseEnter={handleDropdownHover}
+          onMouseLeave={handleDropdownHover}
           >
             <NavButton onClick={toggleDropdown}>
               Join As
@@ -150,7 +160,8 @@ const Navbar = () => {
           </NavDropdown>
         )}
       </NavContainer>
-    </>
+      </Container>
+    
   );
 };
 export default Navbar;
