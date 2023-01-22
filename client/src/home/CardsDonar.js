@@ -10,13 +10,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 `;
 const Arrow = styled.div`
   width: 45px;
   height: 45px;
   background-color: lightgray;
-  border-radius: 50%;
+  border-radius: 50;
   display: flex;
   align-items: center;
   margin: 0px 55.45px;
@@ -38,7 +38,7 @@ const Title = styled.h1`
   line-height: 80px;
   font-size: 32px;
   font-weight: bold;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin-bottom: 14.45px;
 `;
 const CardContainer = styled.div`

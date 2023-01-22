@@ -1,7 +1,13 @@
+import Img1 from "../assets/dhina.jpg"
+import Img2 from "../assets/rewati.jpg"
+import Img3 from "../assets/Sharada.jpg"
+import Img4 from "../assets/bishnu.jpg"
+
+
 export const ItemsToBeInSlide = [
   {
     id: 1,
-    img: "https://www.oneindia.com/ph-big/2020/05/a-boy-wearing-face-mask-receives-food-from-volunteers-during-ongoing-covid-19-lockdown-in-kolkata_158839189180.jpg",
+    img:Img1,
     title: "Give dhina a new life by helping her fight against cancer.",
     bg: "F8D19B",
     name: "Dhina",
@@ -10,7 +16,7 @@ export const ItemsToBeInSlide = [
   },
   {
     id: 2,
-    img: "https://roshnisanstha.com/wp-content/uploads/2020/11/Help-the-Needy-people-15.jpg",
+    img: Img2,
     title: "Give dhina a new life by helping her fight against cancer.",
     bg: "F89B9B",
     name: "Nepal",
@@ -19,7 +25,16 @@ export const ItemsToBeInSlide = [
   },
   {
     id: 3,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-5BFdxoPqEX6nsblVE__Ks3ICIFvr7tWFxzTVv0_bRoLzmkjZ_1mJPYKIpdaQy0BTJfA&usqp=CAU",
+img:Img3,
+    title: "Give dhina a new life by helping her fight against cancer. ",
+    bg: "9BE9F8",
+    name: "Pandora",
+    description: "Give Pandora a new life by helping her fight against cancer.",
+    progress: "She has gone through 50% of the treatment",
+  },
+  {
+    id: 3,
+    img: Img4,
     title: "Give dhina a new life by helping her fight against cancer. ",
     bg: "9BE9F8",
     name: "Pandora",

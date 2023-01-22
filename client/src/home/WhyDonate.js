@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/HeroImage.jpg";
+import HeroImage from "../assets/Donation.jpg";
 
 function WhyDonate() {
   return (
@@ -50,7 +50,7 @@ const ImgContainer = styled.div`
   width: 525px;
   height: 319px;
   img {
-    border-radius: 8%;
+    border-radius: 40PX 40PX;
     width: 100%;
     height: 100%;
     object-fit: cover;

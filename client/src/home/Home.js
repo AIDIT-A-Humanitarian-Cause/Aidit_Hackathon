@@ -19,6 +19,11 @@ function Home() {
   return (
     <>
       <HeroImg/>
+      <CardsDonar />
+      <CounterUp />
+      <Slider />
+
+
       <DonorTitle>Our Top Donors</DonorTitle>
       <DonorContainer>
         {images.map((val)=>{
@@ -26,9 +31,6 @@ function Home() {
         })}
       </DonorContainer> 
       <WhyDonate />
-      <CardsDonar />
-      <CounterUp />
-      <Slider />
       <Footer />
     </>
   );
