@@ -95,6 +95,8 @@ function InstitutionRegister() {
       console.log(response);
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("authenticated", true);
+        localStorage.setItem("isInstitution", true);
         setauthenticated(true);
         navigate("/home");
       }

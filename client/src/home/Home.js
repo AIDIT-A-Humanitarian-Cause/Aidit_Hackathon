@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import Footer from "../components/Footer";
 import HeroImg from "../components/HeroImg";
 import Slider from "../components/Slider";
@@ -7,29 +7,31 @@ import CounterUp from "./countUp";
 import Donors from "./Donors";
 import styled from "styled-components";
 import WhyDonate from "./WhyDonate";
-import image1 from '../assets/donor1.jpg'
-import image2 from '../assets/donor7.jpg'
-import image3 from '../assets/donor5.jpg'
-import image4 from '../assets/donor6.jpg'
-import image5 from '../assets/donor4.jpg'
-
+import image1 from "../assets/donor1.jpg";
+import image2 from "../assets/donor7.jpg";
+import image3 from "../assets/donor5.jpg";
+import image4 from "../assets/donor6.jpg";
+import image5 from "../assets/donor4.jpg";
+import Navbar from "../components/NavBar";
 
 function Home() {
- const images = [image1,image2,image3,image4,image5]
+  const [isLoggedInAsInstituition, setLoggedIn] = useState(
+    localStorage.getItem("isInstitution") === "true"
+  );
+  const images = [image1, image2, image3, image4, image5];
   return (
     <>
-      <HeroImg/>
+      <Navbar />
+      <HeroImg props={{ isInstitute: isLoggedInAsInstituition }} />
       <CardsDonar />
       <CounterUp />
       <Slider />
-
-
       <DonorTitle>Our Top Donors</DonorTitle>
       <DonorContainer>
-        {images.map((val)=>{
-          return <Donors props = {{images:val}}/>
+        {images.map((val) => {
+          return <Donors props={{ images: val }} />;
         })}
-      </DonorContainer> 
+      </DonorContainer>
       <WhyDonate />
       <Footer />
     </>
