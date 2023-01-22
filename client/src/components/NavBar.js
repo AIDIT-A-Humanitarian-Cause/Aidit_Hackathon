@@ -15,12 +15,16 @@ const NavContainer = styled.nav`
 const NavLink = styled(Link)`
   color: maroon;
   text-decoration: none;
+  padding: 12px 24px;
   cursor: pointer;
+  opacity: 0.85;
+  margin-right: 10px;
   font-size: 18px;
   &:hover {
-    color: darkred;
-    transform: scale(1.1);
-    transition: 0.3s;
+    color: maroon;
+    opacity: 1;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
   }
 `;
 
@@ -57,17 +61,15 @@ const NavDropdownItem = styled.a`
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  &:hover {
-    background-color: #f1f1f1;
-  }
+
   a {
     text-decoration: none;
     color: maroon;
   }
 `;
 const Logo = styled.img`
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   margin-left: 10px;
 `;
 
@@ -103,75 +105,82 @@ const Navbar = () => {
   }
 
   return (
-    <NavContainer>
-      <Logo src={Logos} />
-      <NavLink to="/home">Home</NavLink>
-      <NavLink to="/about">About</NavLink>
-      {!isLoggedIn || !isInstitute ? (
-        <NavLink to="/donate">Donate</NavLink>
-      ) : (
-        <></>
-      )}
+    <>
+      <NavContainer>
+        <Logo src={Logos} />
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        {!isLoggedIn || !isInstitute ? (
+          <NavLink to="/donate">Donate</NavLink>
+        ) : (
+          <></>
+        )}
 
-      {!isInstitute ? (
-        isLoggedIn ? (
-          <NavLink to="/mydonation">My Donation</NavLink>
+        {!isInstitute ? (
+          isLoggedIn ? (
+            <NavLink to="/mydonation">My Donation</NavLink>
+          ) : (
+            <NavDropdown
+              onMouseEnter={handleSignInHover}
+              onMouseLeave={handleSignInHover}
+            >
+              <NavButton onClick={signDropDown}>
+                Sign In
+                <FaAngleDown />
+              </NavButton>
+              <NavDropdownContent
+                showDropdown={showSignIn}
+                style={{ display: showSignIn ? "block" : "none" }}
+              >
+                <NavDropdownItem>
+                  <Link to="/join/donor/log">As Donor</Link>
+                </NavDropdownItem>
+                <NavDropdownItem>
+                  <Link to="/join/institution/log">As Institution</Link>
+                </NavDropdownItem>
+              </NavDropdownContent>
+            </NavDropdown>
+          )
+        ) : (
+          <></>
+        )}
+
+        {isInstitute ? (
+          <NavLink to="/createDonation">Create Donation</NavLink>
+        ) : (
+          <></>
+        )}
+        {isInstitute ? (
+          <NavLink to="/donationProgress">Donation Progress</NavLink>
+        ) : (
+          <></>
+        )}
+        {isLoggedIn ? (
+          <NavButton onClick={logoutHandle}>Logout</NavButton>
         ) : (
           <NavDropdown
-            onMouseEnter={handleSignInHover}
-            onMouseLeave={handleSignInHover}
+            onMouseEnter={handleDropdownHover}
+            onMouseLeave={handleDropdownHover}
           >
-            <NavButton onClick={signDropDown}>
-              Sign In
+            <NavButton onClick={toggleDropdown}>
+              Join As
               <FaAngleDown />
             </NavButton>
             <NavDropdownContent
-              showDropdown={showSignIn}
-              style={{ display: showSignIn ? "block" : "none" }}
+              showDropdown={showDropdown}
+              style={{ display: showDropdown ? "block" : "none" }}
             >
               <NavDropdownItem>
-                <Link to="/join/donor/log">As Donor</Link>
+                <Link to="/join/donor/register">Donor</Link>
               </NavDropdownItem>
               <NavDropdownItem>
-                <Link to="/join/institution/log">As Institution</Link>
+                <Link to="/join/institution/register">Institution</Link>
               </NavDropdownItem>
             </NavDropdownContent>
           </NavDropdown>
-        )
-      ) : (
-        <></>
-      )}
-
-      {isInstitute ? (
-        <NavLink to="/createDonation">Create Donation</NavLink>
-      ) : (
-        <></>
-      )}
-      {isLoggedIn ? (
-        <NavButton onClick={logoutHandle}>Logout</NavButton>
-      ) : (
-        <NavDropdown
-          onMouseEnter={handleDropdownHover}
-          onMouseLeave={handleDropdownHover}
-        >
-          <NavButton onClick={toggleDropdown}>
-            Join As
-            <FaAngleDown />
-          </NavButton>
-          <NavDropdownContent
-            showDropdown={showDropdown}
-            style={{ display: showDropdown ? "block" : "none" }}
-          >
-            <NavDropdownItem>
-              <Link to="/join/donor/register">Donor</Link>
-            </NavDropdownItem>
-            <NavDropdownItem>
-              <Link to="/join/institution/register">Institution</Link>
-            </NavDropdownItem>
-          </NavDropdownContent>
-        </NavDropdown>
-      )}
-    </NavContainer>
+        )}
+      </NavContainer>
+    </>
   );
 };
 export default Navbar;
