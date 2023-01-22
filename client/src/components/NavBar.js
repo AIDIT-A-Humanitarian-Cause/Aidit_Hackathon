@@ -79,6 +79,16 @@ const Container = styled.div `
   background-color : rgba(242, 222, 186, .5); 
 
   `
+
+
+  const ImgLink = styled(Link)`
+  
+  padding : 0px; 
+  margin : 0px; 
+  `
+ 
+
+  
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignIn, setSignIn] = useState(false);
@@ -111,8 +121,9 @@ const Navbar = () => {
     
     <Container>
 
-
-      <Logo src={Logos} />
+      <ImgLink to = "/home">
+      <Logo src={Logos}  />
+      </ImgLink>
       <NavContainer>
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/about">About</NavLink>
