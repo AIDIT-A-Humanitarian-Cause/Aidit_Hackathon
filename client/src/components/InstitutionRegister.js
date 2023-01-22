@@ -65,6 +65,9 @@ function InstitutionRegister() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [authenticated, setauthenticated] = useState(
+    localStorage.getItem(localStorage.getItem("authenticated") || false)
+  );
   const REGISTERUrl = "/auth/institution/register";
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,6 +94,8 @@ function InstitutionRegister() {
       });
       console.log(response);
       if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+        setauthenticated(true);
         navigate("/home");
       }
     } catch (err) {

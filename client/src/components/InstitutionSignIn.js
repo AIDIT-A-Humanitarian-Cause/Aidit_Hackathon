@@ -70,7 +70,7 @@ function InstitutionSignIn() {
       });
       console.log(response);
       if (response.status == 202) {
-        localStorage.setItem("authenticated", true);
+        localStorage.setItem("token", response.data.token);
         setauthenticated(true);
         navigate("/home");
       }

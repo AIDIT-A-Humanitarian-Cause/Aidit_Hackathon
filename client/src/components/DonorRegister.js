@@ -72,6 +72,10 @@ function DonorRegister() {
   const [password, setPassword] = useState("");
   const RegisterUrl = "/donor/auth/register";
   const navigate = useNavigate();
+  const [authenticated, setauthenticated] = useState(
+    localStorage.getItem(localStorage.getItem("authenticated") || false)
+  );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -87,6 +91,8 @@ function DonorRegister() {
       });
       if (response.data.success) {
         navigate("/home");
+        localStorage.setItem("token", response.data.token);
+        setauthenticated(true);
       }
       console.log(response);
       response.data.success && alert("User is registered successfully!");
