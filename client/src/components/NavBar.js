@@ -6,13 +6,9 @@ import Logos from "../assets/logo_.png";
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
-  flex 3; 
-  
-  justify-content: end;
+  justify-content: space-around;
   background-color: white;
   font-weight: bold;
-  box-shadow : 2px 2px 2px solid gray; 
-  
 `;
 
 const NavLink = styled(Link)`
@@ -20,13 +16,20 @@ const NavLink = styled(Link)`
   text-decoration: none;
   padding: 12px 24px;
   cursor: pointer;
+  opacity: 0.85;
   margin-right: 10px;
   font-size: 18px;
+  &:hover {
+    color: maroon;
+    opacity: 1;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+  }
 `;
 
 const NavButton = styled.button`
   background-color: transparent;
-  border: none; 
+  border: none;
   color: maroon;
   text-decoration: none;
   padding: 12px 24px;
@@ -34,7 +37,6 @@ const NavButton = styled.button`
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-
   background-color: white;
 `;
 
@@ -58,9 +60,7 @@ const NavDropdownItem = styled.a`
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  &:hover {
-    background-color: #f1f1f1;
-  }
+
   a {
     text-decoration: none;
     color: maroon;
@@ -70,16 +70,16 @@ const Logo = styled.img`
   width: 70px;
   height: 70px;
   margin-left: 10px;
-  cursor : pointer; 
 `;
-const Container = styled.div `
-  display : flex ; 
-`
+
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignIn, setSignIn] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(
     localStorage.getItem("authenticated") === "true"
+  );
+  const [isInstitute, setInstitute] = useState(
+    localStorage.getItem("isInstitution") === "true"
   );
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -104,12 +104,9 @@ const Navbar = () => {
   }
 
   return (
-    
-    <Container>
-
-
-      <Logo src={Logos} />
+    <>
       <NavContainer>
+        <Logo src={Logos} />
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/donate">Donate</NavLink>
@@ -137,12 +134,17 @@ const Navbar = () => {
             </NavDropdownContent>
           </NavDropdown>
         )}
+        {isInstitute ? (
+          <NavLink to="/donationProgress">Donation Progress</NavLink>
+        ) : (
+          <></>
+        )}
         {isLoggedIn ? (
           <NavButton onClick={logoutHandle}>Logout</NavButton>
         ) : (
           <NavDropdown
-          onMouseEnter={handleDropdownHover}
-          onMouseLeave={handleDropdownHover}
+            onMouseEnter={handleDropdownHover}
+            onMouseLeave={handleDropdownHover}
           >
             <NavButton onClick={toggleDropdown}>
               Join As
@@ -162,8 +164,7 @@ const Navbar = () => {
           </NavDropdown>
         )}
       </NavContainer>
-      </Container>
-    
+    </>
   );
 };
 export default Navbar;

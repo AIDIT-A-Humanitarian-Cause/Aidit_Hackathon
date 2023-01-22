@@ -10,16 +10,9 @@ const FormContainer = styled.div`
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
-const Label = styled.label`
+const Label = styled.label``;
 
-`;
-
-const Input = styled.input`
-  
-  
-
-
-`;
+const Input = styled.input``;
 const DonationPage = () => {
   const [formData, setFormData] = useState({
     nameOfDonation: "",
@@ -31,7 +24,6 @@ const DonationPage = () => {
     documents: "",
     currency: "",
   });
-
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
