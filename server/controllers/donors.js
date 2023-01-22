@@ -24,7 +24,6 @@ const login = async (req, res) => {
       });
     }
   }
-
   if (await donor.comparePassword(password)) {
     const token = await donor.createJwt();
     return res
