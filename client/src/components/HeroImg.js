@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/HeroImage.jpg";
+import HeroImage from "../assets/home_img.png";
 import { Link } from "react-router-dom";
 const HeroContainer = styled.section`
   background-image: ${`url(${HeroImage})`};
-  background-size: cover;
-  height: 400px;
+  height: 200px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Urbanist";
@@ -45,10 +43,6 @@ const HeroText = styled.div`
 
 const HeroImg = () => (
   <HeroContainer>
-    <HeroText>
-      <h3>Help the Elderly in their Battle!</h3>
-    </HeroText>
-
     <Link to="/donate">
       <HeroButton>DONATE NOW</HeroButton>
     </Link>

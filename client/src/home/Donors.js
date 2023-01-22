@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/HeroImage.jpg";
-function Donors() {
+// import HeroImage from "../assets/HeroImage.jpg";
+function Donors({props}) {
+  console.log(props.images)
   return (
     <Container>
       <DonorList>
-        <img src={HeroImage} alt="Hello" />
-        
+      <img src = {props.images} />
       </DonorList>
     </Container>
-  );
+    );
 }
 export default Donors;
 

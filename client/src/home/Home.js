@@ -7,21 +7,24 @@ import CounterUp from "./countUp";
 import Donors from "./Donors";
 import styled from "styled-components";
 import WhyDonate from "./WhyDonate";
+import image1 from '../assets/donor1.jpg'
+import image2 from '../assets/donor7.jpg'
+import image3 from '../assets/donor5.jpg'
+import image4 from '../assets/donor6.jpg'
+import image5 from '../assets/donor4.jpg'
+
 
 function Home() {
+ const images = [image1,image2,image3,image4,image5]
   return (
     <>
-      <HeroImg />
+      <HeroImg/>
       <DonorTitle>Our Top Donors</DonorTitle>
       <DonorContainer>
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-        <Donors />
-      </DonorContainer>
+        {images.map((val)=>{
+          return <Donors props = {{images:val}}/>
+        })}
+      </DonorContainer> 
       <WhyDonate />
       <CardsDonar />
       <CounterUp />
