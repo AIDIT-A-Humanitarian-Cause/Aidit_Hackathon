@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "../home/datas";
 import { useState } from "react";
+import { RxCross2 } from 'react-icons/rx';
+
+import StoryPopUp from "./StoryPopUp";
 
 const Container = styled.div`
   width: 100%;
@@ -106,11 +109,21 @@ const TitleName = styled.h1`
   font-size: 55px;
   font-weight: bold;
   letter-spacing: 3.45px;
-`;
-function clickHandle() {
-  window.location.href = "/story";
-}
-const Slider = () => {
+  `
+
+
+  const CrossButton =styled.div `
+  
+  position : absolute; 
+  top: 20px; 
+  `
+  const Slider = () => {
+    const[triggered , setTriggered] = useState(false); 
+    
+    function showFullstory() 
+    {
+      setTriggered(!triggered); 
+    }
   const [slideIndex, setSlideIndex] = useState(0);
   const OnClick = (SlideDirection) => {
     if (SlideDirection === "left") {
@@ -134,7 +147,9 @@ const Slider = () => {
               <TitleName>{itemSlide.name}</TitleName>
               <Title>{itemSlide.title}</Title>
               <Description>{itemSlide.description}</Description>
-              <Button onClick={clickHandle}>Read More...</Button>
+              <Button onClick={showFullstory}  >Read More...</Button>
+              
+             { triggered && <StoryPopUp trigger = {triggered}  title ={ itemSlide.name}image = {itemSlide.img} text = {itemSlide.progress}/>}
             </InfoContainer>
           </Slide>
         ))}

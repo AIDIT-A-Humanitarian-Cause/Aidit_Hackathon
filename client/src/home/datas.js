@@ -6,7 +6,7 @@ export const ItemsToBeInSlide = [
     bg: "F8D19B",
     name: "Dhina",
     description: "Give Nepal a new life by helping her fight against cancer.",
-    progress: "She has gone through 50% of the treatment",
+    progress: "She has gone through 20% of the treatment",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const ItemsToBeInSlide = [
     bg: "F89B9B",
     name: "Nepal",
     description: "Give Nepal a new life by helping her fight against cancer.",
-    progress: "She has gone through 50% of the treatment",
+    progress: "She has gone through 30% of the treatment",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const ItemsToBeInSlide = [
     bg: "9BE9F8",
     name: "Pandora",
     description: "Give Pandora a new life by helping her fight against cancer.",
-    progress: "She has gone through 50% of the treatment",
+    progress: "She has gone through 40% of the treatment",
   },
 ];
 // export const Category = [
