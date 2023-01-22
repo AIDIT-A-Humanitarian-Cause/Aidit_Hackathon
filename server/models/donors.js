@@ -1,18 +1,18 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const mongoose = require('mongoose');
-const { isValidPassword } = require('mongoose-custom-validators');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const mongoose = require("mongoose");
+const { isValidPassword } = require("mongoose-custom-validators");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const donorSchema = mongoose.Schema({
   firstName: {
     type: String,
-    required: [true, 'Please Provide a First Name'],
+    required: [true, "Please Provide a First Name"],
   },
   lastName: {
     type: String,
-    required: [true, 'Please Provide a Last Name'],
+    required: [true, "Please Provide a Last Name"],
   },
   gender: {
     type: String,
@@ -23,32 +23,31 @@ const donorSchema = mongoose.Schema({
   username: {
     type: String,
     minLength: 8,
-    required: [true, 'Please provide an username'],
+    required: [true, "Please provide an username"],
     unique: true,
   },
   email: {
     type: String,
-    required: [true, 'Please provide an email'],
+    required: [true, "Please provide an email"],
     match: [
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Please provide a valid email. ',
+      "Please provide a valid email. ",
     ],
   },
   password: {
     type: String,
-    required: [true, 'Please provide a password'],
+    required: [true, "Please provide a password"],
     validate: {
       validator: isValidPassword,
       message:
-        'Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.',
+        "Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.",
     },
   },
 });
-donorSchema.pre('save', async function () {
+donorSchema.pre("save", async function () {
   const salt = await bcrypt.genSalt(10);
-  
+
   this.password = await bcrypt.hash(this.password, salt);
-  
 });
 
 donorSchema.methods.createJwt = async function () {
@@ -65,8 +64,8 @@ donorSchema.methods.createJwt = async function () {
 };
 donorSchema.methods.comparePassword = async function (password) {
   const valid = await bcrypt.compare(password, this.password);
-  
+
   return valid;
 };
 
-module.exports = mongoose.model('Donor', donorSchema);
+module.exports = mongoose.model("Donor", donorSchema);
