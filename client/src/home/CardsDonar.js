@@ -35,7 +35,7 @@ const Arrow = styled.div`
 const Title = styled.h1`
   color: #033b4a;
   font-weight: 600;
-  line-height: 80px;
+  line-height: 80px;  
   font-size: 32px;
   font-weight: bold;
   font-family: "Ubuntu", sans-serif;

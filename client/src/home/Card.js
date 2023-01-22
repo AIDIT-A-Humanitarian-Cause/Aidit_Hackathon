@@ -15,7 +15,7 @@ function Card(props) {
   `;
   const Box = styled.div`
     width: 15vw;
-    height:300px;
+    height: 300px;
     border-radius: 40px;
     background-color: white;
     display: flex;
@@ -40,7 +40,7 @@ function Card(props) {
 
   const Name = styled.h4`
     font-size: 24px;
-    font-family: "Ubuntu",sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-weight: bold;
     text-align: center;
     letter-spacing: 1.45px;
@@ -53,7 +53,7 @@ function Card(props) {
     text-align: justify;
     letter-spacing: 1.45px;
     margin: 0;
-    margin-top:2px;
+    margin-top: 2px;
   `;
   const Button = styled(Link)`
     margin-top: 10px;
@@ -71,7 +71,7 @@ function Card(props) {
     text-shadow: none;
 
     background-color: darkred;
-    border-radius: 20PX;
+    border-radius: 20px;
     font-size: 14px;
     transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
     &:hover {
@@ -207,8 +207,8 @@ function Card(props) {
                   <DescriptionBottom>
                     <AmountRaised background="green">
                       Goal : NRs. 5,000,000
-                    </AmountRaised> 
-                    
+                    </AmountRaised>
+
                     <Button
                       to="/individualDonar"
                       state={{
@@ -267,7 +267,6 @@ function Card(props) {
         </ModalOverlay>
       )}
       <Box>
-        
         <Image src={props.img} onClick={openModal} />
         <Button
           to="/individualDonar"
@@ -287,12 +286,10 @@ function Card(props) {
           completed={20}
           customLabel=" "
           maxCompleted={100}
-          
           height={8}
           width={200}
-          
         />
-       
+
         <AmountRaised background="green">Goal : NRs. 5,000,000</AmountRaised>
       </Box>
     </Card>

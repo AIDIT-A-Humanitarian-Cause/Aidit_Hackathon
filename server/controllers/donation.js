@@ -1,7 +1,9 @@
 const donation = require("../models/donation");
 const Donation = require("../models/donation");
 const createDonation = async (req, res) => {
+  console.log("Hererer");
   const startedOrCreatedBy = req.user.userId;
+  console.log(startedOrCreatedBy);
   const {
     nameOfDonation,
     requiredAmount,
@@ -19,12 +21,14 @@ const createDonation = async (req, res) => {
     age,
     nameOfCondition,
     description,
-    documents: documents.split(" "),
+    // documents: documents.split(" "),
+    documents,
     currency,
     startedOrCreatedBy,
   });
+  console.log(newDonation);
   res
-    .status(400)
+    .status(200)
     .json({ success: true, msg: "Donation Created.", donation: newDonation });
 };
 
