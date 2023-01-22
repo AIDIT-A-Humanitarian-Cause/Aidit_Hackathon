@@ -10,14 +10,20 @@ const login = async (req, res) => {
   const { username, email, password } = req.body;
   if (username) {
     var donor = await Donor.findOne({ username: username });
+    if (!donor) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        success: false,
+        message: 'Cannot find the user with the provided username',
+      });
+    }
   } else if (email) {
     var donor = await Donor.findOne({ email: email });
-  }
-  if (!donor) {
-    return res.status(StatusCodes.BAD_REQUEST).json({
-      success: false,
-      message: 'Cannot find the user with the provided username',
-    });
+    if (!donor) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        success: false,
+        message: 'Cannot find the user with the provided email',
+      });
+    }
   }
   if (await donor.comparePassword(password)) {
     const token = await donor.createJwt();

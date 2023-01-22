@@ -14,7 +14,7 @@ const login = async (req, res) => {
   if (await institution.comparePassword(password)) {
     const token = await institution.createJwt();
     return res
-      .status(StatusCodes.BAD_REQUEST)
+      .status(StatusCodes.ACCEPTED)
       .json({ success: true, message: 'You have been Logged In', token: token });
   } else
     return res
