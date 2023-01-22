@@ -7,6 +7,7 @@ function CounterUp() {
   const [on, setOn] = useState(false);
   const Container = styled.div`
     height: 26vh;
+    margin-top : 40px; 
     background-color: rgba(242, 222, 186, 0.9);
     opacity: 0.85;
     display: flex;

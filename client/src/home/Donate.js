@@ -1,7 +1,11 @@
 import React from "react";
 
+import  Needy from './Needy.js';
+
 function Donate() {
-  return <div>Donate</div>;
+  return <>
+    <Needy/>
+  </>;
 }
 
 export default Donate;
