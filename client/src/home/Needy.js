@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { ItemsToBeInSlide } from "./Datas";
+import { ItemsToBeInSlide } from "./datas";
 import { useState } from "react";
 
 const Container = styled.div`
