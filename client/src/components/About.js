@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logoe from '../assets/home_img.png';
 import Logoer from '../assets/logo_.png'
+import Footer from './Footer';
 
 const AboutContainer = styled.div`
   display: flex;
@@ -52,6 +53,7 @@ const Logo = styled.img`
 
 function About() {
   return (
+    <>
     <AboutContainer>
       <HeroImage src={Logoe} alt="Hero Image" />
       <Title> 
@@ -64,6 +66,8 @@ function About() {
         </Description>
       </Container>
     </AboutContainer>
+    
+    </>
   );
 }
 

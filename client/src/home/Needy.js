@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 50%;
+  height: 75%;
   display: flex;
   background-color: #23272b;
   position: relative;

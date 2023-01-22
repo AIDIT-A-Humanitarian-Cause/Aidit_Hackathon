@@ -47,13 +47,11 @@ const Footer = () => (
             <SocialIcon href="#">
                 <FaInstagram />
             </SocialIcon>
-            <SocialIcon href="#">
-                <GiHamburgerMenu />
-            </SocialIcon>
+            
         </SocialContainer>
         <DateContainer>
 
-        <p>Copyright © {new Date().getFullYear()} My Company</p>
+        <p> © {new Date().getFullYear()} AID IT</p>
         </DateContainer>
     </FooterContainer>
 );

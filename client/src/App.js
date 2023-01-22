@@ -9,7 +9,7 @@ import DonorRegister from "./components/DonorRegister";
 import DonorSignIn from "./components/DonorSignIn";
 import InstitutionRegister from "./components/InstitutionRegister";
 import InstitutionSignIn from "./components/InstitutionSignIn";
-import Donate from "./home/Donate";
+import Donate from "./components/Donate";
 function App() {
   return (
     <>
