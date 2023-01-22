@@ -40,7 +40,7 @@ const webhook = async (req, res) => {
         await donor.save();
         await donationDone.save();
         await trxDone.save();
-        const msg = `Thank you for Donating.\nThis donation will go on to save a life of a child.\n You have donated $${amountDonatedInFloat} to fund ${donationDone.nameOfDonation}
+        const msg = `Thank you for Donating to ${donationDone.nameOfDonation}.\nThis donation will go on to save a life of a child.\n You have donated $${amountDonatedInFloat} to fund ${donationDone.nameOfDonation}
         `;
         sendSms(phoneNumber,msg)
       }

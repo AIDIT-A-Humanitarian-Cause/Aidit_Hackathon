@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-
+import Img2 from "../assets/dhina.jpg"
 function Card(props) {
   const Card = styled.div`
     display: flex;
@@ -24,7 +24,13 @@ function Card(props) {
     padding: 15px;
     background-color: rgba(242, 222, 186, 0.8);
   `;
-
+const DiseaseContainer = styled.h4 `
+  opacity:0.7;
+  color:grey;
+  font-style:italic;
+  margin:4px 0 3px 0;
+  font-weight:100;
+`
   const Image = styled.img`
     height: 100px;
     width: 15vw;
@@ -196,7 +202,7 @@ function Card(props) {
                   <Name>{props.name}</Name>
                   <NameTitle>{props.title}</NameTitle>
                   <AmountRaised background="darkred">
-                    NRs. 2,00,000 Raised
+                    {`NRs. ${props.amountRaised?props.amountRaised:`2,00,00`}Raised`}
                   </AmountRaised>
                   <ProgressBar
                     completed={38}
@@ -206,7 +212,7 @@ function Card(props) {
                   />
                   <DescriptionBottom>
                     <AmountRaised background="green">
-                      Goal : NRs. 5,000,000
+                     {`NRs. ${props.amountRaised?props.amountRaised:`2,00,00`}Raised`}
                     </AmountRaised>
                     <Button
                       to="/individualDonar"
@@ -268,12 +274,13 @@ function Card(props) {
       <Box>
         
         <Image src={props.img} onClick={openModal} />
+        <DiseaseContainer>{props.nameOfCondition?props.nameOfCondition:'Cancer'}</DiseaseContainer>
         <Button
           to="/individualDonar"
           state={{
             name: props.name,
             title: props.title,
-            img: props.img,
+            img: props.img?props.img:Img2,
             description: props.description,
             progress: props.progress,
           }}

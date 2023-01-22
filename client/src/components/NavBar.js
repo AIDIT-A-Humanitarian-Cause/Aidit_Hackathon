@@ -64,7 +64,7 @@ const NavDropdownItem = styled.a`
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-
+  
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };

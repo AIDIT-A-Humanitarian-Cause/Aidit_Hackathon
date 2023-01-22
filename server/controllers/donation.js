@@ -40,6 +40,7 @@ const getDonations = async (req, res) => {
   const donations = await Donation.find({ startedOrCreatedBy: idOfCreater });
   res.status(400).json({ success: true, donations: donations });
 };
+
 module.exports = {
   createDonation,
   getDonation,

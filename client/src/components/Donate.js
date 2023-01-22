@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import Needy from '../home/Needy.js';
+import AllDonations from "./allDonations.js/index.js";
 import Footer from "./Footer.js";
 
 function Donate() {
   return <>
   <Container>
-
     <Needy />
-    
   </Container>
+  <AllDonations/>
   </>;
 }
 

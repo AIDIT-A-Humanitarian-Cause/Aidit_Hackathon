@@ -1,5 +1,5 @@
 const express = require('express')
-const {register,login,donate,getDonations} = require('../controllers/donors')
+const {register,login,donate,getDonations,exploreDonations} = require('../controllers/donors')
 const router = express.Router()
 const webhook = require('../config/webhook_stripe')
 const { doesNotMatch } = require('assert')
@@ -9,6 +9,7 @@ router.post('/auth/login',login)
 router.post('/donation/:id',donate)
 router.post('/webhook',webhook)
 router.get('/',getDonations)
+router.get('/exploreDonation', exploreDonations);
 
 
 
