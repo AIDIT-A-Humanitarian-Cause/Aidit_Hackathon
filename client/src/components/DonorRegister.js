@@ -1,8 +1,8 @@
-
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
+import { json, Link } from "react-router-dom";
+import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 const FormContainer = styled.div`
   display: flex;
   background-color: lightgray;
@@ -66,13 +66,40 @@ function DonorRegister() {
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [email, setemail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const RegisterUrl = "/donor/auth/register";
+  const navigate = useNavigate();
+  const [authenticated, setauthenticated] = useState(
+    localStorage.getItem(localStorage.getItem("authenticated") || false)
+  );
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(RegisterUrl, {
+        firstName,
+        lastName,
+        gender,
+        country,
+        city,
+        email,
+        username,
+        password,
+      });
+      if (response.data.success) {
+        navigate("/home");
+        localStorage.setItem("token", response.data.token);
+        setauthenticated(true);
+      }
+      console.log(response);
+      response.data.success && alert("User is registered successfully!");
+    } catch (err) {
+      alert(`${err.message}`);
+      console.log(err);
+    }
   };
 
   return (
@@ -95,6 +122,14 @@ function DonorRegister() {
           />
         </FormRow>
         <FormRow>
+          <Label>Gender: </Label>
+          <Input
+            type="text"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          />
+        </FormRow>
+        {/* <FormRow>
           <Label>Gender:</Label>
           <Select value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value=""></option>
@@ -102,7 +137,7 @@ function DonorRegister() {
             <option value="female">Female</option>
             <option value="other">Other</option>
           </Select>
-        </FormRow>
+        </FormRow> */}
         <FormRow>
           <Label>Country:</Label>
           <Input
@@ -112,19 +147,11 @@ function DonorRegister() {
           />
         </FormRow>
         <FormRow>
-          <Label>Phone Number:</Label>
-          <Input
-            type="tel"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>Address:</Label>
+          <Label>City:</Label>
           <Input
             type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
           />
         </FormRow>
         <FormRow>
@@ -135,6 +162,23 @@ function DonorRegister() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </FormRow>
+        {/* <FormRow>
+          <Label>Phone Number:</Label>
+          <Input
+            type="tel"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+        </FormRow> */}
+        <FormRow>
+          <Label>Email:</Label>
+          <Input
+            type="text"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+          />
+        </FormRow>
+
         <FormRow>
           <Label>Password:</Label>
           <Input

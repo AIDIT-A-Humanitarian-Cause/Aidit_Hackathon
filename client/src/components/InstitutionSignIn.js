@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,28 +53,46 @@ const SignUpLink = styled.a`
 `;
 
 function InstitutionSignIn() {
-  const [iName, setiName] = useState("");
+  // const [iName, setiName] = useState("");
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(`Username: ${iName} Password: ${password}`);
+  const [authenticated, setauthenticated] = useState(
+    localStorage.getItem(localStorage.getItem("authenticated") || false)
+  );
+  const SignInUrl = "/auth/institution/login";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(SignInUrl, {
+        email,
+        password,
+      });
+      console.log(response);
+      if (response.status == 202) {
+        localStorage.setItem("token", response.data.token);
+        setauthenticated(true);
+        navigate("/home");
+      }
+    } catch (err) {
+      alert(`${err.message}`);
+      console.log(err);
+    }
   };
 
   return (
     <FormContainer>
       <form onSubmit={handleSubmit}>
-        <FormRow>
+        {/* <FormRow>
           <Label>Institutional Name:</Label>
           <Input
             type="text"
             value={iName}
             onChange={(e) => setiName(e.target.value)}
           />
-        </FormRow>
+        </FormRow> */}
         <FormRow>
-          <Label>Email:</Label>
+          <Label>Institution Email:</Label>
           <Input
             type="text"
             value={email}

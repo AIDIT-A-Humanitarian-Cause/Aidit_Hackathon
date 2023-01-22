@@ -1,14 +1,14 @@
-const { StatusCodes } = require('http-status-codes');
-const Institution = require('../models/institution');
+const { StatusCodes } = require("http-status-codes");
+const Institution = require("../models/institution");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  email;
+  console.log(email, password);
   var institution = await Institution.findOne({ email: email });
   if (!institution) {
     return res.status(StatusCodes.BAD_REQUEST).json({
       success: false,
-      message: 'Cannot find the Account with the provided email.',
+      message: "Cannot find the Account with the provided email.",
     });
   }
   if (await institution.comparePassword(password)) {
@@ -19,7 +19,7 @@ const login = async (req, res) => {
   } else
     return res
       .status(StatusCodes.UNAUTHORIZED)
-      .json({ success: false, message: 'The pasword didnot match' });
+      .json({ success: false, message: "The pasword didnot match" });
 };
 const register = async (req, res) => {
   const body = req.body;
@@ -33,6 +33,7 @@ const register = async (req, res) => {
     email,
     password,
   } = req.body;
+  console.log(body);
   const newinstitution = await Institution.create({
     institutionName,
     province,
@@ -43,13 +44,12 @@ const register = async (req, res) => {
     email,
     password,
   });
-  res
-    .status(StatusCodes.ACCEPTED)
-    .json({
-      success: true,
-      message: 'Institution is registered.',
-      institution: newinstitution,
-    });
+  console.log(newinstitution);
+  res.status(StatusCodes.ACCEPTED).json({
+    success: true,
+    message: "Institution is registered.",
+    institution: newinstitution,
+  });
 };
 
 module.exports = {

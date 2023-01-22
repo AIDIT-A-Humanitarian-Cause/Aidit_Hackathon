@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 const FooterContainer = styled.div`
   background-color: #2f2f2f;
   color: white;
+  overflow-x : none; 
 
   text-align: center;
   width: 100%;
@@ -46,13 +47,11 @@ const Footer = () => (
             <SocialIcon href="#">
                 <FaInstagram />
             </SocialIcon>
-            <SocialIcon href="#">
-                <GiHamburgerMenu />
-            </SocialIcon>
+            
         </SocialContainer>
         <DateContainer>
 
-        <p>Copyright © {new Date().getFullYear()} My Company</p>
+        <p> © {new Date().getFullYear()} AID IT</p>
         </DateContainer>
     </FooterContainer>
 );
