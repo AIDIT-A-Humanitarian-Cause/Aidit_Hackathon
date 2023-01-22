@@ -227,6 +227,8 @@ const IndividualDonar = (props) => {
   };
   
   return (
+    <>
+    <Navbar/>
     <Container>
       <Wrapper>
         <ImageContainer>
@@ -256,7 +258,7 @@ const IndividualDonar = (props) => {
               <ListDescription>{locationState.progress}</ListDescription>
             </Description>
             <FilterTitle style={{ fontWeight: 'bold' }}>
-              Donation donatingAmount ($):{' '}
+              Donation Amount ($):{' '}
             </FilterTitle>
             <Price
               type='number'
@@ -303,6 +305,7 @@ const IndividualDonar = (props) => {
 
       <Footer />
     </Container>
+    </>
   );
 };
 export default IndividualDonar;

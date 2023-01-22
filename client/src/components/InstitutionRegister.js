@@ -17,7 +17,7 @@ const FormContainer = styled.div`
 
 const FormRow = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   margin: 10px 0;
   border: outline;

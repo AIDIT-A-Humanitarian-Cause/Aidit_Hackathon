@@ -26,7 +26,7 @@ const Container = styled.div `
 
 const FormRow = styled.div`
   display: flex;
-  flex-direction: column;
+ 
   align-items: flex-start;
   margin: 10px 0;
 `;
@@ -34,6 +34,7 @@ const FormRow = styled.div`
 const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
+  width: 200px; 
 `;
 
 const Input = styled.input`
@@ -45,15 +46,23 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: #4caf50;
+  background-color: gray;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+height : 40px; 
+    margin-top : 20px; 
   border: outline;
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
-  width: 100%;
+  align-text : center;
+  
+  align-items : center;    
+  justify-content : center; 
+  align-items : center ; 
+ margin-left : 100px;
+  width: 135px;
+  border-radius : 30px; 
 `;
 
 const SignUpPrompt = styled.div`

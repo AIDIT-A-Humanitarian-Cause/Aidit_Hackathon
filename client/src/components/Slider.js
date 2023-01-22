@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: rgba(250, 236, 214, 0.5);
   transition: all 1s ease;
+
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 const Slide = styled.div`
@@ -70,6 +71,7 @@ const InfoContainer = styled.div`
   flex: .8;
   padding: 0px; 
   margin: 0px; 
+
 `;
 const Title = styled.h1`
   font-size: 25.45px;
