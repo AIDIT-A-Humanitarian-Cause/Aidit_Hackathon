@@ -1,7 +1,7 @@
-import React from "react";
+import { React, useState } from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/home_img.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 const HeroContainer = styled.div`
   display: flex;
   align-items: center;
@@ -48,17 +48,26 @@ const HeroButton = styled.button`
 const NavLink = styled(Link)`
   position: absolute;
 `;
-const HeroImg = (props) => (
-  <HeroContainer>
-    <ImageContainer src={HeroImage} />
-    <NavLink to="/donate">
-      {props.isInstitute ? (
-        <HeroButton>Create Donation</HeroButton>
-      ) : (
-        <HeroButton>DONATE NOW</HeroButton>
-      )}
-    </NavLink>
-  </HeroContainer>
-);
+function HeroImg() {
+  const [isLoggedInAsInstituition, setLoggedIn] = useState(
+    localStorage.getItem("isInstitution") === "true"
+  );
+  return (
+    <HeroContainer>
+      <ImageContainer src={HeroImage} />
+      <NavLink to="/donate">
+        {isLoggedInAsInstituition ? (
+          <Link to="/createDonation">
+            <HeroButton style={{ fontWeight: "bold", fontSize: "20.45px" }}>
+              Create Donation
+            </HeroButton>
+          </Link>
+        ) : (
+          <HeroButton>DONATE NOW</HeroButton>
+        )}
+      </NavLink>
+    </HeroContainer>
+  );
+}
 
 export default HeroImg;

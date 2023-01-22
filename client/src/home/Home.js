@@ -15,14 +15,12 @@ import image5 from "../assets/donor4.jpg";
 import Navbar from "../components/NavBar";
 
 function Home() {
-  const [isLoggedInAsInstituition, setLoggedIn] = useState(
-    localStorage.getItem("isInstitution") === "true"
-  );
+
   const images = [image1, image2, image3, image4, image5];
   return (
     <>
       <Navbar />
-      <HeroImg props={{ isInstitute: isLoggedInAsInstituition }} />
+      <HeroImg />
       <CardsDonar />
       <CounterUp />
       <Slider />

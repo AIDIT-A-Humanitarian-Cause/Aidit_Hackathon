@@ -16,5 +16,4 @@ const authMiddleWare = async (req, res, next) => {
     throw new CustomAPIError(error.message,StatusCodes.UNAUTHORIZED);
   }
 };
-
 module.exports = authMiddleWare;

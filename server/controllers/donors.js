@@ -1,11 +1,11 @@
-const { StatusCodes } = require("http-status-codes");
-const Donor = require("../models/donors");
-const Donation = require("../models/donation");
-const CustomAPIError = require("../errors/custom-api");
-require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_KEY);
-const trx = require("../models/donationTrx");
-const jwt = require("jsonwebtoken");
+const { StatusCodes } = require('http-status-codes');
+const Donor = require('../models/donors');
+const Donation = require('../models/donation');
+const CustomAPIError = require('../errors/custom-api');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_KEY);
+const trx = require('../models/donationTrx');
+const jwt = require('jsonwebtoken');
 const login = async (req, res) => {
   const { username, email, password } = req.body;
   if (username) {
@@ -30,11 +30,11 @@ const login = async (req, res) => {
     const token = await donor.createJwt();
     return res
       .status(StatusCodes.ACCEPTED)
-      .json({ success: true, message: "User has Logged In", token: token });
+      .json({ success: true, message: 'User has Logged In', token: token });
   } else
     return res
       .status(StatusCodes.UNAUTHORIZED)
-      .json({ success: false, message: "The pasword didnot match" });
+      .json({ success: false, message: 'The pasword didnot match' });
 };
 const register = async (req, res) => {
   const body = req.body;
@@ -61,7 +61,7 @@ const register = async (req, res) => {
   });
   res
     .status(StatusCodes.ACCEPTED)
-    .json({ success: true, message: "User is registered.", donor: newDonor });
+    .json({ success: true, message: 'User is registered.', donor: newDonor });
 };
 const donate = async (req, res) => {
   //need  id of particular donation and its creater
@@ -69,42 +69,42 @@ const donate = async (req, res) => {
   // const token = req.header
   const authHeader = req.headers.authorization;
   let donorId;
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    throw new CustomAPIError("No token sent", StatusCodes.UNAUTHORIZED);
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new CustomAPIError('No token sent', StatusCodes.UNAUTHORIZED);
   }
-  console.log("her");
-  const token = authHeader.split(" ")[1];
+  console.log('her');
+  const token = authHeader.split(' ')[1];
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     donorId = decoded.id;
   } catch (error) {
     throw new CustomAPIError(error.message, StatusCodes.UNAUTHORIZED);
   }
-  console.log("here");
+  console.log('here');
 
   const { donatingAmount } = req.body;
   const { id } = req.params;
   const donationToBeFunded = await Donation.findById(id);
   if (!donationToBeFunded)
     throw new CustomAPIError(
-      "The donation with the Id doesnot exist.",
+      'The donation with the Id doesnot exist.',
       StatusCodes.BAD_REQUEST
     );
   const { nameOfDonation, description, requiredAmount, donatedAmount, _id } =
     donationToBeFunded;
   console.log(donationToBeFunded);
   const session = await stripe.checkout.sessions.create({
-    payment_method_types: ["card"],
+    payment_method_types: ['card'],
     line_items: [
       {
         price_data: {
-          currency: "usd",
+          currency: 'usd',
           product_data: {
             name: `${nameOfDonation}`,
             description: `${donatedAmount} out of ${requiredAmount} \n
              ${description}`,
             images: [
-              "https://www.shutterstock.com/image-photo/dhaka-bangladesh-january-2020-daily-260nw-1855368253.jpg",
+              'https://www.shutterstock.com/image-photo/dhaka-bangladesh-january-2020-daily-260nw-1855368253.jpg',
             ],
           },
           unit_amount: parseFloat(+donatingAmount.toString()),
@@ -115,9 +115,9 @@ const donate = async (req, res) => {
     phone_number_collection: {
       enabled: true,
     },
-    success_url: "https://awww.google.com/gmail/",
-    cancel_url: "https://www.google.com/gmail/",
-    mode: "payment",
+    success_url: 'https://awww.google.com/gmail/',
+    cancel_url: 'https://www.google.com/gmail/',
+    mode: 'payment',
   });
   const amountInDollar = parseFloat(+donatingAmount.toString()) / 100;
   const newTrx = await trx.create({
@@ -136,15 +136,15 @@ const donate = async (req, res) => {
 const getDonations = async (req, res) => {
   const authHeader = req.headers.authorization;
   let donorId;
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    throw new CustomAPIError("No token sent", StatusCodes.UNAUTHORIZED);
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new CustomAPIError('No token sent', StatusCodes.UNAUTHORIZED);
   }
-  const token = authHeader.split(" ")[1];
+  const token = authHeader.split(' ')[1];
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     donorId = decoded.id;
   } catch (error) {
-    throw new CustomAPIError(error);
+    throw new CustomAPIError(error.message, StatusCodes.UNAUTHORIZED);
   }
 
   const allDonations = await trx.find({ status: true, donorId });
@@ -153,9 +153,32 @@ const getDonations = async (req, res) => {
     msg: `Here are all the required Donation : ${allDonations}`,
   });
 };
+const exploreDonations = async (req, res) => {
+  const authHeader = req.headers.authorization;
+  let donorId;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    throw new CustomAPIError('No token sent', StatusCodes.UNAUTHORIZED);
+  }
+
+  const token = authHeader.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    donorId = decoded.id;
+  } catch (error) {
+    throw new CustomAPIError(error.message, StatusCodes.UNAUTHORIZED);
+  }
+
+  const donation = await Donation.find({});
+  res.status(StatusCodes.ACCEPTED).json({
+    success: true,
+    dataLength: donation.length,
+    data: donation,
+  });
+};
 module.exports = {
   register,
   login,
   donate,
   getDonations,
+  exploreDonations
 };

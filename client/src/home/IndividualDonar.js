@@ -183,12 +183,13 @@ const OverallInfo = styled.div`
 const IndividualDonar = (props) => {
   const location = useLocation();
   const [locationState, setLocationState] = React.useState(location.state);
-
+  const [url,setUrl] = React.useState('')
   React.useEffect(() => {
     console.log(location);
     if (location.state) {
       setLocationState(location.state);
     }
+    setUrl(`/donor/donation/${locationState.id}`);
   }, [location]);
   const [selected, setSelected] = useState("story");
   function handleSelect(name) {
@@ -196,14 +197,14 @@ const IndividualDonar = (props) => {
   }
   const navigate = useNavigate();
   const [donatingAmount, setdonatingAmount] = useState("");
-  const sendUrl = "/donor/donation/63cc0ba798e39474aae283c1";
+  
   const onHandleClick = async (e) => {
     e.preventDefault();
     try {
       const number = parseInt(donatingAmount) * 100;
       console.log(localStorage.getItem("token"));
       const response = await axios.post(
-        sendUrl,
+        url,
         {
           donatingAmount: number.toString(),
         },
@@ -224,22 +225,26 @@ const IndividualDonar = (props) => {
       console.log(err);
     }
   };
+  
   return (
     <Container>
       <Wrapper>
         <ImageContainer>
           <Image src={locationState.img} />
-          <donatingAmountRaised background="darkred">
-            NRs. 2,00,000 Raised
+          <donatingAmountRaised background='darkred'>
+            {`NRs. ${locationState.amountRaised ? locationState.amountRaised : `2,00,00`}
+            Raised`}
           </donatingAmountRaised>
           <ProgressBar
-            completed={38}
+            completed={locationState.progress || 38}
             maxCompleted={100}
             height={14}
             width={350}
           />
-          <donatingAmountRaised background="green">
-            Goal : NRs. 5,000,000
+          <donatingAmountRaised background='green'>
+            {`NRs. ${
+              locationState.amountRequired ? locationState.amountRequired : `5,00,00`
+            } Raised`}
           </donatingAmountRaised>
         </ImageContainer>
         <OverallInfo>
@@ -250,17 +255,17 @@ const IndividualDonar = (props) => {
               <ListDescription>{locationState.description}</ListDescription>
               <ListDescription>{locationState.progress}</ListDescription>
             </Description>
-            <FilterTitle style={{ fontWeight: "bold" }}>
-              Donation donatingAmount ($):{" "}
+            <FilterTitle style={{ fontWeight: 'bold' }}>
+              Donation donatingAmount ($):{' '}
             </FilterTitle>
             <Price
-              type="number"
+              type='number'
               value={donatingAmount}
               onChange={(e) => setdonatingAmount(e.target.value)}
             />
             <FilterProduct>
               <Filter>
-                <FilterTitle style={{ color: "black" }}>
+                <FilterTitle style={{ color: 'black' }}>
                   Do you want to show yourself as Anonymous:
                 </FilterTitle>
                 <SelectElement>
@@ -275,20 +280,20 @@ const IndividualDonar = (props) => {
           </InformationContainer>
           <Navbar>
             <NavbarItem
-              selected={selected === "story"}
-              onClick={() => handleSelect("story")}
+              selected={selected === 'story'}
+              onClick={() => handleSelect('story')}
             >
               Story
             </NavbarItem>
             <NavbarItem
-              selected={selected === "testimonials"}
-              onClick={() => handleSelect("testimonials")}
+              selected={selected === 'testimonials'}
+              onClick={() => handleSelect('testimonials')}
             >
               Testimonials
             </NavbarItem>
             <NavbarItem
-              selected={selected === "updates"}
-              onClick={() => handleSelect("updates")}
+              selected={selected === 'updates'}
+              onClick={() => handleSelect('updates')}
             >
               Updates
             </NavbarItem>

@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./home/Home";
 import About from "./components/About";
-import NavBar from "./components/NavBar";
 import IndividualDonar from "./home/IndividualDonar";
 import IndividualStory from "./home/IndividualStory";
 
@@ -10,6 +9,7 @@ import DonorSignIn from "./components/DonorSignIn";
 import InstitutionRegister from "./components/InstitutionRegister";
 import InstitutionSignIn from "./components/InstitutionSignIn";
 import Donate from "./components/Donate";
+import DonationPage from "./home/DonationPage";
 function App() {
   return (
     <>
@@ -28,6 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/individualDonar" element={<IndividualDonar />} />
         <Route path="/story" element={<IndividualStory />} />
+        <Route path="/createDonation" element={<DonationPage />} />
       </Routes>
     </>
   );
