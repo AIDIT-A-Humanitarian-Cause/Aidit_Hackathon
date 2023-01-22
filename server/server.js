@@ -31,7 +31,9 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(rateLimiter);
-app.use(cors());
+app.use(cors({
+  origin:"*"
+}));
 app.use(helmet());
 app.use('/donor', donorRouter);
 app.use('/auth/institution', institutionRouter);
