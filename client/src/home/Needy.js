@@ -12,7 +12,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   margin-top: 20px;
-  align-items: center; 
+  align-items: center;
 `;
 
 const Arrow = styled.div`
@@ -86,7 +86,7 @@ const Button = styled.button`
   text-shadow: none;
   background-color: transparent;
   font-size: 13px;
-  opacity:0.3;
+  opacity: 0.3;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   &:hover {
     cursor: pointer;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import Img2 from "../assets/dhina.jpg"
+import Img2 from "../assets/dhina.jpg";
 function Card(props) {
   const Card = styled.div`
     display: flex;
@@ -24,13 +24,13 @@ function Card(props) {
     padding: 15px;
     background-color: rgba(242, 222, 186, 0.8);
   `;
-const DiseaseContainer = styled.h4 `
-  opacity:0.7;
-  color:grey;
-  font-style:italic;
-  margin:4px 0 3px 0;
-  font-weight:100;
-`
+  const DiseaseContainer = styled.h4`
+    opacity: 0.7;
+    color: grey;
+    font-style: italic;
+    margin: 4px 0 3px 0;
+    font-weight: 100;
+  `;
   const Image = styled.img`
     height: 100px;
     width: 15vw;
@@ -174,7 +174,9 @@ const DiseaseContainer = styled.h4 `
     color: ${(props) => (props.selected ? "darkred" : "white")};
     border-radius: ${(props) => (props.selected ? "20px" : "0px")};
   `;
-
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("authenticated") === "true"
+  );
   const [modalOpen, setModalOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const [selected, setSelected] = useState("story");
@@ -202,7 +204,9 @@ const DiseaseContainer = styled.h4 `
                   <Name>{props.name}</Name>
                   <NameTitle>{props.title}</NameTitle>
                   <AmountRaised background="darkred">
-                    {`NRs. ${props.amountRaised?props.amountRaised:`2,00,00`}Raised`}
+                    {`NRs. ${
+                      props.amountRaised ? props.amountRaised : `2,00,00`
+                    }Raised`}
                   </AmountRaised>
                   <ProgressBar
                     completed={38}
@@ -212,20 +216,37 @@ const DiseaseContainer = styled.h4 `
                   />
                   <DescriptionBottom>
                     <AmountRaised background="green">
-                     {`NRs. ${props.amountRaised?props.amountRaised:`2,00,00`}Raised`}
+                      {`NRs. ${
+                        props.amountRaised ? props.amountRaised : `2,00,00`
+                      }Raised`}
                     </AmountRaised>
-                    <Button
-                      to="/individualDonar"
-                      state={{
-                        name: props.name,
-                        title: props.title,
-                        img: props.img,
-                        description: props.description,
-                        progress: props.progress,
-                      }}
-                    >
-                      DONATE
-                    </Button>
+                    {isLoggedIn ? (
+                      <Button
+                        to="/individualDonar"
+                        state={{
+                          name: props.name,
+                          title: props.title,
+                          img: props.img,
+                          description: props.description,
+                          progress: props.progress,
+                        }}
+                      >
+                        DONATE
+                      </Button>
+                    ) : (
+                      <Button
+                        to="/join/donor/log"
+                        state={{
+                          name: props.name,
+                          title: props.title,
+                          img: props.img,
+                          description: props.description,
+                          progress: props.progress,
+                        }}
+                      >
+                        DONATE
+                      </Button>
+                    )}
                   </DescriptionBottom>
                 </ModelColumn>
                 <button
@@ -273,13 +294,15 @@ const DiseaseContainer = styled.h4 `
       )}
       <Box>
         <Image src={props.img} onClick={openModal} />
-        <DiseaseContainer>{props.nameOfCondition?props.nameOfCondition:'Cancer'}</DiseaseContainer>
+        <DiseaseContainer>
+          {props.nameOfCondition ? props.nameOfCondition : "Cancer"}
+        </DiseaseContainer>
         <Button
           to="/individualDonar"
           state={{
             name: props.name,
             title: props.title,
-            img: props.img?props.img:Img2,
+            img: props.img ? props.img : Img2,
             description: props.description,
             progress: props.progress,
           }}

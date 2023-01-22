@@ -6,12 +6,23 @@ import axios from "../api/axios";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
+  padding-top : 10px; 
   background-color: white;
   flex-direction: column;
   align-items: center;
+<<<<<<< HEAD
   padding-left : 100px;
   padding-right : 100px;
-  width: 322px; 
+  width: 500px; 
+  border-radius: 25px; 
+ 
+  
+   
+=======
+  padding-left: 100px;
+  padding-right: 100px;
+  width: 322px;
+>>>>>>> 9ad142c534456e6f3d21482eda97cc123573b3cd
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
@@ -26,6 +37,7 @@ const FormRow = styled.div`
 const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
+  width: 166px; 
 `;
 
 const Input = styled.input`
@@ -33,11 +45,26 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 5px;
 
-  width: 400px ;
+  width: 400px;
   border: outline;
 `;
 
 const Button = styled.button`
+<<<<<<< HEAD
+      background-color: gray;
+    color: white;
+    padding: 14px 20px;
+    
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 156px;
+    
+    height: 40px;
+    border-radius: 19px;
+    margin-left: 272px;
+    margin-top: 18px;
+=======
   background-color: pink;
   color: white;
   padding: 14px 20px;
@@ -47,7 +74,8 @@ const Button = styled.button`
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
-  height: 40px; 
+  height: 40px;
+>>>>>>> 9ad142c534456e6f3d21482eda97cc123573b3cd
 `;
 
 const LoginPrompt = styled.div`
@@ -59,29 +87,24 @@ const LoginLink = styled.a`
   text-decoration: none;
 `;
 const Container = styled.div`
-      display: flex; 
-    justify-content : center; 
-    align-items  : center; 
-    padding : 10px; 
-    margin-top : 20px; 
-    
-    padding-top : 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
 
-`
+  padding-top: 20px;
+`;
 
-
-
-const ImageContainer = styled.div `
-margin: 20px; 
-   img{
-  width: 300px;
-  height: 300px;
-  object - fit : cover;
-  border - radius : 10px;
-}
-
-
-`
+const ImageContainer = styled.div`
+  margin: 20px;
+  img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+`;
 
 function InstitutionRegister() {
   const [institutionName, setinstitutionName] = useState("");
@@ -135,86 +158,84 @@ function InstitutionRegister() {
   };
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Container>
+        <ImageContainer></ImageContainer>
 
-        <ImageContainer>
-
-        </ImageContainer>
-
-    <FormContainer>
-      <form onSubmit={handleSubmit}>
-        <FormRow>
-          <Label>Institutional Name:</Label>
-          <Input
-            type="text"
-            value={institutionName}
-            onChange={(e) => setinstitutionName(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>Province:</Label>
-          <Input
-            type="text"
-            value={province}
-            onChange={(e) => setProvince(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>City:</Label>
-          <Input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>District:</Label>
-          <Input
-            type="text"
-            value={district}
-            onChange={(e) => setDistrict(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>PAN No:</Label>
-          <Input
-            type="text"
-            value={panNo}
-            onChange={(e) => setPanNo(e.target.value)}
-            />
-        </FormRow>
-        <FormRow>
-          <Label>PAN Certificate:</Label>
-          <Input
-            type="file"
-            onChange={(e) => setPanCertificate(e.target.files[0])}
-            />
-        </FormRow>
-        <FormRow>
-          <Label>Email:</Label>
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>Password:</Label>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-        </FormRow>
-        <Button type="submit">Register</Button>
-      </form>
-      <LoginPrompt>
-        Already have an account? <Link to="/join/institution/log"> Log in</Link>
-      </LoginPrompt>
-    </FormContainer>
-            </Container>
-            </> 
+        <FormContainer>
+          <form onSubmit={handleSubmit}>
+            <FormRow>
+              <Label>Institutional Name:</Label>
+              <Input
+                type="text"
+                value={institutionName}
+                onChange={(e) => setinstitutionName(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Province:</Label>
+              <Input
+                type="text"
+                value={province}
+                onChange={(e) => setProvince(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>City:</Label>
+              <Input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>District:</Label>
+              <Input
+                type="text"
+                value={district}
+                onChange={(e) => setDistrict(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>PAN No:</Label>
+              <Input
+                type="text"
+                value={panNo}
+                onChange={(e) => setPanNo(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>PAN Certificate:</Label>
+              <Input
+                type="file"
+                onChange={(e) => setPanCertificate(e.target.files[0])}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Email:</Label>
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Password:</Label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </FormRow>
+            <Button type="submit">Register</Button>
+          </form>
+          <LoginPrompt>
+            Already have an account?{" "}
+            <Link to="/join/institution/log"> Log in</Link>
+          </LoginPrompt>
+        </FormContainer>
+      </Container>
+    </>
   );
 }
 

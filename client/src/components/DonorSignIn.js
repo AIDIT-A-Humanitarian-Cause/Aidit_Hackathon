@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
+  border-radius : 15px; 
   flex-direction: column;
   align-items: center;
   padding: 20px;
@@ -47,8 +48,12 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
-  width: 100%;
-  height : 45px; 
+  margin-left : 126px;
+  width: 135px;
+  height : 39   px; 
+  align-items: center; 
+  border-radius : 30px;
+  
 `;
 
 const SignUpPrompt = styled.div`

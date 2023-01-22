@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
+  border-radius: 15px; 
   margin-top: 38px; 
   margin-left : 38px; 
+  margin-bottom: 10px;
   
   background-color: white;
   flex-direction: column;
@@ -56,16 +58,25 @@ const Select = styled.select`
 `;
 
 const Button = styled.button`
-  background-color: pink;
-   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: outline;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-  height: 40px;                          
+ background-color: gray;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: outline;
+    cursor: pointer;
+    
+    font-size: 16px;
+    width: 164px;
+    height: 40px;
+    margin-left: 161px;
+    margin-top: 29px;
+    border-radius: 24px;
+px
+;
+}
+
+user agent stylesheet
+button {                         
 `
 
 const LoginPrompt = styled.div`
