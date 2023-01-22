@@ -113,12 +113,6 @@ const TitleName = styled.h1`
   letter-spacing: 3.45px;
   `
 
-
-  const CrossButton =styled.div `
-  
-  position : absolute; 
-  top: 20px; 
-  `
   const Slider = () => {
     const[triggered , setTriggered] = useState(false); 
     

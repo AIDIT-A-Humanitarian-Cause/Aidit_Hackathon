@@ -56,15 +56,7 @@ function HeroImg() {
     <HeroContainer>
       <ImageContainer src={HeroImage} />
       <NavLink to="/donate">
-        {isLoggedInAsInstituition ? (
-          <Link to="/createDonation">
-            <HeroButton style={{ fontWeight: "bold", fontSize: "20.45px" }}>
-              Create Donation
-            </HeroButton>
-          </Link>
-        ) : (
-          <HeroButton>DONATE NOW</HeroButton>
-        )}
+        {isLoggedInAsInstituition ? <></> : <HeroButton>DONATE NOW</HeroButton>}
       </NavLink>
     </HeroContainer>
   );

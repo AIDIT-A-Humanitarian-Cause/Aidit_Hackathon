@@ -3,22 +3,22 @@ import styled from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "./datas";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Img2 from "../assets/dhina.jpg";
 
 const Container = styled.div`
   width: 100%;
-  height: 75%;
+  height: 70vh;
   display: flex;
-  background-color: #23272b;
   position: relative;
-  overflow: hidden;
-  margin-top: 20px;
-  align-items: center;
-`;
 
+  overflow: hidden;
+`;
 const Arrow = styled.div`
   width: 45px;
   height: 45px;
-  background-color: whitesmoke;
+  background-color: grey;
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -38,60 +38,68 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  align-items: center;
+  background-color: rgba(250, 236, 214, 0.5);
   transition: all 1s ease;
+
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 const Slide = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   align-items: center;
-  background-color: #23272b;
 `;
 const ImgContainer = styled.div`
-  flex: 0.8;
+  flex: 0.5;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const Image = styled.img`
-  height: 50%;
+  height: 60%;
+  margin-top: 20px;
+  width: 60%;
+  border-radius: 40px;
+  object-fit: cover;
 `;
 const InfoContainer = styled.div`
-  flex: 1;
-  padding: 50px;
+  flex: 0.8;
+  padding: 0px;
+  margin: 0px;
 `;
 const Title = styled.h1`
-  font-size: 65.45px;
-  font-family: "Ubuntu", sans-serif;
-  color: whitesmoke;
+  font-size: 25.45px;
+  font-family: "Urbanist", sans-serif;
+  color: black;
+  margin: 0;
 `;
 const Description = styled.p`
-  margin: 50px 0px;
+  margin: 40px 0px;
   font-size: 22px;
-  color: whitesmoke;
+  color: black;
   font-weight: bold;
-  font-family: "Ubuntu", sans-serif;
-  letter-spacing: 3.45px;
+  font-family: "Urbanist", sans-serif;
 `;
-const Button = styled.button`
-  font-family: "Ubuntu", sans-serif;
-  color: whitesmoke;
+const Button = styled(Link)`
+  text-decoration: none;
+  font-family: "Urbanist", sans-serif;
+  border: 0 solid;
+  color: black;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline-color: rgba(255, 255, 255, 0.5);
+  outline: 1px solid;
   outline-offset: 0px;
-  padding: 8px;
-  font-weight: 400;
+  padding: 14.45px;
+  font-weight: bolder;
   text-shadow: none;
   background-color: transparent;
-  font-size: 13px;
-  opacity: 0.3;
+  font-size: 15px;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   &:hover {
     cursor: pointer;
     border: 1px solid;
-    background-color: red;
+    background-color: limegreen;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
       0 0 20px rgba(255, 255, 255, 0.2);
     outline-color: rgba(255, 255, 255, 0);
@@ -102,6 +110,9 @@ const Button = styled.button`
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("authenticated") === "true"
+  );
   const OnClick = (SlideDirection) => {
     if (SlideDirection === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
@@ -123,7 +134,25 @@ const Slider = () => {
             <InfoContainer>
               <Title>{itemSlide.title}</Title>
               <Description>{itemSlide.description}</Description>
-              <Button>READ MORE...</Button>
+              {isLoggedIn ? (
+                <Button
+                  to="/individualDonar "
+                  state={{
+                    id: itemSlide.id,
+                    name: itemSlide.name,
+                    title: itemSlide.title,
+                    img: itemSlide.img ? itemSlide.img : Img2,
+                    description: itemSlide.description,
+                    progress: itemSlide.progress,
+                    amountRequired: itemSlide.amountRequired,
+                    amountRaised: itemSlide.amountRaised,
+                  }}
+                >
+                  DONATE
+                </Button>
+              ) : (
+                <Button to="/join/donor/log">DONATE</Button>
+              )}
             </InfoContainer>
           </Slide>
         ))}

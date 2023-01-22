@@ -25,7 +25,17 @@ const AllDonations = () => {
   return (
     <div className="donations">
       {donations.length === 0 ? (
-        <h1 className="Error">No Donations Currently</h1>
+        <h1
+          className="Error"
+          style={{
+            textAlign: "center",
+            fontSize: "2rem",
+            color: "red",
+            marginTop: "2rem",
+          }}
+        >
+          No Donations Currently
+        </h1>
       ) : (
         donations.map((donation) => {
           console.log("here");
