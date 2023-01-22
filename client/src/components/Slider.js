@@ -9,7 +9,7 @@ import StoryPopUp from "./StoryPopUp";
 
 const Container = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 70vh;
   display: flex;
   position: relative;
 
@@ -109,6 +109,7 @@ const TitleName = styled.h1`
   font-weight: bold;
   letter-spacing: 3.45px;
 `;
+
 const Slider = () => {
   const [triggered, setTriggered] = useState(false);
 
