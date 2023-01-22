@@ -9,7 +9,7 @@ function WhyDonate() {
       <TextContainer>
         <Heading>Why Donate?</Heading>
         <Body>
-        <img src={Quote}alt=""/>
+          <img src={Quote} alt="" />
         </Body>
       </TextContainer>
       <ImgContainer>
@@ -37,15 +37,15 @@ const TextContainer = styled.div`
 
 const Heading = styled.h2`
   margin-left: 10px;
-  margin-bottom:0px;
+  margin-bottom: 0px;
 `;
 const Body = styled.div`
-    img {
-      width: 100%;
-      height: 20%;
-      margin-top:0px;
-      object-fit: contain;
-    }
+  img {
+    width: 100%;
+    height: 20%;
+    margin-top: 0px;
+    object-fit: contain;
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -54,7 +54,7 @@ const ImgContainer = styled.div`
   width: 525px;
   height: 319px;
   img {
-    border-radius: 40PX 40PX;
+    border-radius: 40px 40px;
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 `;
 const Slide = styled.div`
   width: 100vw;
-  height: 85vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   background-color: #23272b;

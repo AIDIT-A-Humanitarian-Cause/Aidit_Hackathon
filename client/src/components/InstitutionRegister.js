@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import axios from "../api/axios";
 const FormContainer = styled.div`
   display: flex;
   background-color: lightgray;
@@ -55,7 +56,7 @@ const LoginLink = styled.a`
 `;
 
 function InstitutionRegister() {
-  const [institutionalName, setInstitutionalName] = useState("");
+  const [institutionName, setinstitutionName] = useState("");
   const [province, setProvince] = useState("");
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
@@ -63,12 +64,44 @@ function InstitutionRegister() {
   const [panCertificate, setPanCertificate] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(
-      `Institutional Name: ${institutionalName} Province: ${province} City: ${city} District: ${district} PAN No: ${panNo} PAN Certificate: ${panCertificate} Email: ${email} Password: ${password}`
-    );
+  const navigate = useNavigate();
+  const [authenticated, setauthenticated] = useState(
+    localStorage.getItem(localStorage.getItem("authenticated") || false)
+  );
+  const REGISTERUrl = "/auth/institution/register";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(
+        institutionName,
+        province,
+        city,
+        district,
+        panCertificate.name,
+        panNo,
+        email,
+        password
+      );
+      const response = await axios.post(REGISTERUrl, {
+        institutionName,
+        province,
+        city,
+        district,
+        panNo,
+        panCertificate: panCertificate.name,
+        email,
+        password,
+      });
+      console.log(response);
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+        setauthenticated(true);
+        navigate("/home");
+      }
+    } catch (err) {
+      alert(`${err.message}`);
+      console.log(err);
+    }
   };
   return (
     <FormContainer>
@@ -77,8 +110,8 @@ function InstitutionRegister() {
           <Label>Institutional Name:</Label>
           <Input
             type="text"
-            value={institutionalName}
-            onChange={(e) => setInstitutionalName(e.target.value)}
+            value={institutionName}
+            onChange={(e) => setinstitutionName(e.target.value)}
           />
         </FormRow>
         <FormRow>

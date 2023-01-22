@@ -4,10 +4,10 @@ const express = require('express');
 require('dotenv').config();
 require('express-async-errors');
 
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 
@@ -37,29 +37,7 @@ app.use('/donor', donorRouter);
 app.use('/auth/institution', institutionRouter);
 app.use('/donation', authMiddleWare, donationRouter);
 
-app.post('/sms', async (req, res) => {
-  try {
-    const { phoneNumber } = req.body;
-    const value = [...phoneNumber];
-    const commaSeperatedValue = value.join(',');
-    console.log(commaSeperatedValue);
-    console.log(process.env.SPARROW_TOKEN);
-    console.log(process.env.IDENTITY);
-    const response = await axios(
-      'http://api.sparrowsms.com/v2/sms/',
-      (params = {
-        token: 'v2_mKsyKwullsuMj7csK9N95bCsn2D.dwYE',
-        from: process.env.IDENTITY,
-        to: commaSeperatedValue,
-        text: 'Ishan fuchhe',
-      })
-    );
-    res.status(200).json({ msg: 'ddone' });
-  } catch (error) {
-    console.log(error)
 
-  }
-});
 
 app.use('*', (req, res) => {
   res.status(404).send('<h1>Not Found</h1>');
