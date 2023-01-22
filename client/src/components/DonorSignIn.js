@@ -52,6 +52,27 @@ const SignUpLink = styled.a`
   color: blue;
   text-decoration: none;
 `;
+const Container = styled.div `
+     display: flex; 
+    justify-content : center; 
+    align-items  : center; 
+    padding : 10px; 
+    margin-top : 20px; 
+    
+    padding-top : 20px; 
+
+`
+
+const ImageContainer = styled.div `
+  margin : 20px; 
+   img{
+    width: 300px; 
+    height : 300px; 
+    object-fit : cover; 
+    border-radius : 10px; 
+   } 
+    
+`
 
 function DonorSignIn() {
   const navigate = useNavigate();
@@ -83,6 +104,14 @@ function DonorSignIn() {
   return (
     <>
       <Navbar />
+          <Container>
+
+
+
+              <ImageContainer>
+                  <img src="https://images.pexels.com/photos/128299/pexels-photo-128299.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hello" />  
+
+              </ImageContainer>
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <FormRow>
@@ -108,6 +137,7 @@ function DonorSignIn() {
           <Link to="/join/donor/register"> Sign Up!</Link>
         </SignUpPrompt>
       </FormContainer>
+          </Container>
     </>
   );
 }

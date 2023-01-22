@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
+import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
-  background-color: lightgray;
+  background-color: white;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding-left : 100px;
+  padding-right : 100px;
+  width: 322px; 
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
@@ -30,20 +33,21 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 5px;
 
-  width: 100%;
+  width: 400px ;
   border: outline;
 `;
 
 const Button = styled.button`
   background-color: pink;
   color: white;
-  padding: 14px 22px;
+  padding: 14px 20px;
   margin: 8px 0;
 
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
+  height: 40px; 
 `;
 
 const LoginPrompt = styled.div`
@@ -54,6 +58,30 @@ const LoginLink = styled.a`
   color: blue;
   text-decoration: none;
 `;
+const Container = styled.div`
+      display: flex; 
+    justify-content : center; 
+    align-items  : center; 
+    padding : 10px; 
+    margin-top : 20px; 
+    
+    padding-top : 20px; 
+
+`
+
+
+
+const ImageContainer = styled.div `
+margin: 20px; 
+   img{
+  width: 300px;
+  height: 300px;
+  object - fit : cover;
+  border - radius : 10px;
+}
+
+
+`
 
 function InstitutionRegister() {
   const [institutionName, setinstitutionName] = useState("");
@@ -106,6 +134,14 @@ function InstitutionRegister() {
     }
   };
   return (
+    <>
+    <Navbar/>
+      <Container>
+
+        <ImageContainer>
+
+        </ImageContainer>
+
     <FormContainer>
       <form onSubmit={handleSubmit}>
         <FormRow>
@@ -146,14 +182,14 @@ function InstitutionRegister() {
             type="text"
             value={panNo}
             onChange={(e) => setPanNo(e.target.value)}
-          />
+            />
         </FormRow>
         <FormRow>
           <Label>PAN Certificate:</Label>
           <Input
             type="file"
             onChange={(e) => setPanCertificate(e.target.files[0])}
-          />
+            />
         </FormRow>
         <FormRow>
           <Label>Email:</Label>
@@ -169,7 +205,7 @@ function InstitutionRegister() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
+            />
         </FormRow>
         <Button type="submit">Register</Button>
       </form>
@@ -177,6 +213,8 @@ function InstitutionRegister() {
         Already have an account? <Link to="/join/institution/log"> Log in</Link>
       </LoginPrompt>
     </FormContainer>
+            </Container>
+            </> 
   );
 }
 

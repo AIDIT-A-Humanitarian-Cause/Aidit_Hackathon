@@ -12,7 +12,7 @@ const HeroContainer = styled.div`
 const ImageContainer = styled.img`
   object-fit: cover;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
 `;
 const HeroButton = styled.button`
   background-color: transparent;

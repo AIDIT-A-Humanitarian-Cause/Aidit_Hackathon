@@ -3,9 +3,11 @@ import styled from "styled-components";
 import Needy from '../home/Needy.js';
 import AllDonations from "./allDonations.js/index.js";
 import Footer from "./Footer.js";
+import Navbar from "./NavBar.js";
 
 function Donate() {
   return <>
+  <Navbar/>
   <Container>
     <Needy />
   </Container>
