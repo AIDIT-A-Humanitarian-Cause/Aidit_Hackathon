@@ -15,7 +15,7 @@ function Card(props) {
   `;
   const Box = styled.div`
     width: 15vw;
-    height:180px;
+    height:300px;
     border-radius: 40px;
     background-color: white;
     display: flex;

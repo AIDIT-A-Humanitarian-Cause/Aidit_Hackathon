@@ -6,6 +6,7 @@ import ScrollTrigger from "react-scroll-trigger";
 function CounterUp() {
   const [on, setOn] = useState(false);
   const Container = styled.div`
+  overflow-x : none; 
     height: 26vh;
     margin-top : 40px; 
     background-color: rgba(242, 222, 186, 0.9);
