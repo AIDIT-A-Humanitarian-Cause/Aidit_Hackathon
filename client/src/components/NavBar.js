@@ -98,6 +98,7 @@ const Navbar = () => {
   function logoutHandle() {
     localStorage.setItem('authenticated', false);
     localStorage.setItem('isInstitution', false);
+    localStorage.setItem('token',"")
     setLoggedIn(false);
     <Navigate to='/home' />;
     window.location.reload();
