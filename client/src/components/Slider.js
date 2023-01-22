@@ -56,9 +56,10 @@ const ImgContainer = styled.div`
   align-items: center;
 `;
 const Image = styled.img`
-  height: 100%;
+  height: 60%;
   margin-top: 20px; 
-  width: 100%; 
+  width: 60%; 
+  border-radius : 40px ;
   object-fit : cover; 
   
 `;
