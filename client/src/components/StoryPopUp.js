@@ -26,6 +26,7 @@ function StoryPopUp(props) {
         <ImgContainer>
             <img src = {props.image} alt = " this one"/>
         </ImgContainer>
+        <hr/>
         <TextContainer>
             <TextTitle>
                 {props.title}'s Story   
@@ -46,7 +47,7 @@ const CrossContainer = styled.div `
 position : absolute ;
 top : 6px; 
 left : 6px; 
- 
+
 border-radius : 40%; 
 justify-content : center; 
 text-align : center; 
@@ -70,13 +71,15 @@ const Container = styled.div `
     position : absolute;
     display: flex; 
     flex-direction : column ;
-    width: 400px; 
+    width: 450px; 
     height : 400px; 
     border-radius : 20px; 
-    background-color : rgba(242,222,186,0.9);
-    top : 1px; 
+    background-color : white;
+    top : 10px; 
     margin-bottom : 10px; 
+
     font-family : Utilatarian ;
+  
 
     
    
@@ -86,6 +89,8 @@ const ImgContainer = styled.div`
     padding-top : 20px; 
     width : 350px;
     height : 250px;  
+    justify-content : end;
+    
     padding-left: 25px; 
     img {
        width: 100%; 

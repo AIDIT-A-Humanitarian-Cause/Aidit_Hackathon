@@ -24,7 +24,8 @@ function Home() {
       <CardsDonar />
       <CounterUp />
       <Slider />
-      <DonorTitle>Our Top Donors</DonorTitle>
+      <DonorTitle><hr/>Our Top Donors
+        </DonorTitle>
       <DonorContainer>
         {images.map((val) => {
           return <Donors props={{ images: val }} />;
@@ -42,6 +43,7 @@ const DonorContainer = styled.div`
   flex-direction: row;
   padding: 20px;
   align-items: center;
+ 
   justify-content: space-evenly;
   background-color: rgba(250, 236, 214, 0.5);
   padding-bottom: 40px;

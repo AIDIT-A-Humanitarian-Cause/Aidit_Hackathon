@@ -9,6 +9,17 @@ const FormContainer = styled.div`
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
+
+const Label = styled.label`
+
+`;
+
+const Input = styled.input`
+  
+  
+
+
+`;
 const DonationPage = () => {
   const [formData, setFormData] = useState({
     nameOfDonation: "",
@@ -52,16 +63,16 @@ const DonationPage = () => {
       <Navbar />
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <label>
+          <Label>
             Name of Donation:
-            <input
+            <Input
               type="text"
               name="nameOfDonation"
               value={formData.nameOfDonation}
               onChange={handleChange}
               required
             />
-          </label>
+          </Label>
           <label>
             Required Amount:
             <input

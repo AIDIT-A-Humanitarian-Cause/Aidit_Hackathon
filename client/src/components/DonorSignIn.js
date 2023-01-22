@@ -9,19 +9,23 @@ const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  height : 250px;  
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
 const FormRow = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center; 
+  
   margin: 10px 0;
 `;
 
 const Label = styled.label`
   font-size: 16px;
+  padding-right: 20px; 
+  display: inline-block; 
   margin-bottom: 5px;
+  width: 100px;
 `;
 
 const Input = styled.input`
@@ -29,7 +33,9 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 5px;
   border: outline;
+  display : inline-block ; 
   width: 100%;
+  
 `;
 
 const Button = styled.button`
@@ -42,6 +48,7 @@ const Button = styled.button`
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
+  height : 45px; 
 `;
 
 const SignUpPrompt = styled.div`

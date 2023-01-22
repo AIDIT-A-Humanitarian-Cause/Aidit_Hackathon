@@ -21,7 +21,7 @@ const FormContainer = styled.div`
 
 const FormRow = styled.div`
   display: flex;
-  flex-direction: column;
+  
   align-items: flex-start;
   margin: 10px 0;
 `;
@@ -29,6 +29,9 @@ const FormRow = styled.div`
 const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
+  padding-right : 20px;
+  width: 80px; 
+  display : inline-block; 
 `;
 
 const Input = styled.input`
@@ -38,7 +41,8 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 5px;
   border: outline;
-  width: 380px;
+  width: 300px; 
+  
 
 
 `;

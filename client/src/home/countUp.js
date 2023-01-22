@@ -8,7 +8,7 @@ function CounterUp() {
   const Container = styled.div`
   overflow-x : none; 
     height: 26vh;
-    margin-top : 40px; 
+    
     background-color: rgba(242, 222, 186, 0.9);
     opacity: 0.85;
     display: flex;
