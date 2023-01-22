@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 const FooterContainer = styled.div`
   background-color: #2f2f2f;
   color: white;
+  overflow-x : none; 
 
   text-align: center;
   width: 100%;

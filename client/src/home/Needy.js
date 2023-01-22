@@ -6,12 +6,13 @@ import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 70%;
+  height: 50%;
   display: flex;
   background-color: #23272b;
   position: relative;
   overflow: hidden;
   margin-top: 20px;
+  align-items: center; 
 `;
 
 const Arrow = styled.div`
