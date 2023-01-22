@@ -1,9 +1,10 @@
 require("dotenv").config();
 
-const mongoose = require("mongoose");
-const { isValidPassword } = require("mongoose-custom-validators");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
+const { isValidPassword } = require('mongoose-custom-validators');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { parse } = require('path');
 
 const donorSchema = mongoose.Schema({
   firstName: {
@@ -43,6 +44,10 @@ const donorSchema = mongoose.Schema({
         "Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.",
     },
   },
+  totalDonatedAmount:{
+    type:Number,
+    default:0
+  }
 });
 donorSchema.pre("save", async function () {
   const salt = await bcrypt.genSalt(10);
@@ -67,5 +72,11 @@ donorSchema.methods.comparePassword = async function (password) {
 
   return valid;
 };
-
-module.exports = mongoose.model("Donor", donorSchema);
+donorSchema.methods.updateAmount = async function (amount) {
+  const previousDonatedAmount = parseFloat(+this.totalDonatedAmount)
+  const donatedAmount = parseFloat(+amount)
+  const totalAmount = donatedAmount+previousDonatedAmount
+  console
+  this.totalDonatedAmount = totalAmount
+};
+module.exports = mongoose.model('Donor', donorSchema);

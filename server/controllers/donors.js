@@ -4,9 +4,10 @@ const Donation = require("../models/donation");
 const CustomAPIError = require("../errors/custom-api");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_KEY);
+const trx = require("../models/donationTrx");
+const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(username, email, password);
   if (username) {
     var donor = await Donor.findOne({ username: username });
     if (!donor) {
@@ -15,15 +16,16 @@ const login = async (req, res) => {
         message: "Cannot find the user with the provided username",
       });
     }
-  } else if (email) {
-    var donor = await Donor.findOne({ email: email });
-    if (!donor) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        success: false,
-        message: `Cannot find the user with the provided email`,
-      });
+   }else if (email) {
+      var donor = await Donor.findOne({ email: email });
+      if (!donor) {
+        return res.status(StatusCodes.BAD_REQUEST).json({
+          success: false,
+          message: "Cannot find the user with the provided email",
+        });
     }
   }
+
   if (await donor.comparePassword(password)) {
     const token = await donor.createJwt();
     return res
@@ -57,7 +59,6 @@ const register = async (req, res) => {
     country,
     city,
   });
-  console.log("here");
   res
     .status(StatusCodes.ACCEPTED)
     .json({ success: true, message: "User is registered.", donor: newDonor });
@@ -65,8 +66,23 @@ const register = async (req, res) => {
 const donate = async (req, res) => {
   //need  id of particular donation and its creater
   //need id of the one donating{this is taken through jwt}
-  const { donatingAmount } = req.body;
+  // const token = req.header
+  const authHeader = req.headers.authorization;
+  let donorId;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    throw new CustomAPIError("No token sent", StatusCodes.UNAUTHORIZED);
+  }
+  console.log("her");
+  const token = authHeader.split(" ")[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    donorId = decoded.id;
+  } catch (error) {
+    throw new CustomAPIError(error.message, StatusCodes.UNAUTHORIZED);
+  }
+  console.log("here");
 
+  const { donatingAmount } = req.body;
   const { id } = req.params;
   const donationToBeFunded = await Donation.findById(id);
   if (!donationToBeFunded)
@@ -74,30 +90,72 @@ const donate = async (req, res) => {
       "The donation with the Id doesnot exist.",
       StatusCodes.BAD_REQUEST
     );
-  const { nameOfDonation, description, requiredAmount, donatedAmount } =
+  const { nameOfDonation, description, requiredAmount, donatedAmount, _id } =
     donationToBeFunded;
-  const maxAmount =
-    // const session = await stripe.checkout.sessions.create({
-    //   payment_method_types: ['card'],
-    //   line_items: [
-    //     {
-    //       name: `${nameOfDonation}`,
-    //       description: `${donatedAmount} out of ${requiredAmount}\n ${description} `,
-    //       adjustable_quantity:{enabled:true,maximum:},
-    //     },
-    //   ],
-    //   success_url: 'www.google.com',
-    //   cancel_url: 'www.google.com',
-    //   mode: 'payment',
-    // });
-    res.status(400).json({
-      success: true,
-      msg: `${donatingAmount} has been donated to the requested fund Raiser`,
-    });
+  console.log(donationToBeFunded);
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ["card"],
+    line_items: [
+      {
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: `${nameOfDonation}`,
+            description: `${donatedAmount} out of ${requiredAmount} \n
+             ${description}`,
+            images: [
+              "https://www.shutterstock.com/image-photo/dhaka-bangladesh-january-2020-daily-260nw-1855368253.jpg",
+            ],
+          },
+          unit_amount: parseFloat(+donatingAmount.toString()),
+        },
+        quantity: 1,
+      },
+    ],
+    phone_number_collection: {
+      enabled: true,
+    },
+    success_url: "https://awww.google.com/gmail/",
+    cancel_url: "https://www.google.com/gmail/",
+    mode: "payment",
+  });
+  const amountInDollar = parseFloat(+donatingAmount.toString()) / 100;
+  const newTrx = await trx.create({
+    id: session.id,
+    donorId: donorId,
+    donationId: _id,
+    amount: amountInDollar,
+  });
+  return res.status(200).json({
+    success: true,
+    msg: `${donatingAmount} has been donated to the requested fund Raiser`,
+    trx: newTrx,
+    url: session.url,
+  });
 };
+const getDonations = async (req, res) => {
+  const authHeader = req.headers.authorization;
+  let donorId;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    throw new CustomAPIError("No token sent", StatusCodes.UNAUTHORIZED);
+  }
+  const token = authHeader.split(" ")[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    donorId = decoded.id;
+  } catch (error) {
+    throw new CustomAPIError(error);
+  }
 
+  const allDonations = await trx.find({ status: true, donorId });
+  res.status(200).json({
+    success: true,
+    msg: `Here are all the required Donation : ${allDonations}`,
+  });
+};
 module.exports = {
   register,
   login,
   donate,
+  getDonations,
 };

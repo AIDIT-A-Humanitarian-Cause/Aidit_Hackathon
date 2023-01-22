@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { useState } from "react";
 import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   background-color: rgba(250, 236, 214, 0.5);
@@ -193,16 +194,31 @@ const IndividualDonar = (props) => {
   function handleSelect(name) {
     setSelected(name);
   }
+  const navigate = useNavigate();
   const [donatingAmount, setdonatingAmount] = useState("");
   const sendUrl = "/donor/donation/63cc0ba798e39474aae283c1";
   const onHandleClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(sendUrl, {
-        donatingAmount,
-      });
+      const number = parseInt(donatingAmount) * 100;
+      console.log(localStorage.getItem("token"));
+      const response = await axios.post(
+        sendUrl,
+        {
+          donatingAmount: number.toString(),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       console.log(response);
-      response.data.success && alert("User is registered successfully!");
+      const checkOutUrl = response.data.url;
+      if (response.data.success) {
+        alert("Donation Successful");
+        window.location.href = checkOutUrl;
+      }
     } catch (err) {
       alert(`${err.message}`);
       console.log(err);
