@@ -6,24 +6,24 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
-  border-radius: 15px; 
-  margin-top: 38px; 
-  margin-left : 38px; 
+  border-radius: 15px;
+  margin-top: 38px;
+  margin-left: 38px;
   margin-bottom: 10px;
-  
+
   background-color: white;
   flex-direction: column;
-  justify-content : center; 
+  justify-content: center;
   align-items: center;
-  padding-left : 140px;
-  padding-right : 140px;
-  width: 250px; 
+  padding-left: 140px;
+  padding-right: 140px;
+  width: 250px;
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
 const FormRow = styled.div`
   display: flex;
-  
+
   align-items: flex-start;
   margin: 10px 0;
 `;
@@ -31,22 +31,19 @@ const FormRow = styled.div`
 const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
-  padding-right : 20px;
-  width: 80px; 
-  display : inline-block; 
+  padding-right: 20px;
+  width: 80px;
+  display: inline-block;
 `;
 
 const Input = styled.input`
-  padding-left : 18px; 
-  padding-right : 19px; 
-  padding-top: 15px; 
+  padding-left: 18px;
+  padding-right: 19px;
+  padding-top: 15px;
   font-size: 16px;
   border-radius: 5px;
   border: outline;
-  width: 300px; 
-  
-
-
+  width: 300px;
 `;
 
 const Select = styled.select`
@@ -58,26 +55,20 @@ const Select = styled.select`
 `;
 
 const Button = styled.button`
- background-color: gray;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: outline;
-    cursor: pointer;
-    
-    font-size: 16px;
-    width: 164px;
-    height: 40px;
-    margin-left: 161px;
-    margin-top: 29px;
-    border-radius: 24px;
-px
-;
-}
+  background-color: gray;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: outline;
+  cursor: pointer;
 
-user agent stylesheet
-button {                         
-`
+  font-size: 16px;
+  width: 164px;
+  height: 40px;
+  margin-left: 161px;
+  margin-top: 29px;
+  border-radius: 24px;
+`;
 
 const LoginPrompt = styled.div`
   margin-top: 20px;
@@ -87,16 +78,13 @@ const LoginLink = styled.a`
   color: blue;
   text-decoration: none;
 `;
-const Container = styled.div `
-  display : flex; 
-  justify-content : center; 
-  align-items : center; 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-
-`
-
-const ImageContainer = styled.div `
-`
+const ImageContainer = styled.div``;
 function DonorRegister() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -140,38 +128,36 @@ function DonorRegister() {
 
   return (
     <>
-    <Navbar/>
-    <Container>
-      <ImageContainer>
-
-      </ImageContainer>
-    <FormContainer>
-      <form onSubmit={handleSubmit}>
-        <FormRow>
-          <Label>First Name:</Label>
-          <Input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>Last Name:</Label>
-          <Input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </FormRow>
-        <FormRow>
-          <Label>Gender: </Label>
-          <Input
-            type="text"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          />
-        </FormRow>
-        {/* <FormRow>
+      <Navbar />
+      <Container>
+        <ImageContainer></ImageContainer>
+        <FormContainer>
+          <form onSubmit={handleSubmit}>
+            <FormRow>
+              <Label>First Name:</Label>
+              <Input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Last Name:</Label>
+              <Input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Gender: </Label>
+              <Input
+                type="text"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              />
+            </FormRow>
+            {/* <FormRow>
           <Label>Gender:</Label>
           <Select value={gender} onChange={(e) => setGender(e.target.value)}>
           <option value=""></option>
@@ -180,31 +166,31 @@ function DonorRegister() {
           <option value="other">Other</option>
           </Select>
         </FormRow> */}
-        <FormRow>
-          <Label>Country:</Label>
-          <Input
-            type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            />
-        </FormRow>
-        <FormRow>
-          <Label>City:</Label>
-          <Input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            />
-        </FormRow>
-        <FormRow>
-          <Label>Username:</Label>
-          <Input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            />
-        </FormRow>
-        {/* <FormRow>
+            <FormRow>
+              <Label>Country:</Label>
+              <Input
+                type="text"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>City:</Label>
+              <Input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Username:</Label>
+              <Input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </FormRow>
+            {/* <FormRow>
           <Label>Phone Number:</Label>
           <Input
           type="tel"
@@ -212,31 +198,31 @@ function DonorRegister() {
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
         </FormRow> */}
-        <FormRow>
-          <Label>Email:</Label>
-          <Input
-            type="text"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
-            />
-        </FormRow>
+            <FormRow>
+              <Label>Email:</Label>
+              <Input
+                type="text"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
+              />
+            </FormRow>
 
-        <FormRow>
-          <Label>Password:</Label>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </FormRow>
-        <Button type="submit">Register</Button>
-      </form>
-      <LoginPrompt>
-        Already have an account? <Link to="/join/donor/log"> Log in</Link>
-      </LoginPrompt>
-    </FormContainer>
-            </Container>
-          </>
+            <FormRow>
+              <Label>Password:</Label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </FormRow>
+            <Button type="submit">Register</Button>
+          </form>
+          <LoginPrompt>
+            Already have an account? <Link to="/join/donor/log"> Log in</Link>
+          </LoginPrompt>
+        </FormContainer>
+      </Container>
+    </>
   );
 }
 

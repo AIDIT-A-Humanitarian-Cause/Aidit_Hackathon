@@ -7,20 +7,21 @@ import Logos from "../assets/logo_.png";
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
-  flex: 3;
-  justify-content: end;
+  justify-content: space-around;
   background-color: white;
   font-weight: bold;
-  box-shadow: 2px 2px 2px solid gray;
 `;
 
 const NavLink = styled(Link)`
   color: maroon;
   text-decoration: none;
-  padding: 12px 24px;
   cursor: pointer;
-  margin-right: 10px;
   font-size: 18px;
+  &:hover {
+    color: darkred;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
 `;
 
 const NavButton = styled.button`
@@ -33,7 +34,6 @@ const NavButton = styled.button`
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-
   background-color: white;
 `;
 
@@ -66,8 +66,8 @@ const NavDropdownItem = styled.a`
   }
 `;
 const Logo = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   margin-left: 10px;
 `;
 
