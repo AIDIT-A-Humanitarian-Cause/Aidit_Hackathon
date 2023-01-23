@@ -97,9 +97,10 @@ const Navbar = () => {
     setSignIn(event.type === "mouseenter");
   };
   function logoutHandle() {
-    localStorage.setItem("authenticated", false);
-    localStorage.setItem("isInstitution", false);
-    navigate("/");
+    localStorage.setItem('authenticated', false);
+    localStorage.setItem('isInstitution', false);
+    setLoggedIn(false);
+    <Navigate to='/home' />;
     window.location.reload();
     setLoggedIn(false);
   }
@@ -152,6 +153,11 @@ const Navbar = () => {
         )}
         {isInstitute ? (
           <NavLink to="/donationProgress">Donation Progress</NavLink>
+        ) : (
+          <></>
+        )}
+        {isInstitute ? (
+          <NavLink to='/donationProgress'>Donation Progress</NavLink>
         ) : (
           <></>
         )}

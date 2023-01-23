@@ -116,9 +116,9 @@ const donate = async (req, res) => {
     phone_number_collection: {
       enabled: true,
     },
-    success_url: "http://localhost:3000/success",
-    cancel_url: "https://www.google.com/gmail/",
-    mode: "payment",
+    success_url: `${process.env.SERVER_URL}/sucess`,
+    cancel_url: `${process.env.SERVER_URL}/failure`,
+    mode: 'payment',
   });
   const amountInDollar = parseFloat(+donatingAmount.toString()) / 100;
   const newTrx = await trx.create({
