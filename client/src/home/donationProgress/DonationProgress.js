@@ -30,7 +30,7 @@ function DonationProgress() {
         <h1 className="title">Donations You have made till now.</h1>
         <div className="line"></div>
         <div className="myDonations">
-          <div className="titles">
+          <div className="titles1">
             <ul>
               <li>S.N</li>
               <li>Name of Donation</li>

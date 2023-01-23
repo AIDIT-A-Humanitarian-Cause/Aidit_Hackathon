@@ -225,33 +225,33 @@ const IndividualDonar = (props) => {
             <Image src={locationState.img} />
             <h3
               style={{
-                fontSize: "18px",
-                fontFamily: "Urbanist",
-                justifyContent: "start",
-                color: "darkred",
-                " letterSpacing": "1.45px",
-                margin: "13px",
+                fontSize: '18px',
+                fontFamily: 'Urbanist',
+                justifyContent: 'start',
+                color: 'darkred',
+                ' letterSpacing': '1.45px',
+                margin: '13px',
               }}
             >
-              NRs. 2,00,000 Raised
+              {`Nrs ${locationState.amountRaised || '2,00,000'} Raised`}
             </h3>
             <ProgressBar
               completed={38}
               maxCompleted={100}
-              height={"14px"}
-              width={"350px"}
+              height={'14px'}
+              width={'350px'}
             />
             <h3
               style={{
-                fontSize: "18px",
-                fontFamily: "Urbanist",
-                justifyContent: "start",
-                color: "limegreen",
-                " letterSpacing": "1.45px",
-                margin: "13px",
+                fontSize: '18px',
+                fontFamily: 'Urbanist',
+                justifyContent: 'start',
+                color: 'limegreen',
+                ' letterSpacing': '1.45px',
+                margin: '13px',
               }}
             >
-              Goal: NRs. 5,00,000
+              {`Goal : Nrs ${locationState.amountRequired || '5,00,000'} `}
             </h3>
           </ImageContainer>
           <OverallInfo>
@@ -262,17 +262,17 @@ const IndividualDonar = (props) => {
                 <ListDescription>{locationState.description}</ListDescription>
                 <ListDescription>{locationState.progress}</ListDescription>
               </Description>
-              <FilterTitle style={{ fontWeight: "bold" }}>
-                Donation donatingAmount ($):{" "}
+              <FilterTitle style={{ fontWeight: 'bold' }}>
+                Donation donatingAmount ($):{' '}
               </FilterTitle>
               <Price
-                type="number"
+                type='number'
                 value={donatingAmount}
                 onChange={(e) => setdonatingAmount(e.target.value)}
               />
               <FilterProduct>
                 <Filter>
-                  <FilterTitle style={{ color: "black" }}>
+                  <FilterTitle style={{ color: 'black' }}>
                     Do you want to show yourself as Anonymous:
                   </FilterTitle>
                   <SelectElement>
@@ -287,20 +287,20 @@ const IndividualDonar = (props) => {
             </InformationContainer>
             <Navbars>
               <NavbarsItem
-                selected={selected === "story"}
-                onClick={() => handleSelect("story")}
+                selected={selected === 'story'}
+                onClick={() => handleSelect('story')}
               >
                 Story
               </NavbarsItem>
               <NavbarsItem
-                selected={selected === "testimonials"}
-                onClick={() => handleSelect("testimonials")}
+                selected={selected === 'testimonials'}
+                onClick={() => handleSelect('testimonials')}
               >
                 Testimonials
               </NavbarsItem>
               <NavbarsItem
-                selected={selected === "updates"}
-                onClick={() => handleSelect("updates")}
+                selected={selected === 'updates'}
+                onClick={() => handleSelect('updates')}
               >
                 Updates
               </NavbarsItem>

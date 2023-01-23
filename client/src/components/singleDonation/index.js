@@ -4,7 +4,7 @@ import './index.css';
 const SingleDonation = ({ props }) => {
   console.log(props);
   return (
-    <div className='transaction'>
+    <div className='transaction1'>
       <div className='SN'>{props.index}</div>
       <div className='transaction-name'>{props.name}</div>
       <div className='nameOfCondition'>{props.nameOfDonation}</div>
