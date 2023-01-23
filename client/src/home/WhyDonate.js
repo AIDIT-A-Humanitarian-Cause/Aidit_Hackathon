@@ -26,18 +26,23 @@ const Container = styled.div`
   font-family: "Urbanist";
   display: grid;
   grid-template-columns: 55% 50%;
+
   background-color: rgba(255, 253, 250, 0.95);
 `;
 const TextContainer = styled.div`
   margin-left: 30px;
   margin-right: 10px;
   letter-spacing: 1.8px;
+
   margin-bottom: 10px;
 `;
 
 const Heading = styled.h2`
   margin-left: 10px;
+  font-family: "Urbanist";
+
   margin-bottom: 0px;
+  font-weight: lighter;
 `;
 const Body = styled.div`
   img {

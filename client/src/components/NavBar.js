@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import { FaAngleDown } from 'react-icons/fa';
-import styled from 'styled-components';
-import Logos from '../assets/logo_.png';
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { FaAngleDown } from "react-icons/fa";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import Logos from "../assets/logo_.png";
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
@@ -47,7 +48,7 @@ const NavDropdown = styled.div`
 `;
 
 const NavDropdownContent = styled.div`
-  display: ${(props) => (props.showDropdown ? 'block' : 'none')};
+  display: ${(props) => (props.showDropdown ? "block" : "none")};
   position: absolute;
   background-color: white;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -76,24 +77,24 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignIn, setSignIn] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(
-    localStorage.getItem('authenticated') === 'true'
+    localStorage.getItem("authenticated") === "true"
   );
   const [isInstitute, setInstitute] = useState(
-    localStorage.getItem('isInstitution') === 'true'
+    localStorage.getItem("isInstitution") === "true"
   );
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
-
+  const navigate = useNavigate();
   const signDropDown = () => {
     setSignIn(!showSignIn);
   };
   const handleDropdownHover = (event) => {
-    setShowDropdown(event.type === 'mouseenter');
+    setShowDropdown(event.type === "mouseenter");
   };
 
   const handleSignInHover = (event) => {
-    setSignIn(event.type === 'mouseenter');
+    setSignIn(event.type === "mouseenter");
   };
   function logoutHandle() {
     localStorage.setItem('authenticated', false);
@@ -101,38 +102,59 @@ const Navbar = () => {
     setLoggedIn(false);
     <Navigate to='/home' />;
     window.location.reload();
+    setLoggedIn(false);
   }
 
   return (
     <>
       <NavContainer>
         <Logo src={Logos} />
-        <NavLink to='/home'>Home</NavLink>
-        <NavLink to='/about'>About</NavLink>
-        <NavLink to='/donate'>Donate</NavLink>
-        {isLoggedIn ? (
-          <NavLink to='/mydonation'>My Donation</NavLink>
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        {!isLoggedIn || !isInstitute ? (
+          <NavLink to="/donate">Donate</NavLink>
         ) : (
-          <NavDropdown
-            onMouseEnter={handleSignInHover}
-            onMouseLeave={handleSignInHover}
-          >
-            <NavButton onClick={signDropDown}>
-              Sign In
-              <FaAngleDown />
-            </NavButton>
-            <NavDropdownContent
-              showDropdown={showSignIn}
-              style={{ display: showSignIn ? 'block' : 'none' }}
+          <></>
+        )}
+
+        {!isInstitute ? (
+          isLoggedIn ? (
+            <NavLink to="/mydonation">My Donation</NavLink>
+          ) : (
+            <NavDropdown
+              onMouseEnter={handleSignInHover}
+              onMouseLeave={handleSignInHover}
             >
-              <NavDropdownItem>
-                <Link to='/join/donor/log'>As Donor</Link>
-              </NavDropdownItem>
-              <NavDropdownItem>
-                <Link to='/join/institution/log'>As Institution</Link>
-              </NavDropdownItem>
-            </NavDropdownContent>
-          </NavDropdown>
+              <NavButton onClick={signDropDown}>
+                Sign In
+                <FaAngleDown />
+              </NavButton>
+              <NavDropdownContent
+                showDropdown={showSignIn}
+                style={{ display: showSignIn ? "block" : "none" }}
+              >
+                <NavDropdownItem>
+                  <Link to="/join/donor/log">As Donor</Link>
+                </NavDropdownItem>
+                <NavDropdownItem>
+                  <Link to="/join/institution/log">As Institution</Link>
+                </NavDropdownItem>
+              </NavDropdownContent>
+            </NavDropdown>
+          )
+        ) : (
+          <></>
+        )}
+
+        {isInstitute ? (
+          <NavLink to="/createDonation">Create Donation</NavLink>
+        ) : (
+          <></>
+        )}
+        {isInstitute ? (
+          <NavLink to="/donationProgress">Donation Progress</NavLink>
+        ) : (
+          <></>
         )}
         {isInstitute ? (
           <NavLink to='/donationProgress'>Donation Progress</NavLink>
@@ -152,13 +174,13 @@ const Navbar = () => {
             </NavButton>
             <NavDropdownContent
               showDropdown={showDropdown}
-              style={{ display: showDropdown ? 'block' : 'none' }}
+              style={{ display: showDropdown ? "block" : "none" }}
             >
               <NavDropdownItem>
-                <Link to='/join/donor/register'>Donor</Link>
+                <Link to="/join/donor/register">Donor</Link>
               </NavDropdownItem>
               <NavDropdownItem>
-                <Link to='/join/institution/register'>Institution</Link>
+                <Link to="/join/institution/register">Institution</Link>
               </NavDropdownItem>
             </NavDropdownContent>
           </NavDropdown>

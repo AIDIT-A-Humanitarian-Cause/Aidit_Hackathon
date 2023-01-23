@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ItemsToBeInSlide } from "../home/datas";
 import { useState } from "react";
-import { RxCross2 } from 'react-icons/rx';
+import { RxCross2 } from "react-icons/rx";
 
 import StoryPopUp from "./StoryPopUp";
 
 const Container = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 70vh;
   display: flex;
   position: relative;
 
@@ -52,8 +52,7 @@ const Slide = styled.div`
   align-items: center;
 `;
 const ImgContainer = styled.div`
-  flex : 0.5
-  ; 
+  flex: 0.5;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -61,17 +60,15 @@ const ImgContainer = styled.div`
 `;
 const Image = styled.img`
   height: 60%;
-  margin-top: 20px; 
-  width: 60%; 
-  border-radius : 40px ;
-  object-fit : cover; 
-  
+  margin-top: 20px;
+  width: 60%;
+  border-radius: 40px;
+  object-fit: cover;
 `;
 const InfoContainer = styled.div`
-  flex: .8;
-  padding: 0px; 
-  margin: 0px; 
-
+  flex: 0.8;
+  padding: 0px;
+  margin: 0px;
 `;
 const Title = styled.h1`
   font-size: 25.45px;
@@ -98,7 +95,7 @@ const Button = styled.button`
   text-shadow: none;
   background-color: transparent;
   font-size: 15px;
-  border-radius : 30px; 
+  border-radius: 30px;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   &:hover {
     cursor: pointer;
@@ -111,21 +108,14 @@ const TitleName = styled.h1`
   font-size: 55px;
   font-weight: bold;
   letter-spacing: 3.45px;
-  `
+`;
 
+const Slider = () => {
+  const [triggered, setTriggered] = useState(false);
 
-  const CrossButton =styled.div `
-  
-  position : absolute; 
-  top: 20px; 
-  `
-  const Slider = () => {
-    const[triggered , setTriggered] = useState(false); 
-    
-    function showFullstory() 
-    {
-      setTriggered(!triggered); 
-    }
+  function showFullstory() {
+    setTriggered(!triggered);
+  }
   const [slideIndex, setSlideIndex] = useState(0);
   const OnClick = (SlideDirection) => {
     if (SlideDirection === "left") {
@@ -149,9 +139,16 @@ const TitleName = styled.h1`
               <TitleName>{itemSlide.name}</TitleName>
               <Title>{itemSlide.title}</Title>
               <Description>{itemSlide.description}</Description>
-              <Button onClick={showFullstory}  >Read More...</Button>
-              
-             { triggered && <StoryPopUp trigger = {triggered}  title ={ itemSlide.name}image = {itemSlide.img} text = {itemSlide.progress}/>}
+              <Button onClick={showFullstory}>Read More...</Button>
+
+              {triggered && (
+                <StoryPopUp
+                  trigger={triggered}
+                  title={itemSlide.name}
+                  image={itemSlide.img}
+                  text={itemSlide.progress}
+                />
+              )}
             </InfoContainer>
           </Slide>
         ))}

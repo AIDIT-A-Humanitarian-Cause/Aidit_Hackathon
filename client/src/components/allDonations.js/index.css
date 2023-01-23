@@ -1,14 +1,12 @@
-.donations{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.donations {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.donations{
-    padding: 30px;
-    color: aqua;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 10px;
-    margin:10px 40px 10px 40px
+.donations {
+  padding: 40px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }

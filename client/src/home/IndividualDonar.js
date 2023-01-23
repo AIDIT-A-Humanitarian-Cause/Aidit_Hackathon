@@ -6,7 +6,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import { useState } from "react";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
-
+import Navbar from "../components/NavBar";
 const Container = styled.div`
   background-color: rgba(250, 236, 214, 0.5);
 `;
@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   padding-top: 45.45px;
   padding-right: 45.45px;
   padding-bottom: 45.45px;
-  /* padding-left: 45.45px; */
   display: flex;
 `;
 const ImageContainer = styled.div`
@@ -135,15 +134,7 @@ const Button = styled.button`
     text-shadow: 0.3px 0.3px 0.6px #427388;
   }
 `;
-const donatingAmountRaised = styled.h4`
-  font-size: 18px;
-  font-family: "Urbanist", sans-serif;
-  justify-content: start;
-  color: ${(props) => props.background};
-  letter-spacing: 1.45px;
-  margin: 13 0;
-`;
-const Navbar = styled.div`
+const Navbars = styled.div`
   margin-top: 20px;
   display: flex;
   border-radius: 20px;
@@ -156,7 +147,7 @@ const Navbar = styled.div`
   font-family: "Uranist", sans-serif;
 `;
 
-const NavbarItem = styled.div`
+const NavbarsItem = styled.div`
   font-size: 18px;
   font-family: "Urbanist", sans-serif;
   font-weight: bold;
@@ -173,7 +164,7 @@ const NavbarItem = styled.div`
 const OverallInfo = styled.div`
   display: flex;
   width: 60%;
-  height: 80%;
+  height: 75%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -231,18 +222,36 @@ const IndividualDonar = (props) => {
         <Wrapper>
           <ImageContainer>
             <Image src={locationState.img} />
-            <donatingAmountRaised background="darkred">
+            <h3
+              style={{
+                fontSize: "18px",
+                fontFamily: "Urbanist",
+                justifyContent: "start",
+                color: "darkred",
+                " letterSpacing": "1.45px",
+                margin: "13px",
+              }}
+            >
               NRs. 2,00,000 Raised
-            </donatingAmountRaised>
+            </h3>
             <ProgressBar
               completed={38}
               maxCompleted={100}
-              height={14}
-              width={350}
+              height={"14px"}
+              width={"350px"}
             />
-            <donatingAmountRaised background="green">
-              Goal : NRs. 5,000,000
-            </donatingAmountRaised>
+            <h3
+              style={{
+                fontSize: "18px",
+                fontFamily: "Urbanist",
+                justifyContent: "start",
+                color: "limegreen",
+                " letterSpacing": "1.45px",
+                margin: "13px",
+              }}
+            >
+              Goal: NRs. 5,00,000
+            </h3>
           </ImageContainer>
           <OverallInfo>
             <InformationContainer>
@@ -275,26 +284,26 @@ const IndividualDonar = (props) => {
                 <Button onClick={onHandleClick}>DONATE</Button>
               </AddContainer>
             </InformationContainer>
-            <Navbar>
-              <NavbarItem
+            <Navbars>
+              <NavbarsItem
                 selected={selected === "story"}
                 onClick={() => handleSelect("story")}
               >
                 Story
-              </NavbarItem>
-              <NavbarItem
+              </NavbarsItem>
+              <NavbarsItem
                 selected={selected === "testimonials"}
                 onClick={() => handleSelect("testimonials")}
               >
                 Testimonials
-              </NavbarItem>
-              <NavbarItem
+              </NavbarsItem>
+              <NavbarsItem
                 selected={selected === "updates"}
                 onClick={() => handleSelect("updates")}
               >
                 Updates
-              </NavbarItem>
-            </Navbar>
+              </NavbarsItem>
+            </Navbars>
           </OverallInfo>
         </Wrapper>
 

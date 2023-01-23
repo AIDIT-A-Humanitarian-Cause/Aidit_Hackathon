@@ -4,11 +4,12 @@ import styled from "styled-components";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 const FormContainer = styled.div`
-  width: 80%;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0px 0px 10px 0px #174d1b;
+  width: 58%;
+  height: 92vh;
+  margin: 15px auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  box-shadow: 0px 0px 10px 0px grey;
   border-radius: 10px;
   font-family: "Urbanist";
   background-color: #f2deba;
@@ -23,6 +24,7 @@ const Form = styled.form`
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-bottom: 20px;
 `;
 
