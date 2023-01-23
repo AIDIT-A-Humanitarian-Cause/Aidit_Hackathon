@@ -38,3 +38,7 @@
   font-style: bold;
   font-weight: 600;
 }
+.error{
+    text-align: center;
+    margin: auto;
+}

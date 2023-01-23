@@ -43,11 +43,7 @@ const institutionSchema = mongoose.Schema({
   password: {
     type: String,
     required: [true, "Please provide a password"],
-    validate: {
-      validator: isValidPassword,
-      message:
-        "Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.",
-    },
+   
   },
 });
 institutionSchema.pre("save", async function () {

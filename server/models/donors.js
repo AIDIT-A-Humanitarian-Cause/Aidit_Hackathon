@@ -23,7 +23,6 @@ const donorSchema = mongoose.Schema({
   city: { type: String, required: true },
   username: {
     type: String,
-    minLength: 8,
     required: [true, 'Please provide an username'],
     unique: true,
   },
@@ -38,11 +37,7 @@ const donorSchema = mongoose.Schema({
   password: {
     type: String,
     required: [true, 'Please provide a password'],
-    validate: {
-      validator: isValidPassword,
-      message:
-        'Password must have at least: 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.',
-    },
+    
   },
   totalDonatedAmount: {
     type: Number,
@@ -68,9 +63,8 @@ donorSchema.methods.createJwt = async function () {
   );
 };
 donorSchema.methods.comparePassword = async function (password) {
-  const valid = await bcrypt.compare(password, this.password);
-  console.log(valid);
-  return valid;
+  if(password==this.password) return true
+  return false
 };
 donorSchema.methods.updateAmount = async function (amount) {
   const previousDonatedAmount = parseFloat(+this.totalDonatedAmount);

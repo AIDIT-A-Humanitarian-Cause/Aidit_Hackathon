@@ -13,6 +13,7 @@ import DonationPage from './home/DonationPage';
 import CheckmarkComponent from './home/Success';
 import DonationProgress from './home/donationProgress/DonationProgress';
 import FailureComponent from './home/failure';
+import MyDonation from './components/myDonations';
 function App() {
   return (
     <>
@@ -35,6 +36,7 @@ function App() {
         <Route path='/success' element={<CheckmarkComponent />} />
         <Route path='/donationProgress' element={<DonationProgress />} />
         <Route path='/failure' element={<FailureComponent/>}/>
+        <Route path='/mydonation' element={<MyDonation/>}/>
       </Routes>
     </>
   );
