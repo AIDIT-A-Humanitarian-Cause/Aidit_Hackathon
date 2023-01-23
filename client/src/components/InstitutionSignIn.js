@@ -6,34 +6,34 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
+  border-radius: 15px;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  margin-right: 20px;
+  padding: 40px;
+  height: 220px;
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  margin-top: 20px;
-
-  padding-top: 20px;
+  height: 70vh;
 `;
-
 const FormRow = styled.div`
   display: flex;
-
-  align-items: flex-start;
+  align-items: center;
   margin: 10px 0;
 `;
 
 const Label = styled.label`
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: lighter;
+  padding-right: 20px;
+  display: inline-block;
   margin-bottom: 5px;
-  width: 200px;
+  letter-spacing: 0.8px;
+  width: 100px;
 `;
 
 const Input = styled.input`
@@ -41,45 +41,31 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 5px;
   border: outline;
-  width: 100%;
+  width: 70%;
 `;
 
 const Button = styled.button`
-  background-color: gray;
+  background-color: #4caf50;
   color: white;
-  padding: 14px 20px;
-  height: 40px;
-  margin-top: 20px;
+  padding: 5px 5px;
+  margin: 3px 0;
   border: outline;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 16px;
-  align-text: center;
-
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  margin-left: 100px;
+  font-size: 19px;
+  margin: 10px 0;
   width: 135px;
+  height: 39 px;
   border-radius: 30px;
 `;
-
 const SignUpPrompt = styled.div`
   margin-top: 20px;
 `;
 
-const SignUpLink = styled.a`
-  color: blue;
-  text-decoration: none;
-`;
-const ImageContainer = styled.div`
-  margin: 20px;
-  img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
+const ButtonConatiner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 function InstitutionSignIn() {
@@ -116,12 +102,6 @@ function InstitutionSignIn() {
     <>
       <Navbar />
       <Container>
-        <ImageContainer>
-          <img
-            src="https://images.pexels.com/photos/128299/pexels-photo-128299.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="hello"
-          />
-        </ImageContainer>
         <FormContainer>
           <form onSubmit={handleSubmit}>
             <FormRow>
@@ -140,7 +120,9 @@ function InstitutionSignIn() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </FormRow>
-            <Button type="submit">Login</Button>
+            <ButtonConatiner>
+              <Button type="submit">Login</Button>
+            </ButtonConatiner>
           </form>
           <SignUpPrompt>
             Don't have an account?

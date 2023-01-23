@@ -10,13 +10,11 @@ const FormContainer = styled.div`
   margin-top: 38px;
   margin-left: 38px;
   margin-bottom: 10px;
-
   background-color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 140px;
-  padding-right: 140px;
+  padding: 30px 150px;
   width: 250px;
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
@@ -46,44 +44,37 @@ const Input = styled.input`
   width: 300px;
 `;
 
-const Select = styled.select`
-  padding: 8px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: outline;
-  width: 100%;
-`;
-
 const Button = styled.button`
-  background-color: gray;
+  background-color: #4caf50;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 5px 5px;
+  margin: 3px 0;
   border: outline;
   cursor: pointer;
-
-  font-size: 16px;
-  width: 164px;
-  height: 40px;
-  margin-left: 161px;
-  margin-top: 29px;
-  border-radius: 24px;
+  border-radius: 5px;
+  font-size: 19px;
+  margin: 10px 0;
+  width: 135px;
+  height: 39 px;
+  border-radius: 30px;
 `;
 
 const LoginPrompt = styled.div`
   margin-top: 20px;
 `;
 
-const LoginLink = styled.a`
-  color: blue;
-  text-decoration: none;
-`;
 const Container = styled.div`
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+`;
+
+const ButtonConatiner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 const ImageContainer = styled.div``;
 function DonorRegister() {
   const [firstName, setFirstName] = useState("");
@@ -130,7 +121,6 @@ function DonorRegister() {
     <>
       <Navbar />
       <Container>
-        <ImageContainer></ImageContainer>
         <FormContainer>
           <form onSubmit={handleSubmit}>
             <FormRow>
@@ -157,15 +147,6 @@ function DonorRegister() {
                 onChange={(e) => setGender(e.target.value)}
               />
             </FormRow>
-            {/* <FormRow>
-          <Label>Gender:</Label>
-          <Select value={gender} onChange={(e) => setGender(e.target.value)}>
-          <option value=""></option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-          </Select>
-        </FormRow> */}
             <FormRow>
               <Label>Country:</Label>
               <Input
@@ -190,14 +171,7 @@ function DonorRegister() {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </FormRow>
-            {/* <FormRow>
-          <Label>Phone Number:</Label>
-          <Input
-          type="tel"
-          value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-        </FormRow> */}
+
             <FormRow>
               <Label>Email:</Label>
               <Input
@@ -215,7 +189,9 @@ function DonorRegister() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </FormRow>
-            <Button type="submit">Register</Button>
+            <ButtonConatiner>
+              <Button type="submit">Register</Button>
+            </ButtonConatiner>
           </form>
           <LoginPrompt>
             Already have an account? <Link to="/join/donor/log"> Log in</Link>
