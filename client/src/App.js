@@ -3,7 +3,6 @@ import Home from './home/Home';
 import About from './components/About';
 import IndividualDonar from './home/IndividualDonar';
 import IndividualStory from './home/IndividualStory';
-
 import DonorRegister from './components/DonorRegister';
 import DonorSignIn from './components/DonorSignIn';
 import InstitutionRegister from './components/InstitutionRegister';
@@ -13,6 +12,7 @@ import DonationPage from './home/DonationPage';
 import CheckmarkComponent from './home/Success';
 import DonationProgress from './home/donationProgress/DonationProgress';
 import FailureComponent from './home/failure';
+import MyDonation from './components/myDonations';
 function App() {
   return (
     <>
@@ -35,6 +35,7 @@ function App() {
         <Route path='/success' element={<CheckmarkComponent />} />
         <Route path='/donationProgress' element={<DonationProgress />} />
         <Route path='/failure' element={<FailureComponent/>}/>
+        <Route path='/myDonation' element={<MyDonation/>}/>
       </Routes>
     </>
   );

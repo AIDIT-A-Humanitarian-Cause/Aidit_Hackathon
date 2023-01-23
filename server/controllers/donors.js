@@ -116,7 +116,7 @@ const donate = async (req, res) => {
     phone_number_collection: {
       enabled: true,
     },
-    success_url: `${process.env.SERVER_URL}/sucess`,
+    success_url: `$http://{process.env.SERVER_URL}/success`,
     cancel_url: `${process.env.SERVER_URL}/failure`,
     mode: 'payment',
   });

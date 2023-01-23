@@ -206,12 +206,13 @@ const IndividualDonar = (props) => {
       );
       console.log(response);
       const checkOutUrl = response.data.url;
+      console.log(checkOutUrl);
       if (response.data.success) {
-        alert("Donation Successful");
+        // alert("Donation Successful");
         window.location.href = checkOutUrl;
       }
     } catch (err) {
-      alert(`${err.message}`);
+      // alert(`${err.message}`);
       console.log(err);
     }
   };
