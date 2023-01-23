@@ -116,8 +116,8 @@ const donate = async (req, res) => {
     phone_number_collection: {
       enabled: true,
     },
-    success_url: 'https://awww.google.com/gmail/',
-    cancel_url: 'https://www.google.com/gmail/',
+    success_url: `${process.env.SERVER_URL}/sucess`,
+    cancel_url: `${process.env.SERVER_URL}/failure`,
     mode: 'payment',
   });
   const amountInDollar = parseFloat(+donatingAmount.toString()) / 100;
