@@ -3,7 +3,6 @@ import Home from './home/Home';
 import About from './components/About';
 import IndividualDonar from './home/IndividualDonar';
 import IndividualStory from './home/IndividualStory';
-
 import DonorRegister from './components/DonorRegister';
 import DonorSignIn from './components/DonorSignIn';
 import InstitutionRegister from './components/InstitutionRegister';

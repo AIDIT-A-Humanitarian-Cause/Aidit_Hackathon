@@ -10,8 +10,8 @@ const FormContainer = styled.div`
   background-color: white;
   flex-direction: column;
   align-items: center;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 30px 180px;
+  border-radius: 15px;
   width: 322px;
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
@@ -34,52 +34,42 @@ const Input = styled.input`
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
-
   width: 400px;
   border: outline;
 `;
 
 const Button = styled.button`
-  background-color: pink;
+  background-color: #4caf50;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-
+  padding: 5px 5px;
+  margin: 3px 0;
+  border: outline;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-  height: 40px;
+  font-size: 19px;
+  margin: 10px 0;
+  width: 135px;
+  height: 39 px;
+  border-radius: 30px;
 `;
 
 const LoginPrompt = styled.div`
   margin-top: 20px;
 `;
 
-const LoginLink = styled.a`
-  color: blue;
-  text-decoration: none;
-`;
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   margin-top: 20px;
-
   padding-top: 20px;
 `;
-
-const ImageContainer = styled.div`
-  margin: 20px;
-  img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
+const ButtonConatiner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-
 function InstitutionRegister() {
   const [institutionName, setinstitutionName] = useState("");
   const [province, setProvince] = useState("");
@@ -134,8 +124,6 @@ function InstitutionRegister() {
     <>
       <Navbar />
       <Container>
-        <ImageContainer></ImageContainer>
-
         <FormContainer>
           <form onSubmit={handleSubmit}>
             <FormRow>
@@ -201,7 +189,9 @@ function InstitutionRegister() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </FormRow>
-            <Button type="submit">Register</Button>
+            <ButtonConatiner>
+              <Button type="submit">Register</Button>
+            </ButtonConatiner>
           </form>
           <LoginPrompt>
             Already have an account?{" "}

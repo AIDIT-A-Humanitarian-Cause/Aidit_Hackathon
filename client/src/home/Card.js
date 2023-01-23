@@ -297,18 +297,33 @@ function Card(props) {
         <DiseaseContainer>
           {props.nameOfCondition ? props.nameOfCondition : "Cancer"}
         </DiseaseContainer>
-        <Button
-          to="/individualDonar"
-          state={{
-            name: props.name,
-            title: props.title,
-            img: props.img ? props.img : Img2,
-            description: props.description,
-            progress: props.progress,
-          }}
-        >
-          DONATE
-        </Button>
+        {isLoggedIn ? (
+          <Button
+            to="/individualDonar"
+            state={{
+              name: props.name,
+              title: props.title,
+              img: props.img,
+              description: props.description,
+              progress: props.progress,
+            }}
+          >
+            DONATE
+          </Button>
+        ) : (
+          <Button
+            to="/join/donor/log"
+            state={{
+              name: props.name,
+              title: props.title,
+              img: props.img,
+              description: props.description,
+              progress: props.progress,
+            }}
+          >
+            DONATE
+          </Button>
+        )}
         <NameTitle>{props.title}</NameTitle>
         <AmountRaised background="darkred">NRs. 2,00,000 Raised</AmountRaised>
         <ProgressBar

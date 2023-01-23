@@ -1,15 +1,15 @@
-import { FaCheck } from 'react-icons/fa';
-import { React, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import { FaCheck } from "react-icons/fa";
+import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 const CheckmarkContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  font-family: 'Urbanist', sans-serif;
+  font-family: "Urbanist", sans-serif;
 `;
 
 const CheckmarkCircle = styled.div`
@@ -54,7 +54,7 @@ const HomeButton = styled.button`
   background-color: darkred;
   color: white;
   font-weight: bold;
-  font-family: 'Urbanist', sans-serif;
+  font-family: "Urbanist", sans-serif;
   letter-spacing: 0.8px;
   border: none;
   border-radius: 5px;
@@ -75,7 +75,7 @@ function CheckmarkComponent() {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -84,7 +84,7 @@ function CheckmarkComponent() {
       <CheckmarkCircle>
         <Checkmark />
       </CheckmarkCircle>
-      {locationState.desc === 'Your Donation has been added successfully!' ? (
+      {locationState.desc === "Your Donation has been added successfully!" ? (
         <Description>{locationState.desc}</Description>
       ) : (
         <Description>Payment Done!</Description>

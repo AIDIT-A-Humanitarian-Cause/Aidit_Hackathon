@@ -6,26 +6,28 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./NavBar";
 const FormContainer = styled.div`
   display: flex;
-  border-radius : 15px; 
+  border-radius: 15px;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  height : 250px;  
+  padding: 40px;
+  height: 220px;
   box-shadow: 0px 0px 10px 0px #ccc;
 `;
 
 const FormRow = styled.div`
   display: flex;
-  align-items: center; 
-  
+  align-items: center;
   margin: 10px 0;
 `;
 
 const Label = styled.label`
-  font-size: 16px;
-  padding-right: 20px; 
-  display: inline-block; 
+  font-size: 18px;
+  font-weight: lighter;
+  padding-right: 20px;
+  display: inline-block;
   margin-bottom: 5px;
+  letter-spacing: 0.8px;
   width: 100px;
 `;
 
@@ -34,57 +36,39 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 5px;
   border: outline;
-  display : inline-block ; 
-  width: 100%;
-  
+  width: 70%;
 `;
 
 const Button = styled.button`
   background-color: #4caf50;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 5px 5px;
+  margin: 3px 0;
   border: outline;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 16px;
-  margin-left : 126px;
+  font-size: 19px;
+  margin: 10px 0;
   width: 135px;
-  height : 39   px; 
-  align-items: center; 
-  border-radius : 30px;
-  
+  height: 39 px;
+  border-radius: 30px;
 `;
 
 const SignUpPrompt = styled.div`
-  margin-top: 20px;
+  margin-top: 16px;
 `;
 
-const SignUpLink = styled.a`
-  color: blue;
-  text-decoration: none;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 `;
-const Container = styled.div `
-     display: flex; 
-    justify-content : center; 
-    align-items  : center; 
-    padding : 10px; 
-    margin-top : 20px; 
-    
-    padding-top : 20px; 
-
-`
-
-const ImageContainer = styled.div `
-  margin : 20px; 
-   img{
-    width: 300px; 
-    height : 300px; 
-    object-fit : cover; 
-    border-radius : 10px; 
-   } 
-    
-`
+const ButtonConatiner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 function DonorSignIn() {
   const navigate = useNavigate();
@@ -116,40 +100,35 @@ function DonorSignIn() {
   return (
     <>
       <Navbar />
-          <Container>
-
-
-
-              <ImageContainer>
-                  <img src="https://images.pexels.com/photos/128299/pexels-photo-128299.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hello" />  
-
-              </ImageContainer>
-      <FormContainer>
-        <form onSubmit={handleSubmit}>
-          <FormRow>
-            <Label>Email:</Label>
-            <Input
-              type="text"
-              value={email}
-              onChange={(e) => setemail(e.target.value)}
-            />
-          </FormRow>
-          <FormRow>
-            <Label>Password:</Label>
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </FormRow>
-          <Button type="submit">Login</Button>
-        </form>
-        <SignUpPrompt>
-          Don't have an account?
-          <Link to="/join/donor/register"> Sign Up!</Link>
-        </SignUpPrompt>
-      </FormContainer>
-          </Container>
+      <Container>
+        <FormContainer>
+          <form onSubmit={handleSubmit}>
+            <FormRow>
+              <Label>Email:</Label>
+              <Input
+                type="text"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
+              />
+            </FormRow>
+            <FormRow>
+              <Label>Password:</Label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </FormRow>
+            <ButtonConatiner>
+              <Button type="submit">Login</Button>
+            </ButtonConatiner>
+          </form>
+          <SignUpPrompt>
+            Don't have an account?
+            <Link to="/join/donor/register"> Sign Up!</Link>
+          </SignUpPrompt>
+        </FormContainer>
+      </Container>
     </>
   );
 }
